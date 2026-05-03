@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<title>USAM Nîmes Gard — Dossier de reprise 2026 (Print)</title>
+<style>
+  @page { size: 297mm 167mm; margin: 0; }
+  :root{
+    --usam-red:#c8102e;
+    --usam-red-deep:#7a0a1c;
+    --ink:#0f0f10;
+    --ink-soft:#1a1a1d;
+    --paper:#f7f4ee;
+    --paper-warm:#efe9dd;
+    --gold:#c9a25a;
+    --muted:#6b6b6b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  html,body{background:#000;color:#fff;font-family:Georgia,"Times New Roman",serif;-webkit-font-smoothing:antialiased}
+  body{font-family:Helvetica,Arial,sans-serif}
+
+  .slide{
+    width:297mm;height:167mm;
+    page-break-after:always;page-break-inside:avoid;break-after:page;
+    position:relative;overflow:hidden;
+    padding:18mm 22mm;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .slide:last-child{page-break-after:auto}
+  .slide-inner{width:100%;max-width:240mm}
+
+  .t-dark{background:#0a0204;color:#fff}
+  .t-red{background:#a80f24;color:#fff}
+  .t-paper{background:#f7f4ee;color:#0f0f10}
+  .t-warm{background:#efe9dd;color:#0f0f10}
+  .t-ink{background:#0f0f10;color:#fff}
+
+  h1,h2,h3,.serif{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:-.01em}
+
+  .eyebrow{font-size:10pt;letter-spacing:.32em;text-transform:uppercase;color:#c8102e;font-weight:700;margin-bottom:14pt;font-family:Helvetica,Arial,sans-serif}
+  .t-red .eyebrow{color:rgba(255,255,255,.85)}
+  .t-dark .eyebrow,.t-ink .eyebrow{color:#c8102e}
+
+  .lead{font-size:13pt;line-height:1.5;font-weight:300;max-width:200mm;color:rgba(255,255,255,.85);font-family:Helvetica,Arial,sans-serif}
+  .t-paper .lead,.t-warm .lead{color:#3a3a3a}
+
+  .num-corner{font-family:Georgia,serif;font-size:90pt;font-weight:300;color:rgba(200,16,46,.18);line-height:1;position:absolute;top:18mm;right:22mm;font-style:italic}
+  .t-paper .num-corner,.t-warm .num-corner{color:rgba(200,16,46,.12)}
+
+  .big-title{font-family:Georgia,serif;font-size:42pt;font-weight:700;line-height:1;letter-spacing:-.02em;margin-bottom:16pt}
+  .big-title .red{color:#c8102e}
+
+  /* SLIDE 1 — COVER */
+  .cover-mark{font-family:Helvetica,Arial,sans-serif;font-size:9pt;letter-spacing:.4em;color:rgba(255,255,255,.6);margin-bottom:30pt;text-transform:uppercase}
+  .cover-title{font-family:Georgia,serif;font-size:72pt;font-weight:800;line-height:.92;text-transform:uppercase;letter-spacing:-.025em}
+  .cover-title .accent{color:#c8102e;display:block}
+  .cover-sub{font-family:Helvetica,Arial,sans-serif;margin-top:18pt;font-size:11pt;color:rgba(255,255,255,.65);max-width:200mm;line-height:1.5}
+  .cover-foot{margin-top:40pt;display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid rgba(255,255,255,.18);padding-top:14pt}
+  .cover-foot div{font-family:Helvetica,Arial,sans-serif;flex:1}
+  .cover-foot div small{display:block;font-size:7pt;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4pt}
+  .cover-foot div b{font-size:10pt;font-weight:600;letter-spacing:.02em;color:#fff}
+  .ring{position:absolute;border-radius:50%;border:1px solid rgba(200,16,46,.25)}
+  .ring.r1{width:380pt;height:380pt;top:-150pt;right:-130pt}
+  .ring.r2{width:240pt;height:240pt;top:-80pt;right:-60pt;border-color:rgba(200,16,46,.4)}
+  .ring.r3{width:120pt;height:120pt;top:-20pt;right:0;border-color:#c8102e}
+
+  /* HOOK */
+  .hook{font-family:Georgia,serif;font-size:36pt;font-weight:500;line-height:1.18;letter-spacing:-.015em;max-width:230mm}
+  .hook em{font-style:italic;color:#f1d8a3}
+  .signature{font-family:Helvetica,Arial,sans-serif;margin-top:26pt;font-size:10pt;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+
+  /* PORTRAIT (slide 3) */
+  .two-col{display:grid;grid-template-columns:1.1fr 1fr;gap:24pt;align-items:center}
+  .portrait-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);padding:18pt;border-radius:4px}
+  .portrait-card h3{font-family:Helvetica,Arial,sans-serif;font-size:9pt;letter-spacing:.2em;text-transform:uppercase;color:#c8102e;margin-bottom:10pt;font-weight:700}
+  .portrait-card p{font-family:Helvetica,Arial,sans-serif;font-size:10.5pt;line-height:1.65;color:rgba(255,255,255,.85);margin-bottom:8pt}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12pt;margin-top:18pt}
+  .stat{border-left:2px solid #c8102e;padding-left:10pt}
+  .stat b{display:block;font-family:Georgia,serif;font-size:24pt;font-weight:800;line-height:1;color:#fff}
+  .stat span{display:block;font-family:Helvetica,Arial,sans-serif;font-size:7.5pt;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:5pt}
+
+  /* DIAGNOSTIC (slide 4) */
+  .diag-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14pt;margin-top:18pt}
+  .diag-card{background:#fff;border-top:3px solid #c8102e;padding:16pt;border-radius:3px;box-shadow:0 4px 12px rgba(0,0,0,.06)}
+  .diag-card .icon{width:22pt;height:22pt;border-radius:50%;background:#c8102e;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;margin-bottom:10pt;font-size:11pt}
+  .diag-card h4{font-family:Helvetica,Arial,sans-serif;font-size:9pt;letter-spacing:.18em;text-transform:uppercase;color:#9a1429;margin-bottom:6pt;font-weight:700}
+  .diag-card .num-big{font-family:Georgia,serif;font-size:30pt;font-weight:700;line-height:1;color:#0f0f10;margin-bottom:8pt}
+  .diag-card p{font-family:Helvetica,Arial,sans-serif;font-size:10pt;line-height:1.5;color:#444}
+  .arrow{margin-top:14pt;font-style:italic;color:#c8102e;font-weight:600;font-size:11pt;font-family:Helvetica,Arial,sans-serif}
+
+  /* TIMELINE (slide 5) */
+  .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:24pt;position:relative}
+  .step{padding:0 14pt;text-align:center;border-left:1px solid rgba(255,255,255,.1)}
+  .step:first-child{border-left:none}
+  .step .dot{width:10pt;height:10pt;border-radius:50%;background:#c8102e;margin:6pt auto 14pt;box-shadow:0 0 0 4pt rgba(200,16,46,.18)}
+  .step h3{font-family:Georgia,serif;font-size:20pt;font-weight:700;margin-bottom:8pt}
+  .step h3 small{display:block;font-family:Helvetica,Arial,sans-serif;font-size:8pt;letter-spacing:.25em;text-transform:uppercase;color:#c8102e;font-weight:700;margin-bottom:4pt;font-style:normal}
+  .step p{font-family:Helvetica,Arial,sans-serif;font-size:10pt;line-height:1.55;color:rgba(255,255,255,.8);margin:0 auto;max-width:210pt}
+  .timeline-quote{margin-top:24pt;text-align:center;font-family:Georgia,serif;font-style:italic;font-size:14pt;color:#c9a25a}
+
+  /* GALLEGO */
+  .gallego-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);padding:32pt 28pt;border-radius:4px;text-align:center;max-width:200mm;margin:0 auto;position:relative}
+  .gallego-card::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:60pt;height:3pt;background:#c8102e}
+  .gallego-card .role{font-family:Helvetica,Arial,sans-serif;font-size:9pt;letter-spacing:.32em;text-transform:uppercase;color:#c9a25a;margin-bottom:14pt;font-weight:700}
+  .gallego-card h2{font-family:Georgia,serif;font-size:54pt;font-weight:800;line-height:1;margin-bottom:12pt;letter-spacing:-.02em}
+  .gallego-card .tag{font-family:Helvetica,Arial,sans-serif;font-size:10pt;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:18pt}
+  .gallego-card .quote-small{font-family:Georgia,serif;font-style:italic;font-size:14pt;line-height:1.5;color:rgba(255,255,255,.92);max-width:170mm;margin:0 auto}
+
+  /* BENEFITS */
+  .benefits{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(0,0,0,.1);margin-top:18pt;border:1px solid rgba(0,0,0,.08)}
+  .benefit{background:#f7f4ee;padding:16pt}
+  .benefit .b-num{font-family:Georgia,serif;font-size:22pt;font-weight:700;color:#c8102e;line-height:1;margin-bottom:6pt}
+  .benefit h4{font-family:Helvetica,Arial,sans-serif;font-size:13pt;font-weight:700;color:#0f0f10;margin-bottom:5pt}
+  .benefit p{font-family:Helvetica,Arial,sans-serif;font-size:10pt;line-height:1.55;color:#555}
+
+  /* GOV TABLE */
+  .gov-table{margin-top:18pt;border-top:2px solid #0f0f10}
+  .gov-row{display:grid;grid-template-columns:1.1fr 1fr 1.6fr;padding:11pt 0;border-bottom:1px solid rgba(0,0,0,.08);align-items:center}
+  .gov-row.head{font-family:Helvetica,Arial,sans-serif;font-size:8pt;letter-spacing:.2em;text-transform:uppercase;color:#777;font-weight:700;padding:7pt 0}
+  .gov-row .role-c{font-family:Helvetica,Arial,sans-serif;font-weight:700;color:#c8102e;font-size:10pt;letter-spacing:.04em;text-transform:uppercase}
+  .gov-row .name-c{font-family:Georgia,serif;font-size:16pt;font-weight:700;color:#0f0f10}
+  .gov-row .leg-c{font-family:Helvetica,Arial,sans-serif;font-size:10pt;color:#555;line-height:1.5}
+
+  /* ENGAG */
+  .engag{display:grid;grid-template-columns:repeat(2,1fr);gap:12pt;margin-top:18pt}
+  .engag-item{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);padding:14pt;border-radius:3px;display:flex;gap:12pt;align-items:flex-start}
+  .engag-item .check{flex-shrink:0;width:22pt;height:22pt;border-radius:50%;background:#c8102e;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:12pt}
+  .engag-item h4{font-family:Helvetica,Arial,sans-serif;font-size:11pt;font-weight:700;margin-bottom:4pt}
+  .engag-item p{font-family:Helvetica,Arial,sans-serif;font-size:9.5pt;line-height:1.55;color:rgba(255,255,255,.72)}
+
+  /* ASK */
+  .ask-line{font-family:Georgia,serif;font-size:34pt;line-height:1.2;font-weight:500;letter-spacing:-.01em}
+  .ask-line em{font-style:italic;color:#f1d8a3}
+  .ask-foot{font-family:Helvetica,Arial,sans-serif;margin-top:24pt;font-size:10pt;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+
+  /* HORIZON */
+  .horizon{display:grid;grid-template-columns:repeat(4,1fr);gap:14pt;margin-top:24pt}
+  .horizon-item{text-align:center;padding:0 6pt}
+  .horizon-item .circle{width:50pt;height:50pt;border-radius:50%;border:1px solid #c8102e;margin:0 auto 12pt;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:20pt;font-weight:700;color:#c8102e}
+  .horizon-item h4{font-family:Helvetica,Arial,sans-serif;font-size:12pt;font-weight:700;margin-bottom:6pt}
+  .horizon-item p{font-family:Helvetica,Arial,sans-serif;font-size:9.5pt;line-height:1.5;color:rgba(255,255,255,.7)}
+
+  /* CLOSING */
+  .closing-title{font-family:Georgia,serif;font-size:60pt;font-weight:800;line-height:.95;letter-spacing:-.025em;text-transform:uppercase;text-align:center}
+  .closing-title .red{color:#1a1a1d;display:block}
+  .closing-sign{font-family:Helvetica,Arial,sans-serif;margin-top:30pt;text-align:center;font-size:10pt;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+  .closing-sign b{display:block;font-size:14pt;font-family:Georgia,serif;color:#fff;letter-spacing:.04em;font-weight:700;text-transform:none;margin-top:10pt;font-style:italic}
+
+  .pgnum{position:absolute;bottom:8mm;right:14mm;font-family:Helvetica,Arial,sans-serif;font-size:8pt;letter-spacing:.2em;color:rgba(125,125,125,.6)}
+  .t-paper .pgnum,.t-warm .pgnum{color:rgba(50,50,50,.4)}
+  .brand{position:absolute;top:8mm;left:14mm;font-family:Helvetica,Arial,sans-serif;font-size:7pt;letter-spacing:.25em;color:rgba(170,170,170,.55);text-transform:uppercase}
+  .t-paper .brand,.t-warm .brand{color:rgba(60,60,60,.5)}
+</style>
+</head>
+<body>
+
+  <!-- 1 — COVER -->
+  <section class="slide t-dark">
+    <span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span>
+    <div class="brand">USAM Nîmes Gard · Dossier de reprise 2026</div>
+    <div class="slide-inner">
+      <div class="cover-mark">Dossier de reprise · Saison 2026</div>
+      <h1 class="cover-title">Un nouveau<br/>chapitre pour<br/><span class="accent">un grand club.</span></h1>
+      <p class="cover-sub">Présenté par Mikael Bouteillon — Groupe Out 4 Blood<br/>À l'attention de Monsieur Vincent Bouget, Maire de Nîmes.</p>
+      <div class="cover-foot">
+        <div><small>Porteur de projet</small><b>Mikael Bouteillon</b></div>
+        <div><small>Groupe</small><b>Out 4 Blood — 30 M€ · 4 continents</b></div>
+        <div><small>Date</small><b>Mai 2026</b></div>
+      </div>
+    </div>
+    <div class="pgnum">01</div>
+  </section>
+
+  <!-- 2 — HOOK -->
+  <section class="slide t-red">
+    <div class="brand" style="color:rgba(255,255,255,.55)">USAM Nîmes Gard · Dossier de reprise 2026</div>
+    <div class="slide-inner">
+      <p class="eyebrow" style="color:rgba(255,255,255,.78)">Ouverture</p>
+      <p class="hook">
+        Je ne suis pas là pour vous demander<br/>
+        de me confier l'USAM.<br/><br/>
+        Je suis là <em>parce qu'aucune ville</em><br/>
+        ne mérite de perdre son club.
+      </p>
+      <p class="signature">— Mikael Bouteillon</p>
+    </div>
+    <div class="pgnum" style="color:rgba(255,255,255,.6)">02</div>
+  </section>
+
+  <!-- 3 — PORTEUR -->
+  <section class="slide t-dark">
+    <span class="num-corner">01</span>
+    <div class="brand">USAM Nîmes Gard · Dossier de reprise 2026</div>
+    <div class="slide-inner">
+      <p class="eyebrow">Le porteur de projet</p>
+      <h2 class="big-title">Un homme du club <span class="red">qui revient.</span></h2>
+      <div class="two-col">
+        <div>
+          <p class="lead">
+            Nîmois dans l'âme, j'ai construit le groupe <b style="color:#fff">Out 4 Blood</b> :
+            ancré dans le Gard, rayonnant sur quatre continents.
+            Mon concept phare, <b style="color:#fff">Prison Island</b>, ouvre un nouveau site chaque mois.
+          </p>
+          <div class="stats">
+            <div class="stat"><b>30 M€</b><span>CA 2026</span></div>
+            <div class="stat"><b>355</b><span>Collaborateurs</span></div>
+            <div class="stat"><b>30+</b><span>Sites Prison Island</span></div>
+          </div>
+        </div>
+        <div class="portrait-card">
+          <h3>Avant tout, un homme du club</h3>
+          <p>Avant d'être entrepreneur international, j'ai été
+            <b style="color:#fff">préparateur physique de l'USAM pendant 7 ans</b>.</p>
+          <p style="color:#c9a25a;font-style:italic">
+            Ce n'est pas un repreneur extérieur.<br/>
+            C'est un homme du club qui revient avec une vision.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="pgnum">03</div>
+  </section>
+
+  <!-- 4 — DIAGNOSTIC -->
+  <section class="slide t-paper">
+    <span class="num-corner">02</span>
+    <div class="brand">USAM Nîmes Gard · Dossier de reprise 2026</div>
+    <div class="slide-inner">
+      <p class="eyebrow">Le diagnostic</p>
+      <h2 class="big-title" style="color:#0f0f10">Un club historique<br/>à <span class="red">la croisée des chemins.</span></h2>
+      <p class="lead" style="max-width:230mm">
+        L'USAM est plus qu'un club : c'est une institution, un repère identitaire, le cœur battant d'un public fidèle. Évoluer en <b>Liqui Moly Starligue</b> est un statut qu'il faut impérativement préserver.
+      </p>
+      <div class="diag-grid">
+        <div class="diag-card">
+          <div class="icon">!</div>
+          <h4>Déficit immédiat</h4>
+          <div class="num-big">500 K€</div>
+          <p>Pour mener à bien la saison actuelle.</p>
+        </div>
+        <div class="diag-card">
+          <div class="icon">€</div>
+          <h4>Budget structurel</h4>
+          <div class="num-big">3,8 M€</div>
+          <p>Annuels sous pression continue.</p>
+        </div>
+        <div class="diag-card">
+          <div class="icon">↘</div>
+          <h4>Lien fragilisé</h4>
+          <div class="num-big" style="font-size:20pt;line-height:1.1">Supporters,<br/>partenaires</div>
+          <p>La dynamique s'est essoufflée.</p>
+        </div>
+      </div>
+      <p class="arrow">→ Le cycle actuel est arrivé à son terme. Le moment d'agir, c'est maintenant.</p>
+    </div>
+    <div class="pgnum">04</div>
+  </section>
+
+  <!-- 5 — SPORT -->
+  <section class="slide t-dark">
+    <span class="num-corner">03</span>
+    <div class="brand">USAM Nîmes Gard · Dossier de reprise 2026</div>
+    <div class="slide-inner">
+      <p class="eyebrow">Le projet sportif</p>
+      <h2 class="big-title">Stabiliser. <span class="red">Reconstruire.</span> Conquérir.</h2>
+      <p class="lead">Une vision en trois temps, portée par des hommes qui connaissent le handball de haut niveau.</p>
+      <div class="timeline">
+        <div class="step">
+          <div class="dot"></div>
+          <h3><small>Année 1</small>Stabilisation</h3>
+          <p>Maintien en Starligue. Reconstruction de la confiance. Retrouver un USAM combatif, physique, identitaire.</p>
+        </div>
+        <div class="step">
+          <div class="dot"></div>
+          <h3><small>Année 2</small>Consolidation</h3>
+          <p>Recrutement renforcé. Structuration du centre de formation. L'USAM redevient un club dont Nîmes est fière.</p>
+        </div>
+        <div class="step">
+          <div class="dot"></div>
+          <h3><small>Année 3+</small>L'Europe</h3>
+          <p>Un club sain, des finances maîtrisées, une identité forte — les cartes pour viser les compétitions européennes.</p>
+        </div>
+      </div>
+      <p class="timeline-quote">Un club qui court plus. Qui combat plus. Qui gagne plus.</p>
+    </div>
+    <div class="pgnum">05</div>
+  </section>
+
+  <!-- 6 — GALLEGO -->
+  <section class="slide t-ink">
+    <div class="brand">USAM Nîmes Gard · Dossier de reprise 2026</div>
+    <div class="slide-inner">
+      <p class="eyebrow" style="text-align:center">Le signal fort</p>
+      <div class="gallego-card">
+        <div class="role">Directeur Général</div>
+        <h2>Benjamin<br/>Gallego.</h2>
+        <div class="tag">Figure emblématique · Carrière entière à l'USAM</div>
+        <p class="quote-small">
+          « Le faire entrer comme DG, c'est dire aux supporters que l'USAM reste entre les mains de ceux qui l'aiment vraiment. »
+        </p>
+      </div>
+    </div>
+    <div class="pgnum">06</div>
+  </section>
+
+  <!-- 7 — NÎMES -->
+  <section class="slide t-warm">
+    <span class="num-corner">04</span>
+    <div class="brand">USAM Nîmes Gard · Dossier de reprise 2026</div>
+    <div class="slide-inner">
+      <p class="eyebrow">Le projet pour Nîmes</p>
+      <h2 class="big-title" style="color:#0f0f10">Un club qui appartient<br/>à <span class="red">sa ville.</span></h2>
+      <div class="benefits">
+        <div class="benefit">
+          <div class="b-num">01</div>
+          <h4>Vitrine du territoire</h4>
+          <p>Chaque match en Starligue, chaque diffusion nationale, c'est Nîmes qui s'affiche et rayonne aux yeux de la France et de l'Europe.</p>
+        </div>
+        <div class="benefit">
+          <div class="b-num">02</div>
+          <h4>Académie BP JEPS</h4>
+          <p>Certifications reconnues : former les jeunes Nîmois aux métiers du sport, de l'animation et de l'événementiel.</p>
+        </div>
+        <div class="benefit">
+          <div class="b-num">03</div>
+          <h4>Nîmes dans les écoles</h4>
+          <p>Interventions régulières dans les écoles et collèges du Gard. Initiations, valeurs du sport collectif, rencontres avec les joueurs.</p>
+        </div>
+        <div class="benefit">
+          <div class="b-num">04</div>
+          <h4>L'USAM pour tous</h4>
+          <p>Tarifs accessibles, invitations pour les quartiers prioritaires, mise en avant du bénévolat et nouveaux formats pour la ville.</p>
+        </div>
+      </div>
+    </div>
+    <div class="pgnum">07</div>
+  </section>
+
+  <!-- 8 — GOUVERNANCE -->
+  <section class="slide t-paper">
+    <span class="num-corner">05</span>
+    <div class="brand">USAM Nîmes Gard · Dossier de reprise 2026</div>
+    <div class="slide-inner">
+      <p class="eyebrow">Les garanties</p>
+      <h2 class="big-title" style="color:#0f0f10">Une gouvernance<br/><span class="red">qui rassure.</span></h2>
+      <p class="lead" style="max-width:220mm">Légitimité sportive, rigueur financière et ancrage nîmois — réunis dans une seule équipe.</p>
+      <div class="gov-table">
+        <div class="gov-row head"><div>Rôle</div><div>Personne</div><div>Légitimité</div></div>
+        <div class="gov-row">
+          <div class="role-c">Président</div>
+          <div class="name-c">Mikael Bouteillon</div>
+          <div class="leg-c">Entrepreneur nîmois · 7 ans préparateur physique USAM</div>
+        </div>
+        <div class="gov-row">
+          <div class="role-c">Directeur Général</div>
+          <div class="name-c">Benjamin Gallego</div>
+          <div class="leg-c">Figure emblématique · Carrière entière à l'USAM</div>
+        </div>
+        <div class="gov-row">
+          <div class="role-c">Support financier</div>
+          <div class="name-c">DAF & RAF du groupe</div>
+          <div class="leg-c">Expertise et rigueur éprouvées sur 10+ ans</div>
+        </div>
+        <div class="gov-row">
+          <div class="role-c">Support juridique</div>
+          <div class="name-c">Conseils du groupe</div>
+          <div class="leg-c">Audit complet réalisé en amont de la reprise</div>
+        </div>
+      </div>
+    </div>
+    <div class="pgnum">08</div>
+  </section>
+
+  <!-- 9 — ENGAGEMENTS -->
+  <section class="slide t-dark">
+    <span class="num-corner">06</span>
+    <div class="brand">USAM Nîmes Gard · Dossier de reprise 2026</div>
+    <div class="slide-inner">
+      <p class="eyebrow">Engagements concrets</p>
+      <h2 class="big-title">Ce que j'apporte,<br/><span class="red">dès le premier jour.</span></h2>
+      <div class="engag">
+        <div class="engag-item">
+          <div class="check">✓</div>
+          <div>
+            <h4>Investissement financier immédiat</h4>
+            <p>Stabiliser la fin de saison dès la reprise actée. Pas de promesse différée.</p>
+          </div>
+        </div>
+        <div class="engag-item">
+          <div class="check">✓</div>
+          <div>
+            <h4>Locaux & ressources mutualisées</h4>
+            <p>Bureaux, RH, comptabilité, communication mis à disposition immédiatement par Out 4 Blood.</p>
+          </div>
+        </div>
+        <div class="engag-item">
+          <div class="check">✓</div>
+          <div>
+            <h4>Centre de formation type Académie</h4>
+            <p>Lancé dès la première saison, ancré dans le territoire et la jeunesse nîmoise.</p>
+          </div>
+        </div>
+        <div class="engag-item">
+          <div class="check">✓</div>
+          <div>
+            <h4>Dialogue transparent</h4>
+            <p>Reporting clair et régulier avec la Ville de Nîmes. La confiance se construit sur les chiffres.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pgnum">09</div>
+  </section>
+
+  <!-- 10 — ASK -->
+  <section class="slide t-red">
+    <div class="brand" style="color:rgba(255,255,255,.55)">USAM Nîmes Gard · Dossier de reprise 2026</div>
+    <div class="slide-inner">
+      <p class="eyebrow" style="color:rgba(255,255,255,.78)">Ce que je demande à la Ville</p>
+      <p class="ask-line">
+        Pas un chèque.<br/>
+        <em>Une relation.</em><br/><br/>
+        Celle d'un entrepreneur nîmois pleinement engagé,<br/>
+        et d'une ville qui tient à son club.
+      </p>
+      <p class="ask-foot">→ Un partenariat dans la durée. Pour Nîmes.</p>
+    </div>
+    <div class="pgnum" style="color:rgba(255,255,255,.6)">10</div>
+  </section>
+
+  <!-- 11 — HORIZON -->
+  <section class="slide t-dark">
+    <div class="brand">USAM Nîmes Gard · Dossier de reprise 2026</div>
+    <div class="slide-inner">
+      <p class="eyebrow" style="text-align:center">L'horizon</p>
+      <h2 class="big-title" style="text-align:center">L'USAM mérite un avenir<br/><span class="red">à la hauteur de son histoire.</span></h2>
+      <div class="horizon">
+        <div class="horizon-item"><div class="circle">★</div><h4>Starligue pérenne</h4><p>Stabilisé, ambitieux, compétitif.</p></div>
+        <div class="horizon-item"><div class="circle">⚑</div><h4>Jeunesse formée</h4><p>Des dizaines de jeunes insérés chaque année.</p></div>
+        <div class="horizon-item"><div class="circle">€</div><h4>Rayonnement européen</h4><p>L'horizon des compétitions continentales.</p></div>
+        <div class="horizon-item"><div class="circle">♥</div><h4>Nîmois engagés</h4><p>Un projet ancré dans le temps.</p></div>
+      </div>
+    </div>
+    <div class="pgnum">11</div>
+  </section>
+
+  <!-- 12 — CLOSING -->
+  <section class="slide t-red">
+    <span class="ring r1" style="border-color:rgba(255,255,255,.18)"></span>
+    <span class="ring r2" style="border-color:rgba(255,255,255,.22)"></span>
+    <div class="brand" style="color:rgba(255,255,255,.55)">USAM Nîmes Gard · Dossier de reprise 2026</div>
+    <div class="slide-inner" style="text-align:center">
+      <p class="eyebrow" style="color:rgba(255,255,255,.78);text-align:center">Mikael Bouteillon — Groupe Out 4 Blood</p>
+      <h1 class="closing-title">Pour Nîmes.<br/>Pour l'USAM.<br/><span class="red">Pour longtemps.</span></h1>
+      <div class="closing-sign">
+        Mai 2026 · À l'attention de Monsieur Vincent Bouget, Maire de Nîmes
+        <b>Merci de votre confiance.</b>
+      </div>
+    </div>
+    <div class="pgnum" style="color:rgba(255,255,255,.6)">12</div>
+  </section>
+
+</body>
+</html>
