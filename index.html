@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>USAM Nîmes Gard — Dossier de reprise 2026</title>
+<style>
+  :root{
+    --usam-red:#c8102e;
+    --usam-red-deep:#7a0a1c;
+    --ink:#0f0f10;
+    --ink-soft:#1a1a1d;
+    --paper:#f7f4ee;
+    --paper-warm:#efe9dd;
+    --gold:#c9a25a;
+    --muted:#6b6b6b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:#000;color:#fff;font-family:"Helvetica Neue",Inter,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden}
+  .deck{position:relative;width:100vw;height:100vh;overflow:hidden}
+  .slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:6vh 8vw;opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease;pointer-events:none;overflow:hidden}
+  .slide.active{opacity:1;transform:translateY(0);pointer-events:auto}
+  .slide-inner{width:100%;max-width:1280px}
+
+  /* THEMES */
+  .t-dark{background:radial-gradient(1200px 800px at 80% 10%,#2a0509 0%,#0a0204 60%,#000 100%);color:#fff}
+  .t-red{background:linear-gradient(135deg,var(--usam-red-deep) 0%,var(--usam-red) 100%);color:#fff}
+  .t-paper{background:var(--paper);color:var(--ink)}
+  .t-warm{background:var(--paper-warm);color:var(--ink)}
+  .t-ink{background:var(--ink);color:#fff}
+
+  /* HEADER */
+  .meta{position:fixed;top:24px;left:32px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);z-index:30;mix-blend-mode:difference}
+  .meta b{color:#fff;font-weight:600}
+  .progress{position:fixed;top:0;left:0;height:3px;background:var(--usam-red);width:0;transition:width .4s ease;z-index:40}
+  .counter{position:fixed;bottom:24px;right:32px;font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.55);z-index:30;mix-blend-mode:difference}
+  .counter span{color:#fff;font-weight:600;font-size:13px}
+  .nav{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:30}
+  .nav button{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#fff;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:14px;transition:all .2s;backdrop-filter:blur(8px)}
+  .nav button:hover{background:var(--usam-red);border-color:var(--usam-red)}
+  .hint{position:fixed;bottom:24px;left:32px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);z-index:30;mix-blend-mode:difference}
+
+  /* TYPOGRAPHY */
+  h1{font-family:"Playfair Display",Georgia,serif;font-weight:700;line-height:1;letter-spacing:-.02em}
+  h2{font-family:"Playfair Display",Georgia,serif;font-weight:700;letter-spacing:-.01em}
+  .eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--usam-red);font-weight:600;margin-bottom:24px}
+  .t-paper .eyebrow,.t-warm .eyebrow{color:var(--usam-red)}
+  .t-red .eyebrow{color:rgba(255,255,255,.85)}
+  .lead{font-size:22px;line-height:1.5;font-weight:300;max-width:780px;color:rgba(255,255,255,.85)}
+  .t-paper .lead,.t-warm .lead{color:#3a3a3a}
+  .quote{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:34px;line-height:1.35;font-weight:400;max-width:900px}
+  .quote::before{content:"« ";color:var(--usam-red);font-weight:700}
+  .quote::after{content:" »";color:var(--usam-red);font-weight:700}
+
+  /* SLIDE 1 — COVER */
+  .cover-mark{font-size:11px;letter-spacing:.4em;color:rgba(255,255,255,.6);margin-bottom:60px;text-transform:uppercase}
+  .cover-title{font-size:clamp(56px,9vw,128px);font-weight:800;line-height:.92;text-transform:uppercase;letter-spacing:-.025em}
+  .cover-title .accent{color:var(--usam-red);display:block}
+  .cover-sub{margin-top:36px;font-size:18px;letter-spacing:.04em;color:rgba(255,255,255,.65);max-width:720px;line-height:1.5}
+  .cover-foot{margin-top:80px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;border-top:1px solid rgba(255,255,255,.15);padding-top:28px}
+  .cover-foot div small{display:block;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:6px}
+  .cover-foot div b{font-size:15px;font-weight:600;letter-spacing:.02em}
+  .ring{position:absolute;border-radius:50%;border:1px solid rgba(200,16,46,.25)}
+  .ring.r1{width:900px;height:900px;top:-300px;right:-300px}
+  .ring.r2{width:600px;height:600px;top:-150px;right:-150px;border-color:rgba(200,16,46,.4)}
+  .ring.r3{width:300px;height:300px;top:0;right:0;border-color:var(--usam-red)}
+
+  /* HOOK SLIDE */
+  .hook{font-family:"Playfair Display",Georgia,serif;font-size:clamp(36px,5.5vw,72px);font-weight:500;line-height:1.15;letter-spacing:-.015em;max-width:1100px}
+  .hook .red{color:var(--usam-red)}
+  .hook em{font-style:italic;color:var(--gold)}
+  .signature{margin-top:60px;font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+
+  /* GENERIC TITLE LAYOUT */
+  .num{font-family:"Playfair Display",Georgia,serif;font-size:140px;font-weight:300;color:rgba(200,16,46,.18);line-height:1;position:absolute;top:60px;right:80px;font-style:italic}
+  .t-paper .num,.t-warm .num{color:rgba(200,16,46,.12)}
+  .big-title{font-size:clamp(44px,6vw,86px);font-weight:700;line-height:1;letter-spacing:-.02em;margin-bottom:32px}
+  .big-title .red{color:var(--usam-red)}
+
+  /* PORTRAIT (slide 3) */
+  .two-col{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center}
+  .portrait-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:40px;backdrop-filter:blur(8px)}
+  .portrait-card h3{font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--usam-red);margin-bottom:16px;font-weight:700}
+  .portrait-card p{font-size:16px;line-height:1.7;color:rgba(255,255,255,.85);margin-bottom:14px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+  .stat{border-left:2px solid var(--usam-red);padding-left:18px}
+  .stat b{display:block;font-size:42px;font-weight:800;line-height:1;font-family:"Playfair Display",Georgia,serif}
+  .stat span{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:8px}
+
+  /* DIAGNOSTIC (slide 4) */
+  .diag-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px}
+  .diag-card{background:#fff;border:1px solid rgba(0,0,0,.06);border-top:4px solid var(--usam-red);padding:32px 28px;border-radius:4px;box-shadow:0 8px 30px rgba(0,0,0,.08)}
+  .diag-card .icon{width:36px;height:36px;border-radius:50%;background:var(--usam-red);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;margin-bottom:18px;font-size:16px}
+  .diag-card h4{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#9a1429;margin-bottom:10px;font-weight:700}
+  .diag-card .num-big{font-family:"Playfair Display",Georgia,serif;font-size:48px;font-weight:700;line-height:1;color:var(--ink);margin-bottom:14px}
+  .diag-card p{font-size:14px;line-height:1.55;color:#444}
+
+  /* TIMELINE (slide 5) */
+  .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:60px;position:relative}
+  .timeline::before{content:"";position:absolute;top:38px;left:5%;right:5%;height:1px;background:rgba(255,255,255,.15)}
+  .step{padding:0 24px;position:relative}
+  .step .dot{width:14px;height:14px;border-radius:50%;background:var(--usam-red);margin:32px auto;position:relative;z-index:2;box-shadow:0 0 0 6px rgba(200,16,46,.15)}
+  .step h3{font-family:"Playfair Display",Georgia,serif;font-size:28px;font-weight:700;text-align:center;margin-bottom:12px}
+  .step h3 small{display:block;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--usam-red);font-weight:700;margin-bottom:8px;font-family:"Helvetica Neue",sans-serif;font-style:normal}
+  .step p{font-size:15px;line-height:1.6;text-align:center;color:rgba(255,255,255,.75);max-width:280px;margin:0 auto}
+
+  /* GALLEGO SLIDE (slide 6) */
+  .gallego-card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.12);padding:60px;border-radius:6px;text-align:center;max-width:880px;margin:0 auto;position:relative}
+  .gallego-card::before{content:"";position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:80px;height:3px;background:var(--usam-red)}
+  .gallego-card .role{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;font-weight:700}
+  .gallego-card h2{font-size:clamp(48px,7vw,90px);font-weight:800;line-height:1;margin-bottom:20px;letter-spacing:-.02em}
+  .gallego-card .tag{font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:32px}
+  .gallego-card .quote-small{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:22px;line-height:1.5;color:rgba(255,255,255,.9);max-width:680px;margin:0 auto}
+
+  /* NIMES BENEFITS (slide 7) */
+  .benefits{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(0,0,0,.08);margin-top:48px;border:1px solid rgba(0,0,0,.08)}
+  .benefit{background:var(--paper);padding:38px 36px;display:flex;flex-direction:column;gap:12px;transition:background .2s}
+  .benefit:hover{background:#fff}
+  .benefit .b-num{font-family:"Playfair Display",Georgia,serif;font-size:36px;font-weight:700;color:var(--usam-red);line-height:1}
+  .benefit h4{font-size:20px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+  .benefit p{font-size:14px;line-height:1.6;color:#555}
+
+  /* GOUVERNANCE TABLE (slide 8) */
+  .gov-table{margin-top:40px;border-top:2px solid var(--ink)}
+  .gov-row{display:grid;grid-template-columns:1.1fr 1fr 1.6fr;padding:22px 0;border-bottom:1px solid rgba(0,0,0,.08);align-items:center}
+  .gov-row.head{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#777;font-weight:700;padding:14px 0}
+  .gov-row .role-c{font-weight:700;color:var(--usam-red);font-size:15px;letter-spacing:.04em;text-transform:uppercase}
+  .gov-row .name-c{font-family:"Playfair Display",Georgia,serif;font-size:24px;font-weight:700;color:var(--ink)}
+  .gov-row .leg-c{font-size:14px;color:#555;line-height:1.5}
+
+  /* ENGAGEMENTS (slide 9) */
+  .engag{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:48px}
+  .engag-item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);padding:32px;border-radius:6px;display:flex;gap:20px;align-items:flex-start}
+  .engag-item .check{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:var(--usam-red);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px}
+  .engag-item h4{font-size:17px;font-weight:700;margin-bottom:8px;letter-spacing:-.01em}
+  .engag-item p{font-size:14px;line-height:1.6;color:rgba(255,255,255,.7)}
+
+  /* ASK SLIDE (slide 10) */
+  .ask-block{max-width:1000px}
+  .ask-block .ask-line{font-family:"Playfair Display",Georgia,serif;font-size:clamp(32px,4.5vw,58px);line-height:1.2;font-weight:500;letter-spacing:-.01em}
+  .ask-block .ask-line .red{color:var(--usam-red)}
+  .ask-block .ask-line em{font-style:italic;color:var(--gold)}
+  .ask-foot{margin-top:48px;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+
+  /* HORIZON (slide 11) */
+  .horizon{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:64px}
+  .horizon-item{text-align:center;padding:0 12px}
+  .horizon-item .circle{width:80px;height:80px;border-radius:50%;border:1px solid var(--usam-red);margin:0 auto 24px;display:flex;align-items:center;justify-content:center;font-family:"Playfair Display",Georgia,serif;font-size:32px;font-weight:700;color:var(--usam-red)}
+  .horizon-item h4{font-size:18px;font-weight:700;margin-bottom:10px;letter-spacing:-.01em}
+  .horizon-item p{font-size:14px;line-height:1.55;color:rgba(255,255,255,.65)}
+
+  /* CLOSING (slide 12) */
+  .closing-title{font-size:clamp(48px,7vw,98px);font-weight:800;line-height:.95;letter-spacing:-.025em;text-transform:uppercase;text-align:center}
+  .closing-title .red{color:var(--usam-red);display:block}
+  .closing-sign{margin-top:60px;text-align:center;font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+  .closing-sign b{display:block;font-size:18px;font-family:"Playfair Display",Georgia,serif;color:#fff;letter-spacing:.04em;font-weight:700;text-transform:none;margin-top:14px;font-style:italic}
+
+  /* Subtle texture */
+  .grain::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.04;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>")}
+
+  @media (max-width:900px){
+    .two-col,.diag-grid,.timeline,.benefits,.engag,.horizon{grid-template-columns:1fr}
+    .timeline::before{display:none}
+    .num{font-size:80px;top:30px;right:30px}
+    .slide{padding:8vh 6vw}
+  }
+
+  /* PRINT */
+  @media print{
+    html,body{height:auto;overflow:visible;background:#fff}
+    .deck{height:auto}
+    .slide{position:relative;page-break-after:always;height:100vh;opacity:1!important;transform:none!important;pointer-events:auto!important}
+    .nav,.hint,.counter,.progress,.meta{display:none!important}
+  }
+
+  /* Google Fonts fallback hint via link below */
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body,h1,h2,h3,h4,p,div,span{font-family:"Inter","Helvetica Neue",sans-serif}
+  h1,h2,.cover-title,.hook,.quote,.big-title,.num,.step h3,.benefit .b-num,.gov-row .name-c,.horizon-item .circle,.closing-title,.closing-sign b,.diag-card .num-big,.gallego-card h2,.gallego-card .quote-small,.ask-block .ask-line{font-family:"Playfair Display",Georgia,serif}
+  .cover-mark,.eyebrow,.signature,.cover-foot div small,.cover-foot div b,.lead,.portrait-card p,.stat span,.diag-card h4,.diag-card p,.step h3 small,.step p,.benefit h4,.benefit p,.gov-row.head,.gov-row .role-c,.gov-row .leg-c,.engag-item h4,.engag-item p,.ask-foot,.horizon-item h4,.horizon-item p,.closing-sign{font-family:"Inter","Helvetica Neue",sans-serif}
+</style>
+</head>
+<body>
+
+<div class="meta"><b>USAM Nîmes Gard</b> · Dossier de reprise 2026</div>
+<div class="progress" id="progress"></div>
+<div class="counter"><span id="cur">01</span> <span style="color:rgba(255,255,255,.4);margin:0 6px">/</span> <span id="tot">12</span></div>
+<div class="hint">← → · Espace · Clic</div>
+<div class="nav">
+  <button id="prev" aria-label="Précédent">‹</button>
+  <button id="next" aria-label="Suivant">›</button>
+</div>
+
+<div class="deck" id="deck">
+
+  <!-- 1 — COUVERTURE -->
+  <section class="slide t-dark grain active" data-i="1">
+    <span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span>
+    <div class="slide-inner">
+      <div class="cover-mark">Dossier de reprise · Saison 2026</div>
+      <h1 class="cover-title">Un nouveau<br/>chapitre pour<br/><span class="accent">un grand club.</span></h1>
+      <p class="cover-sub">Présenté par Mikael Bouteillon — Groupe Out 4 Blood<br/>À l'attention de Monsieur Vincent Bouget, Maire de Nîmes.</p>
+      <div class="cover-foot">
+        <div><small>Porteur de projet</small><b>Mikael Bouteillon</b></div>
+        <div><small>Groupe</small><b>Out 4 Blood — 30 M€ · 4 continents</b></div>
+        <div><small>Date</small><b>Mai 2026</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 — L'OUVERTURE -->
+  <section class="slide t-red" data-i="2">
+    <div class="slide-inner">
+      <p class="eyebrow" style="color:rgba(255,255,255,.7)">Ouverture</p>
+      <p class="hook">
+        Je ne suis pas là pour vous demander<br/>
+        de me confier l'USAM.<br/><br/>
+        Je suis là <em>parce qu'aucune ville</em><br/>
+        ne mérite de perdre son club.
+      </p>
+      <p class="signature">— Mikael Bouteillon</p>
+    </div>
+  </section>
+
+  <!-- 3 — LE PORTEUR DE PROJET -->
+  <section class="slide t-dark" data-i="3">
+    <span class="num">01</span>
+    <div class="slide-inner">
+      <p class="eyebrow">Le porteur de projet</p>
+      <h2 class="big-title">Un homme<br/>du club <span class="red">qui revient.</span></h2>
+      <div class="two-col">
+        <div>
+          <p class="lead">
+            Nîmois dans l'âme, j'ai construit le groupe <b style="color:#fff">Out 4 Blood</b> :
+            ancré dans le Gard, rayonnant sur quatre continents.
+            Mon concept phare, <b style="color:#fff">Prison Island</b>, ouvre un nouveau site chaque mois.
+          </p>
+          <div class="stats">
+            <div class="stat"><b>30 M€</b><span>CA 2026</span></div>
+            <div class="stat"><b>355</b><span>Collaborateurs (55 à Nîmes)</span></div>
+            <div class="stat"><b>30+</b><span>Sites Prison Island</span></div>
+          </div>
+        </div>
+        <div class="portrait-card">
+          <h3>Avant tout, un homme du club</h3>
+          <p>
+            Avant d'être entrepreneur international, j'ai été
+            <b style="color:#fff">préparateur physique de l'USAM pendant 7 ans</b>.
+          </p>
+          <p style="color:var(--gold);font-style:italic">
+            Ce n'est pas un repreneur extérieur.<br/>
+            C'est un homme du club qui revient avec une vision.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 — LE DIAGNOSTIC -->
+  <section class="slide t-paper" data-i="4">
+    <span class="num">02</span>
+    <div class="slide-inner">
+      <p class="eyebrow">Le diagnostic</p>
+      <h2 class="big-title" style="color:var(--ink)">Un club historique<br/>à <span class="red">la croisée des chemins.</span></h2>
+      <p class="lead" style="max-width:900px">
+        L'USAM est plus qu'un club : c'est une institution, un repère identitaire, le cœur battant d'un public fidèle. Évoluer en <b>Liqui Moly Starligue</b> est un statut qu'il faut impérativement préserver.
+      </p>
+      <div class="diag-grid">
+        <div class="diag-card">
+          <div class="icon">!</div>
+          <h4>Déficit immédiat</h4>
+          <div class="num-big">500 K€</div>
+          <p>Pour mener à bien la saison actuelle.</p>
+        </div>
+        <div class="diag-card">
+          <div class="icon">€</div>
+          <h4>Budget structurel</h4>
+          <div class="num-big">3,8 M€</div>
+          <p>Annuels sous pression continue.</p>
+        </div>
+        <div class="diag-card">
+          <div class="icon">↘</div>
+          <h4>Lien fragilisé</h4>
+          <div class="num-big" style="font-size:32px;line-height:1.1">Supporters,<br/>partenaires</div>
+          <p>La dynamique s'est essoufflée.</p>
+        </div>
+      </div>
+      <p style="margin-top:36px;font-size:18px;font-style:italic;color:var(--usam-red);font-weight:600">→ Le cycle actuel est arrivé à son terme. Le moment d'agir, c'est maintenant.</p>
+    </div>
+  </section>
+
+  <!-- 5 — LE PROJET SPORTIF -->
+  <section class="slide t-dark" data-i="5">
+    <span class="num">03</span>
+    <div class="slide-inner">
+      <p class="eyebrow">Le projet sportif</p>
+      <h2 class="big-title">Stabiliser. <span class="red">Reconstruire.</span> Conquérir.</h2>
+      <p class="lead">Une vision en trois temps, portée par des hommes qui connaissent le handball de haut niveau.</p>
+      <div class="timeline">
+        <div class="step">
+          <div class="dot"></div>
+          <h3><small>Année 1</small>Stabilisation</h3>
+          <p>Maintien en Starligue. Reconstruction de la confiance. Retrouver un USAM combatif, physique, identitaire.</p>
+        </div>
+        <div class="step">
+          <div class="dot"></div>
+          <h3><small>Année 2</small>Consolidation</h3>
+          <p>Recrutement renforcé. Structuration du centre de formation. L'USAM redevient un club dont Nîmes est fière.</p>
+        </div>
+        <div class="step">
+          <div class="dot"></div>
+          <h3><small>Année 3+</small>L'Europe</h3>
+          <p>Un club sain, des finances maîtrisées, une identité forte — les cartes pour viser les compétitions européennes.</p>
+        </div>
+      </div>
+      <p style="margin-top:60px;text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:24px;color:var(--gold)">
+        Un club qui court plus. Qui combat plus. Qui gagne plus.
+      </p>
+    </div>
+  </section>
+
+  <!-- 6 — BENJAMIN GALLEGO -->
+  <section class="slide t-ink" data-i="6">
+    <div class="slide-inner">
+      <p class="eyebrow" style="text-align:center">Le signal fort</p>
+      <div class="gallego-card">
+        <div class="role">Directeur Général</div>
+        <h2>Benjamin<br/>Gallego.</h2>
+        <div class="tag">Figure emblématique · Carrière entière à l'USAM</div>
+        <p class="quote-small">
+          Le faire entrer comme DG, c'est dire aux supporters que l'USAM reste entre les mains de ceux qui l'aiment vraiment.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 — LE PROJET POUR NÎMES -->
+  <section class="slide t-warm" data-i="7">
+    <span class="num">04</span>
+    <div class="slide-inner">
+      <p class="eyebrow">Le projet pour Nîmes</p>
+      <h2 class="big-title" style="color:var(--ink)">Un club qui appartient<br/>à <span class="red">sa ville.</span></h2>
+      <div class="benefits">
+        <div class="benefit">
+          <div class="b-num">01</div>
+          <h4>Vitrine du territoire</h4>
+          <p>Chaque match en Starligue, chaque diffusion nationale, c'est Nîmes qui s'affiche et rayonne aux yeux de la France et de l'Europe.</p>
+        </div>
+        <div class="benefit">
+          <div class="b-num">02</div>
+          <h4>Académie BP JEPS</h4>
+          <p>Certifications reconnues : former les jeunes Nîmois aux métiers du sport, de l'animation et de l'événementiel.</p>
+        </div>
+        <div class="benefit">
+          <div class="b-num">03</div>
+          <h4>Nîmes dans les écoles</h4>
+          <p>Interventions régulières dans les écoles et collèges du Gard. Initiations, valeurs du sport collectif, rencontres avec les joueurs.</p>
+        </div>
+        <div class="benefit">
+          <div class="b-num">04</div>
+          <h4>L'USAM pour tous</h4>
+          <p>Tarifs accessibles, invitations pour les quartiers prioritaires, mise en avant du bénévolat et nouveaux formats pour la ville.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 — LES GARANTIES (gouvernance) -->
+  <section class="slide t-paper" data-i="8">
+    <span class="num">05</span>
+    <div class="slide-inner">
+      <p class="eyebrow">Les garanties</p>
+      <h2 class="big-title" style="color:var(--ink)">Une gouvernance<br/><span class="red">qui rassure.</span></h2>
+      <p class="lead" style="max-width:880px">Légitimité sportive, rigueur financière et ancrage nîmois — réunis dans une seule équipe.</p>
+      <div class="gov-table">
+        <div class="gov-row head">
+          <div>Rôle</div><div>Personne</div><div>Légitimité</div>
+        </div>
+        <div class="gov-row">
+          <div class="role-c">Président</div>
+          <div class="name-c">Mikael Bouteillon</div>
+          <div class="leg-c">Entrepreneur nîmois · 7 ans préparateur physique USAM</div>
+        </div>
+        <div class="gov-row">
+          <div class="role-c">Directeur Général</div>
+          <div class="name-c">Benjamin Gallego</div>
+          <div class="leg-c">Figure emblématique · Carrière entière à l'USAM</div>
+        </div>
+        <div class="gov-row">
+          <div class="role-c">Support financier</div>
+          <div class="name-c">DAF & RAF du groupe</div>
+          <div class="leg-c">Expertise et rigueur éprouvées sur 10+ ans</div>
+        </div>
+        <div class="gov-row">
+          <div class="role-c">Support juridique</div>
+          <div class="name-c">Conseils du groupe</div>
+          <div class="leg-c">Audit complet réalisé en amont de la reprise</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 — ENGAGEMENTS CONCRETS -->
+  <section class="slide t-dark" data-i="9">
+    <span class="num">06</span>
+    <div class="slide-inner">
+      <p class="eyebrow">Engagements concrets</p>
+      <h2 class="big-title">Ce que j'apporte,<br/><span class="red">dès le premier jour.</span></h2>
+      <div class="engag">
+        <div class="engag-item">
+          <div class="check">✓</div>
+          <div>
+            <h4>Investissement financier immédiat</h4>
+            <p>Stabiliser la fin de saison dès la reprise actée. Pas de promesse différée.</p>
+          </div>
+        </div>
+        <div class="engag-item">
+          <div class="check">✓</div>
+          <div>
+            <h4>Locaux & ressources mutualisées</h4>
+            <p>Bureaux, RH, comptabilité, communication mis à disposition immédiatement par Out 4 Blood.</p>
+          </div>
+        </div>
+        <div class="engag-item">
+          <div class="check">✓</div>
+          <div>
+            <h4>Centre de formation type Académie</h4>
+            <p>Lancé dès la première saison, ancré dans le territoire et la jeunesse nîmoise.</p>
+          </div>
+        </div>
+        <div class="engag-item">
+          <div class="check">✓</div>
+          <div>
+            <h4>Dialogue transparent</h4>
+            <p>Reporting clair et régulier avec la Ville de Nîmes. La confiance se construit sur les chiffres.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 — CE QUE JE DEMANDE -->
+  <section class="slide t-red" data-i="10">
+    <div class="slide-inner ask-block">
+      <p class="eyebrow" style="color:rgba(255,255,255,.75)">Ce que je demande à la Ville</p>
+      <p class="ask-line">
+        Pas un chèque.<br/>
+        <em>Une relation.</em><br/><br/>
+        Celle d'un entrepreneur nîmois pleinement engagé,<br/>
+        et d'une ville qui tient à son club.
+      </p>
+      <p class="ask-foot">→ Un partenariat dans la durée. Pour Nîmes.</p>
+    </div>
+  </section>
+
+  <!-- 11 — L'HORIZON -->
+  <section class="slide t-dark" data-i="11">
+    <div class="slide-inner">
+      <p class="eyebrow" style="text-align:center">L'horizon</p>
+      <h2 class="big-title" style="text-align:center">L'USAM mérite un avenir<br/><span class="red">à la hauteur de son histoire.</span></h2>
+      <div class="horizon">
+        <div class="horizon-item"><div class="circle">★</div><h4>Starligue pérenne</h4><p>Stabilisé, ambitieux, compétitif.</p></div>
+        <div class="horizon-item"><div class="circle">⚑</div><h4>Jeunesse formée</h4><p>Des dizaines de jeunes insérés chaque année.</p></div>
+        <div class="horizon-item"><div class="circle">€</div><h4>Rayonnement européen</h4><p>L'horizon des compétitions continentales.</p></div>
+        <div class="horizon-item"><div class="circle">♥</div><h4>Nîmois engagés</h4><p>Un projet ancré dans le temps.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 — CLÔTURE -->
+  <section class="slide t-red grain" data-i="12">
+    <span class="ring r1" style="border-color:rgba(255,255,255,.15)"></span>
+    <span class="ring r2" style="border-color:rgba(255,255,255,.2)"></span>
+    <div class="slide-inner" style="text-align:center">
+      <p class="eyebrow" style="color:rgba(255,255,255,.75);text-align:center">Mikael Bouteillon — Groupe Out 4 Blood</p>
+      <h1 class="closing-title">Pour Nîmes.<br/>Pour l'USAM.<br/><span class="red" style="color:#1a1a1d">Pour longtemps.</span></h1>
+      <div class="closing-sign">
+        Mai 2026 · À l'attention de Monsieur Vincent Bouget, Maire de Nîmes
+        <b>Merci de votre confiance.</b>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  const slides = Array.from(document.querySelectorAll(".slide"));
+  const total = slides.length;
+  const elCur = document.getElementById("cur");
+  const elTot = document.getElementById("tot");
+  const elProgress = document.getElementById("progress");
+  let i = 0;
+
+  elTot.textContent = String(total).padStart(2,"0");
+
+  function show(n){
+    i = Math.max(0, Math.min(total-1, n));
+    slides.forEach((s,idx)=>s.classList.toggle("active", idx===i));
+    elCur.textContent = String(i+1).padStart(2,"0");
+    elProgress.style.width = ((i+1)/total*100)+"%";
+    history.replaceState(null,"","#"+(i+1));
+  }
+  function next(){ show(i+1) }
+  function prev(){ show(i-1) }
+
+  document.getElementById("next").addEventListener("click", next);
+  document.getElementById("prev").addEventListener("click", prev);
+
+  document.addEventListener("keydown", e=>{
+    if(e.key==="ArrowRight"||e.key===" "||e.key==="PageDown"||e.key==="Enter"){e.preventDefault();next()}
+    else if(e.key==="ArrowLeft"||e.key==="PageUp"||e.key==="Backspace"){e.preventDefault();prev()}
+    else if(e.key==="Home"){show(0)}
+    else if(e.key==="End"){show(total-1)}
+  });
+
+  document.addEventListener("click", e=>{
+    if(e.target.closest("button")||e.target.closest("a")) return;
+    const x = e.clientX / window.innerWidth;
+    if(x>0.5) next(); else prev();
+  });
+
+  // Touch swipe
+  let tx=0;
+  document.addEventListener("touchstart",e=>{tx=e.touches[0].clientX},{passive:true});
+  document.addEventListener("touchend",e=>{
+    const dx = e.changedTouches[0].clientX - tx;
+    if(Math.abs(dx)>50){ dx<0 ? next() : prev() }
+  },{passive:true});
+
+  // Deep link via #N
+  const h = parseInt((location.hash||"#1").slice(1),10);
+  if(!isNaN(h) && h>=1 && h<=total) show(h-1); else show(0);
+})();
+</script>
+</body>
+</html>
