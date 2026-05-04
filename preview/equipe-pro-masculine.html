@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0A0A0A">
+  <title>Green Team — Équipe Pro Masculine — USAM Nîmes Gard</title>
+  <meta name="description" content="L'effectif de la Green Team, équipe professionnelle masculine de l'USAM Nîmes Gard en Liqui Moly Starligue.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: { 'usam-volt':'#00E676','usam-forest':'#0B3D2E','usam-charcoal':'#0A0A0A','usam-bone':'#F5F5F0','usam-yellow':'#E8FF59','usam-slate-200':'#E2E8F0','usam-slate-700':'#334155' },
+        fontFamily: { display:['Anton','Impact','sans-serif'], head:['Sora','Inter','sans-serif'], sans:['Inter','system-ui','sans-serif'] },
+        letterSpacing: { widest: '.25em' },
+      }}
+    };
+  </script>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body class="bg-usam-bone text-usam-charcoal antialiased">
+
+<header class="bg-usam-charcoal text-usam-bone sticky top-0 z-40 border-b border-usam-volt/20">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16 lg:h-20">
+    <a href="index.html" class="flex items-center gap-3">
+      <svg viewBox="0 0 400 400" class="h-10 w-10 lg:h-12 lg:w-12" aria-hidden="true">
+        <rect x="20" y="20" width="360" height="360" rx="32" fill="#0A0A0A" stroke="#00E676" stroke-width="8"/>
+        <text x="120" y="180" font-size="140" fill="#F5F5F0" font-family="Anton, Impact" text-anchor="middle">U</text>
+        <text x="280" y="180" font-size="140" fill="#F5F5F0" font-family="Anton, Impact" text-anchor="middle">S</text>
+        <text x="120" y="320" font-size="140" fill="#F5F5F0" font-family="Anton, Impact" text-anchor="middle">A</text>
+        <text x="280" y="320" font-size="140" fill="#00E676" font-family="Anton, Impact" text-anchor="middle">M</text>
+      </svg>
+      <span class="font-display tracking-widest text-base sm:text-lg lg:text-xl">USAM <span class="text-usam-volt">NÎMES</span></span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-8 font-display uppercase text-sm tracking-widest">
+      <a class="nav-link" href="le-club.html">Le Club</a>
+      <a class="nav-link" href="equipe-pro-masculine.html" aria-current="page">Équipes</a>
+      <a class="nav-link" href="#">École</a>
+      <a class="nav-link" href="#">Actus</a>
+      <a class="nav-link" href="#">Partenaires</a>
+      <a class="nav-link" href="#">Contact</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="#" class="hidden sm:inline-flex items-center px-4 py-2 bg-usam-yellow text-usam-charcoal font-display uppercase text-xs lg:text-sm tracking-widest hover:bg-usam-volt transition">Billetterie</a>
+      <button type="button" class="lg:hidden p-2 -mr-2 text-usam-bone" data-mobile-toggle aria-label="Ouvrir le menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-drawer fixed inset-0 z-50 bg-black/70 lg:hidden" data-mobile-drawer aria-hidden="true">
+  <div class="absolute right-0 top-0 h-full w-[85%] max-w-sm bg-usam-charcoal text-usam-bone p-6 flex flex-col">
+    <div class="flex items-center justify-between mb-10">
+      <span class="font-display tracking-widest text-lg">MENU</span>
+      <button type="button" data-mobile-close class="p-2 -mr-2" aria-label="Fermer le menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="flex-1 flex flex-col gap-5 font-display uppercase text-2xl tracking-widest">
+      <a href="le-club.html">Le Club</a>
+      <a href="equipe-pro-masculine.html">Équipes</a>
+      <a href="#">École de hand</a>
+      <a href="#">Actus</a>
+      <a href="#">Partenaires</a>
+      <a href="#">Contact</a>
+    </nav>
+    <a href="#" class="mt-8 inline-flex items-center justify-center px-6 py-4 bg-usam-yellow text-usam-charcoal font-display uppercase tracking-widest">Billetterie</a>
+  </div>
+</div>
+
+<main>
+
+<!-- HERO ÉQUIPE -->
+<section class="bg-usam-charcoal text-usam-bone relative overflow-hidden">
+  <div class="absolute inset-0 opacity-50 bg-[radial-gradient(circle_at_30%_30%,rgba(0,230,118,0.5),transparent_55%)]"></div>
+  <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_85%_80%,rgba(232,255,89,0.25),transparent_50%)]"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
+    <p class="font-display uppercase tracking-widest text-usam-volt text-xs sm:text-sm mb-4">Liqui Moly Starligue</p>
+    <h1 class="font-display uppercase leading-[0.85]" style="font-size: clamp(3rem, 11vw, 8rem);">
+      <span class="text-usam-volt">Green</span> Team
+    </h1>
+    <p class="mt-6 max-w-2xl text-base sm:text-lg text-usam-bone/80 leading-relaxed">
+      L'équipe professionnelle masculine de l'USAM. 15 joueurs, un coach, une mission : faire vibrer Le Parnasse.
+    </p>
+
+    <div class="mt-10 flex flex-wrap gap-x-10 gap-y-4 text-sm">
+      <div>
+        <p class="text-usam-bone/50 uppercase tracking-widest text-xs">Coach</p>
+        <p class="font-display text-xl">David Degouy</p>
+      </div>
+      <div>
+        <p class="text-usam-bone/50 uppercase tracking-widest text-xs">Sponsor titre</p>
+        <p class="font-display text-xl">Liqui Moly</p>
+      </div>
+      <div>
+        <p class="text-usam-bone/50 uppercase tracking-widest text-xs">Équipementier</p>
+        <p class="font-display text-xl">Kappa</p>
+      </div>
+      <div>
+        <p class="text-usam-bone/50 uppercase tracking-widest text-xs">Salle</p>
+        <p class="font-display text-xl">Le Parnasse</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ONGLETS -->
+<nav class="bg-usam-charcoal text-usam-bone border-t border-usam-volt/20 sticky top-16 lg:top-20 z-30 -mb-px">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex gap-1 sm:gap-2 overflow-x-auto whitespace-nowrap">
+    <a href="#effectif" class="px-4 py-3 font-display uppercase text-xs sm:text-sm tracking-widest border-b-2 border-usam-volt text-usam-volt">Effectif</a>
+    <a href="#" class="px-4 py-3 font-display uppercase text-xs sm:text-sm tracking-widest border-b-2 border-transparent text-usam-bone/60 hover:text-usam-bone">Calendrier</a>
+    <a href="#" class="px-4 py-3 font-display uppercase text-xs sm:text-sm tracking-widest border-b-2 border-transparent text-usam-bone/60 hover:text-usam-bone">Classement</a>
+    <a href="#" class="px-4 py-3 font-display uppercase text-xs sm:text-sm tracking-widest border-b-2 border-transparent text-usam-bone/60 hover:text-usam-bone">Stats</a>
+    <a href="#" class="px-4 py-3 font-display uppercase text-xs sm:text-sm tracking-widest border-b-2 border-transparent text-usam-bone/60 hover:text-usam-bone">Staff</a>
+  </div>
+</nav>
+
+<!-- EFFECTIF -->
+<section id="effectif" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+
+  <header class="mb-8 sm:mb-10 flex items-end justify-between gap-4 flex-wrap">
+    <div>
+      <p class="font-display uppercase tracking-widest text-usam-volt text-xs sm:text-sm mb-2">Saison 2025/26</p>
+      <h2 class="font-display uppercase leading-tight" style="font-size: clamp(2rem, 6vw, 3.5rem);">L'effectif</h2>
+    </div>
+    <div class="flex gap-2 flex-wrap text-xs sm:text-sm">
+      <button class="badge text-usam-charcoal bg-usam-volt border-usam-volt">Tous</button>
+      <button class="badge text-usam-slate-700 hover:text-usam-charcoal">Gardiens</button>
+      <button class="badge text-usam-slate-700 hover:text-usam-charcoal">Ailiers</button>
+      <button class="badge text-usam-slate-700 hover:text-usam-charcoal">Arrières</button>
+      <button class="badge text-usam-slate-700 hover:text-usam-charcoal">Pivots</button>
+    </div>
+  </header>
+
+  <div class="grid gap-3 sm:gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+
+    <!-- Carte joueur réutilisable -->
+    <a href="#" class="group bg-usam-charcoal text-usam-bone aspect-[3/4] flex flex-col justify-between p-4 sm:p-5 border border-transparent hover:border-usam-volt transition relative overflow-hidden">
+      <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_70%_20%,rgba(0,230,118,0.4),transparent_55%)] group-hover:opacity-60 transition"></div>
+      <div class="relative">
+        <p class="font-display text-5xl sm:text-6xl text-usam-volt leading-none">12</p>
+        <span class="badge text-usam-volt mt-2">Gardien</span>
+      </div>
+      <div class="relative">
+        <p class="font-display uppercase text-base sm:text-lg leading-tight">Wesley<br>Pardin</p>
+        <p class="text-[11px] uppercase tracking-widest text-usam-bone/60 mt-1">⭐ Meilleur gardien</p>
+      </div>
+    </a>
+
+    <a href="#" class="group bg-usam-charcoal text-usam-bone aspect-[3/4] flex flex-col justify-between p-4 sm:p-5 border border-transparent hover:border-usam-volt transition relative overflow-hidden">
+      <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_70%_20%,rgba(0,230,118,0.4),transparent_55%)] group-hover:opacity-60 transition"></div>
+      <div class="relative">
+        <p class="font-display text-5xl sm:text-6xl text-usam-volt leading-none">40</p>
+        <span class="badge text-usam-volt mt-2">Gardien</span>
+      </div>
+      <div class="relative">
+        <p class="font-display uppercase text-base sm:text-lg leading-tight">Harun<br>Hodzic</p>
+      </div>
+    </a>
+
+    <a href="#" class="group bg-usam-charcoal text-usam-bone aspect-[3/4] flex flex-col justify-between p-4 sm:p-5 border border-transparent hover:border-usam-volt transition relative overflow-hidden">
+      <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_70%_20%,rgba(0,230,118,0.4),transparent_55%)] group-hover:opacity-60 transition"></div>
+      <div class="relative">
+        <p class="font-display text-5xl sm:text-6xl text-usam-volt leading-none">5</p>
+        <span class="badge text-usam-volt mt-2">Demi-centre</span>
+      </div>
+      <div class="relative">
+        <p class="font-display uppercase text-base sm:text-lg leading-tight">Lou<br>Derisbourg</p>
+        <p class="text-[11px] uppercase tracking-widest text-usam-bone/60 mt-1">⭐ Meneur</p>
+      </div>
+    </a>
+
+    <a href="#" class="group bg-usam-charcoal text-usam-bone aspect-[3/4] flex flex-col justify-between p-4 sm:p-5 border border-transparent hover:border-usam-volt transition relative overflow-hidden">
+      <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_70%_20%,rgba(0,230,118,0.4),transparent_55%)] group-hover:opacity-60 transition"></div>
+      <div class="relative">
+        <p class="font-display text-5xl sm:text-6xl text-usam-volt leading-none">8</p>
+        <span class="badge text-usam-volt mt-2">Arrière</span>
+      </div>
+      <div class="relative">
+        <p class="font-display uppercase text-base sm:text-lg leading-tight">Yoann<br>Gibelin</p>
+      </div>
+    </a>
+
+    <a href="#" class="group bg-usam-charcoal text-usam-bone aspect-[3/4] flex flex-col justify-between p-4 sm:p-5 border border-transparent hover:border-usam-volt transition relative overflow-hidden">
+      <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_70%_20%,rgba(0,230,118,0.4),transparent_55%)] group-hover:opacity-60 transition"></div>
+      <div class="relative">
+        <p class="font-display text-5xl sm:text-6xl text-usam-volt leading-none">9</p>
+        <span class="badge text-usam-volt mt-2">Centre</span>
+      </div>
+      <div class="relative">
+        <p class="font-display uppercase text-base sm:text-lg leading-tight">Reyhan<br>Zuzo</p>
+      </div>
+    </a>
+
+    <a href="#" class="group bg-usam-charcoal text-usam-bone aspect-[3/4] flex flex-col justify-between p-4 sm:p-5 border border-transparent hover:border-usam-volt transition relative overflow-hidden">
+      <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_70%_20%,rgba(0,230,118,0.4),transparent_55%)] group-hover:opacity-60 transition"></div>
+      <div class="relative">
+        <p class="font-display text-5xl sm:text-6xl text-usam-volt leading-none">11</p>
+        <span class="badge text-usam-volt mt-2">Ailier</span>
+      </div>
+      <div class="relative">
+        <p class="font-display uppercase text-base sm:text-lg leading-tight">Gustaf<br>Wedberg</p>
+      </div>
+    </a>
+
+    <a href="#" class="group bg-usam-charcoal text-usam-bone aspect-[3/4] flex flex-col justify-between p-4 sm:p-5 border border-transparent hover:border-usam-volt transition relative overflow-hidden">
+      <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_70%_20%,rgba(0,230,118,0.4),transparent_55%)] group-hover:opacity-60 transition"></div>
+      <div class="relative">
+        <p class="font-display text-5xl sm:text-6xl text-usam-volt leading-none">13</p>
+        <span class="badge text-usam-volt mt-2">Ailier</span>
+      </div>
+      <div class="relative">
+        <p class="font-display uppercase text-base sm:text-lg leading-tight">Gueric<br>Vincent</p>
+      </div>
+    </a>
+
+    <a href="#" class="group bg-usam-charcoal text-usam-bone aspect-[3/4] flex flex-col justify-between p-4 sm:p-5 border border-transparent hover:border-usam-volt transition relative overflow-hidden">
+      <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_70%_20%,rgba(0,230,118,0.4),transparent_55%)] group-hover:opacity-60 transition"></div>
+      <div class="relative">
+        <p class="font-display text-5xl sm:text-6xl text-usam-volt leading-none">17</p>
+        <span class="badge text-usam-volt mt-2">Pivot</span>
+      </div>
+      <div class="relative">
+        <p class="font-display uppercase text-base sm:text-lg leading-tight">Hugo<br>Kamtchop-Baril</p>
+      </div>
+    </a>
+
+    <a href="#" class="group bg-usam-charcoal text-usam-bone aspect-[3/4] flex flex-col justify-between p-4 sm:p-5 border border-transparent hover:border-usam-volt transition relative overflow-hidden">
+      <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_70%_20%,rgba(0,230,118,0.4),transparent_55%)] group-hover:opacity-60 transition"></div>
+      <div class="relative">
+        <p class="font-display text-5xl sm:text-6xl text-usam-volt leading-none">20</p>
+        <span class="badge text-usam-volt mt-2">Ailier</span>
+      </div>
+      <div class="relative">
+        <p class="font-display uppercase text-base sm:text-lg leading-tight">Damien<br>Gibernon</p>
+      </div>
+    </a>
+
+    <a href="#" class="group bg-usam-charcoal text-usam-bone aspect-[3/4] flex flex-col justify-between p-4 sm:p-5 border border-transparent hover:border-usam-volt transition relative overflow-hidden">
+      <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_70%_20%,rgba(0,230,118,0.4),transparent_55%)] group-hover:opacity-60 transition"></div>
+      <div class="relative">
+        <p class="font-display text-5xl sm:text-6xl text-usam-volt leading-none">27</p>
+        <span class="badge text-usam-volt mt-2">Arrière</span>
+      </div>
+      <div class="relative">
+        <p class="font-display uppercase text-base sm:text-lg leading-tight">JJ<br>Acquevillo</p>
+      </div>
+    </a>
+
+    <a href="#" class="group bg-usam-charcoal text-usam-bone aspect-[3/4] flex flex-col justify-between p-4 sm:p-5 border border-transparent hover:border-usam-volt transition relative overflow-hidden">
+      <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_70%_20%,rgba(0,230,118,0.4),transparent_55%)] group-hover:opacity-60 transition"></div>
+      <div class="relative">
+        <p class="font-display text-5xl sm:text-6xl text-usam-volt leading-none">28</p>
+        <span class="badge text-usam-volt mt-2">Centre</span>
+      </div>
+      <div class="relative">
+        <p class="font-display uppercase text-base sm:text-lg leading-tight">Jean-Loup<br>Faustin</p>
+      </div>
+    </a>
+
+    <a href="#" class="group bg-usam-charcoal text-usam-bone aspect-[3/4] flex flex-col justify-between p-4 sm:p-5 border border-transparent hover:border-usam-volt transition relative overflow-hidden">
+      <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_70%_20%,rgba(0,230,118,0.4),transparent_55%)] group-hover:opacity-60 transition"></div>
+      <div class="relative">
+        <p class="font-display text-5xl sm:text-6xl text-usam-volt leading-none">41</p>
+        <span class="badge text-usam-volt mt-2">Pivot</span>
+      </div>
+      <div class="relative">
+        <p class="font-display uppercase text-base sm:text-lg leading-tight">Sebastian<br>Kaczor</p>
+      </div>
+    </a>
+
+    <a href="#" class="group bg-usam-charcoal text-usam-bone aspect-[3/4] flex flex-col justify-between p-4 sm:p-5 border border-transparent hover:border-usam-volt transition relative overflow-hidden">
+      <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_70%_20%,rgba(0,230,118,0.4),transparent_55%)] group-hover:opacity-60 transition"></div>
+      <div class="relative">
+        <p class="font-display text-5xl sm:text-6xl text-usam-volt leading-none">71</p>
+        <span class="badge text-usam-volt mt-2">Arrière</span>
+      </div>
+      <div class="relative">
+        <p class="font-display uppercase text-base sm:text-lg leading-tight">Maté Onodi<br>Janoskuti</p>
+      </div>
+    </a>
+
+    <a href="#" class="group bg-usam-charcoal text-usam-bone aspect-[3/4] flex flex-col justify-between p-4 sm:p-5 border border-transparent hover:border-usam-volt transition relative overflow-hidden">
+      <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_70%_20%,rgba(0,230,118,0.4),transparent_55%)] group-hover:opacity-60 transition"></div>
+      <div class="relative">
+        <p class="font-display text-5xl sm:text-6xl text-usam-volt leading-none">76</p>
+        <span class="badge text-usam-volt mt-2">Ailier</span>
+      </div>
+      <div class="relative">
+        <p class="font-display uppercase text-base sm:text-lg leading-tight">Arthur<br>Anquetil</p>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- Calendrier court -->
+  <h2 class="mt-16 sm:mt-20 mb-6 sm:mb-8 font-display uppercase leading-tight" style="font-size: clamp(1.8rem, 5vw, 2.5rem);">Prochaines rencontres</h2>
+  <div class="grid gap-3 sm:gap-4 grid-cols-1 md:grid-cols-2">
+    <article class="bg-white border border-usam-slate-200 p-4 sm:p-5 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="bg-usam-charcoal text-usam-volt w-14 h-14 flex flex-col items-center justify-center shrink-0">
+          <span class="font-display text-xl leading-none">10</span>
+          <span class="text-[10px] uppercase tracking-widest">Mai</span>
+        </div>
+        <div>
+          <p class="text-[11px] uppercase tracking-widest text-usam-slate-700">Starligue · J28</p>
+          <p class="font-display uppercase text-base sm:text-lg">USAM vs Montpellier HB</p>
+          <p class="text-xs text-usam-slate-700">Vendredi 20h30 · Le Parnasse</p>
+        </div>
+      </div>
+      <a href="#" class="hidden sm:inline-flex items-center px-4 py-2 bg-usam-volt text-usam-charcoal font-display uppercase text-xs tracking-widest hover:bg-usam-yellow transition">Place</a>
+    </article>
+
+    <article class="bg-white border border-usam-slate-200 p-4 sm:p-5 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="bg-usam-bone text-usam-charcoal w-14 h-14 flex flex-col items-center justify-center shrink-0 border border-usam-slate-200">
+          <span class="font-display text-xl leading-none">17</span>
+          <span class="text-[10px] uppercase tracking-widest">Mai</span>
+        </div>
+        <div>
+          <p class="text-[11px] uppercase tracking-widest text-usam-slate-700">Starligue · J29 · Extérieur</p>
+          <p class="font-display uppercase text-base sm:text-lg">PSG Handball vs USAM</p>
+          <p class="text-xs text-usam-slate-700">Samedi 18h00 · Stade Pierre-de-Coubertin</p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+</main>
+
+<footer class="bg-usam-charcoal text-usam-bone">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <svg viewBox="0 0 400 400" class="h-12 w-12" aria-hidden="true">
+          <rect x="20" y="20" width="360" height="360" rx="32" fill="#0A0A0A" stroke="#00E676" stroke-width="8"/>
+          <text x="120" y="180" font-size="140" fill="#F5F5F0" font-family="Anton, Impact" text-anchor="middle">U</text>
+          <text x="280" y="180" font-size="140" fill="#F5F5F0" font-family="Anton, Impact" text-anchor="middle">S</text>
+          <text x="120" y="320" font-size="140" fill="#F5F5F0" font-family="Anton, Impact" text-anchor="middle">A</text>
+          <text x="280" y="320" font-size="140" fill="#00E676" font-family="Anton, Impact" text-anchor="middle">M</text>
+        </svg>
+        <span class="font-display tracking-widest text-lg">USAM <span class="text-usam-volt">NÎMES</span></span>
+      </div>
+      <p class="text-sm text-usam-bone/70">Club professionnel de handball.<br>Liqui Moly Starligue · Fondé en 1960.</p>
+    </div>
+    <div>
+      <h2 class="font-display uppercase tracking-widest text-sm text-usam-volt mb-4">Le club</h2>
+      <ul class="space-y-2 text-sm">
+        <li><a href="le-club.html" class="hover:text-usam-volt">Histoire & palmarès</a></li>
+        <li><a href="#" class="hover:text-usam-volt">Le Parnasse</a></li>
+        <li><a href="#" class="hover:text-usam-volt">Partenaires</a></li>
+        <li><a href="#" class="hover:text-usam-volt">Recrutement</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="font-display uppercase tracking-widest text-sm text-usam-volt mb-4">Contact</h2>
+      <address class="not-italic text-sm space-y-2 text-usam-bone/80">
+        <p>Le Parnasse<br>160, Av. du Languedoc<br>30900 Nîmes</p>
+        <p><a href="tel:+33466380947" class="hover:text-usam-volt">04 66 38 09 47</a></p>
+        <p><a href="mailto:contact@usam-nimesgard.fr" class="hover:text-usam-volt break-all">contact@usam-nimesgard.fr</a></p>
+      </address>
+    </div>
+    <div>
+      <h2 class="font-display uppercase tracking-widest text-sm text-usam-volt mb-4">Suivre la Green Team</h2>
+      <ul class="flex gap-4 text-sm">
+        <li><a href="#" class="hover:text-usam-volt">Facebook</a></li>
+        <li><a href="#" class="hover:text-usam-volt">Instagram</a></li>
+        <li><a href="#" class="hover:text-usam-volt">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-usam-bone/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-usam-bone/60">
+      <p>© 2026 USAM Nîmes Gard. Tous droits réservés.</p>
+      <ul class="flex gap-6">
+        <li><a href="#" class="hover:text-usam-volt">Mentions légales</a></li>
+        <li><a href="#" class="hover:text-usam-volt">Confidentialité</a></li>
+        <li><a href="#" class="hover:text-usam-volt">Cookies</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

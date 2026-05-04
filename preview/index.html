@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0A0A0A">
+  <title>USAM Nîmes Gard — La Green Team</title>
+  <meta name="description" content="Site officiel de l'USAM Nîmes Gard, club de handball professionnel évoluant en Liqui Moly Starligue. Le Parnasse, 3 333 places.">
+
+  <!-- Polices -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap">
+
+  <!-- Tailwind via CDN (preview uniquement) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'usam-volt':     '#00E676',
+            'usam-forest':   '#0B3D2E',
+            'usam-charcoal': '#0A0A0A',
+            'usam-bone':     '#F5F5F0',
+            'usam-yellow':   '#E8FF59',
+            'usam-slate-200':'#E2E8F0',
+            'usam-slate-700':'#334155',
+          },
+          fontFamily: {
+            display: ['Anton', 'Impact', 'sans-serif'],
+            head:    ['Sora', 'Inter', 'sans-serif'],
+            sans:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+          letterSpacing: { widest: '.25em' },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body class="bg-usam-bone text-usam-charcoal antialiased">
+
+<!-- ============ HEADER ============ -->
+<header class="bg-usam-charcoal text-usam-bone sticky top-0 z-40 border-b border-usam-volt/20">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16 lg:h-20">
+    <a href="index.html" class="flex items-center gap-3" aria-label="USAM Nîmes Gard, accueil">
+      <svg viewBox="0 0 400 400" class="h-10 w-10 lg:h-12 lg:w-12" aria-hidden="true">
+        <rect x="20" y="20" width="360" height="360" rx="32" fill="#0A0A0A" stroke="#00E676" stroke-width="8"/>
+        <text x="120" y="180" font-size="140" fill="#F5F5F0" font-family="Anton, Impact" text-anchor="middle">U</text>
+        <text x="280" y="180" font-size="140" fill="#F5F5F0" font-family="Anton, Impact" text-anchor="middle">S</text>
+        <text x="120" y="320" font-size="140" fill="#F5F5F0" font-family="Anton, Impact" text-anchor="middle">A</text>
+        <text x="280" y="320" font-size="140" fill="#00E676" font-family="Anton, Impact" text-anchor="middle">M</text>
+      </svg>
+      <span class="font-display tracking-widest text-base sm:text-lg lg:text-xl">USAM <span class="text-usam-volt">NÎMES</span></span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-8 font-display uppercase text-sm tracking-widest" aria-label="Navigation principale">
+      <a class="nav-link" href="le-club.html">Le Club</a>
+      <a class="nav-link" href="equipe-pro-masculine.html" aria-current="page">Équipes</a>
+      <a class="nav-link" href="#">École</a>
+      <a class="nav-link" href="#">Actus</a>
+      <a class="nav-link" href="#">Partenaires</a>
+      <a class="nav-link" href="#">Contact</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a href="#" class="hidden sm:inline-flex items-center px-4 py-2 bg-usam-yellow text-usam-charcoal font-display uppercase text-xs lg:text-sm tracking-widest hover:bg-usam-volt transition">
+        Billetterie
+      </a>
+      <button type="button" class="lg:hidden p-2 -mr-2 text-usam-bone" data-mobile-toggle aria-label="Ouvrir le menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Drawer mobile -->
+<div class="mobile-drawer fixed inset-0 z-50 bg-black/70 lg:hidden" data-mobile-drawer aria-hidden="true">
+  <div class="absolute right-0 top-0 h-full w-[85%] max-w-sm bg-usam-charcoal text-usam-bone p-6 flex flex-col">
+    <div class="flex items-center justify-between mb-10">
+      <span class="font-display tracking-widest text-lg">MENU</span>
+      <button type="button" data-mobile-close class="p-2 -mr-2" aria-label="Fermer le menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="flex-1 flex flex-col gap-5 font-display uppercase text-2xl tracking-widest">
+      <a href="le-club.html">Le Club</a>
+      <a href="equipe-pro-masculine.html">Équipes</a>
+      <a href="#">École de hand</a>
+      <a href="#">Actus</a>
+      <a href="#">Partenaires</a>
+      <a href="#">Contact</a>
+    </nav>
+    <a href="#" class="mt-8 inline-flex items-center justify-center px-6 py-4 bg-usam-yellow text-usam-charcoal font-display uppercase tracking-widest">
+      Billetterie
+    </a>
+  </div>
+</div>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="relative bg-usam-charcoal text-usam-bone overflow-hidden">
+  <div class="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_30%_20%,rgba(0,230,118,0.5),transparent_55%)]"></div>
+  <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_80%_90%,rgba(232,255,89,0.3),transparent_55%)]"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
+    <p class="font-display uppercase tracking-widest text-usam-volt text-xs sm:text-sm mb-4 sm:mb-6">Liqui Moly Starligue · Saison 2025/26</p>
+    <h1 class="font-display uppercase leading-[0.85] mb-6 sm:mb-8" style="font-size: clamp(3rem, 12vw, 9rem);">
+      La <span class="text-usam-volt">Green</span><br>Team
+    </h1>
+    <p class="text-base sm:text-lg lg:text-xl max-w-xl text-usam-bone/80 mb-8 sm:mb-10 leading-relaxed">
+      Depuis 1960 à Nîmes, l'USAM porte les couleurs du Gard au plus haut niveau du handball français. Bienvenue au Parnasse.
+    </p>
+    <div class="flex flex-wrap gap-3 sm:gap-4">
+      <a href="#" class="inline-flex items-center justify-center px-6 py-3 bg-usam-volt text-usam-charcoal font-display uppercase text-sm tracking-widest hover:bg-usam-yellow transition">
+        Billetterie
+      </a>
+      <a href="#" class="inline-flex items-center justify-center px-6 py-3 border border-usam-volt text-usam-volt font-display uppercase text-sm tracking-widest hover:bg-usam-volt hover:text-usam-charcoal transition">
+        Le calendrier
+      </a>
+    </div>
+
+    <!-- Stats inline -->
+    <dl class="mt-12 sm:mt-16 grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl">
+      <div>
+        <dt class="text-xs uppercase tracking-widest text-usam-bone/50 mb-1">Fondé en</dt>
+        <dd class="font-display text-3xl sm:text-5xl text-usam-volt">1960</dd>
+      </div>
+      <div>
+        <dt class="text-xs uppercase tracking-widest text-usam-bone/50 mb-1">Le Parnasse</dt>
+        <dd class="font-display text-3xl sm:text-5xl">3333</dd>
+      </div>
+      <div>
+        <dt class="text-xs uppercase tracking-widest text-usam-bone/50 mb-1">Titres D1</dt>
+        <dd class="font-display text-3xl sm:text-5xl">5</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============ BANDEAU PROCHAIN MATCH ============ -->
+<section class="bg-usam-volt text-usam-charcoal">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-6">
+    <div class="flex items-center gap-4 sm:gap-6 w-full md:w-auto">
+      <div class="hidden sm:flex flex-col items-center justify-center bg-usam-charcoal text-usam-volt w-20 h-20 shrink-0">
+        <span class="font-display text-3xl">10</span>
+        <span class="font-display uppercase text-[10px] tracking-widest">Mai</span>
+      </div>
+      <div>
+        <p class="font-display uppercase tracking-widest text-[10px] sm:text-xs">Prochain match · Liqui Moly Starligue</p>
+        <h2 class="font-display uppercase text-2xl sm:text-3xl lg:text-4xl leading-tight">
+          USAM <span class="opacity-50">vs</span> Montpellier HB
+        </h2>
+        <p class="text-xs sm:text-sm font-medium">Vendredi 10 mai · 20h30 · Le Parnasse</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-4 w-full md:w-auto">
+      <div class="hidden sm:block text-right">
+        <p class="font-display uppercase text-[10px] tracking-widest">Coup d'envoi dans</p>
+        <p class="font-display text-2xl" data-match-countdown="2026-05-10T20:30:00">…</p>
+      </div>
+      <a href="#" class="flex-1 md:flex-none inline-flex items-center justify-center px-6 py-3 bg-usam-charcoal text-usam-volt font-display uppercase text-sm tracking-widest hover:bg-usam-forest transition">
+        Réserver
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LES ÉQUIPES ============ -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+  <header class="mb-10 sm:mb-12 max-w-2xl">
+    <p class="font-display uppercase tracking-widest text-usam-volt text-xs sm:text-sm mb-2">Les équipes</p>
+    <h2 class="font-display uppercase leading-[0.95]" style="font-size: clamp(2rem, 6vw, 3.5rem);">Un club, plusieurs combats</h2>
+  </header>
+
+  <div class="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+    <a href="equipe-pro-masculine.html" class="group bg-usam-charcoal text-usam-bone p-6 sm:p-8 border-l-4 border-usam-volt hover:bg-usam-forest transition">
+      <p class="font-display uppercase tracking-widest text-[11px] sm:text-xs text-usam-volt mb-2">Liqui Moly Starligue</p>
+      <h3 class="font-display uppercase text-2xl sm:text-3xl group-hover:translate-x-1 transition">Green Team</h3>
+      <p class="mt-3 text-sm text-usam-bone/70">Pro masculine · D1 · 15 joueurs</p>
+    </a>
+    <a href="#" class="group bg-usam-charcoal text-usam-bone p-6 sm:p-8 border-l-4 border-usam-volt hover:bg-usam-forest transition">
+      <p class="font-display uppercase tracking-widest text-[11px] sm:text-xs text-usam-volt mb-2">D2 Féminine</p>
+      <h3 class="font-display uppercase text-2xl sm:text-3xl group-hover:translate-x-1 transition">Les Nîmoises</h3>
+      <p class="mt-3 text-sm text-usam-bone/70">Pro féminine · Phases finales</p>
+    </a>
+    <a href="#" class="group bg-usam-charcoal text-usam-bone p-6 sm:p-8 border-l-4 border-usam-volt hover:bg-usam-forest transition">
+      <p class="font-display uppercase tracking-widest text-[11px] sm:text-xs text-usam-volt mb-2">Nationale 1</p>
+      <h3 class="font-display uppercase text-2xl sm:text-3xl group-hover:translate-x-1 transition">Réserve N1M</h3>
+      <p class="mt-3 text-sm text-usam-bone/70">Antichambre du pro masculin</p>
+    </a>
+    <a href="#" class="group bg-usam-charcoal text-usam-bone p-6 sm:p-8 border-l-4 border-usam-volt hover:bg-usam-forest transition">
+      <p class="font-display uppercase tracking-widest text-[11px] sm:text-xs text-usam-volt mb-2">Nationale 3</p>
+      <h3 class="font-display uppercase text-2xl sm:text-3xl group-hover:translate-x-1 transition">Réserve N3F</h3>
+      <p class="mt-3 text-sm text-usam-bone/70">Relève des Nîmoises</p>
+    </a>
+    <a href="#" class="group bg-usam-charcoal text-usam-bone p-6 sm:p-8 border-l-4 border-usam-volt hover:bg-usam-forest transition">
+      <p class="font-display uppercase tracking-widest text-[11px] sm:text-xs text-usam-volt mb-2">Académie</p>
+      <h3 class="font-display uppercase text-2xl sm:text-3xl group-hover:translate-x-1 transition">Centre de formation</h3>
+      <p class="mt-3 text-sm text-usam-bone/70">Joueurs sous contrats jeunes</p>
+    </a>
+    <a href="#" class="group bg-usam-charcoal text-usam-bone p-6 sm:p-8 border-l-4 border-usam-volt hover:bg-usam-forest transition">
+      <p class="font-display uppercase tracking-widest text-[11px] sm:text-xs text-usam-volt mb-2">U7 → U18</p>
+      <h3 class="font-display uppercase text-2xl sm:text-3xl group-hover:translate-x-1 transition">École de hand</h3>
+      <p class="mt-3 text-sm text-usam-bone/70">Inscriptions ouvertes saison 26/27</p>
+    </a>
+  </div>
+</section>
+
+<!-- ============ DERNIÈRES ACTUS ============ -->
+<section class="bg-white border-y border-usam-slate-200 py-16 sm:py-20 lg:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header class="mb-10 sm:mb-12 flex flex-wrap justify-between items-end gap-4">
+      <div>
+        <p class="font-display uppercase tracking-widest text-usam-volt text-xs sm:text-sm mb-2">Le fil</p>
+        <h2 class="font-display uppercase leading-[0.95]" style="font-size: clamp(2rem, 6vw, 3.5rem);">Dernières actus</h2>
+      </div>
+      <a href="#" class="text-usam-forest font-display uppercase text-sm tracking-widest underline-offset-4 hover:underline">Toutes les actus →</a>
+    </header>
+
+    <div class="grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <article class="bg-usam-bone border border-usam-slate-200 group">
+        <a href="actu-exemple.html" class="block aspect-[16/10] overflow-hidden bg-usam-forest relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-usam-forest to-usam-charcoal flex items-center justify-center">
+            <span class="font-display uppercase text-usam-volt/80 tracking-widest text-sm">Photo Hodzic</span>
+          </div>
+        </a>
+        <div class="p-5 sm:p-6">
+          <p class="text-[11px] uppercase tracking-widest text-usam-slate-700 mb-2">30 avril 2026 · Pro masculine</p>
+          <h3 class="font-display uppercase text-lg sm:text-xl mb-3 leading-tight">
+            <a href="actu-exemple.html" class="hover:text-usam-volt">Harun Hodzic touché au genou, longue indisponibilité à prévoir</a>
+          </h3>
+          <p class="text-sm text-usam-slate-700 leading-relaxed">Le gardien souffre d'une rupture du LCA. Le club s'organise pour la fin de saison.</p>
+        </div>
+      </article>
+
+      <article class="bg-usam-bone border border-usam-slate-200 group">
+        <a href="actu-exemple.html" class="block aspect-[16/10] overflow-hidden bg-usam-volt relative">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <span class="font-display uppercase text-usam-charcoal tracking-widest">Photo Lafosse</span>
+          </div>
+        </a>
+        <div class="p-5 sm:p-6">
+          <p class="text-[11px] uppercase tracking-widest text-usam-slate-700 mb-2">29 avril 2026 · Mercato</p>
+          <h3 class="font-display uppercase text-lg sm:text-xl mb-3 leading-tight">
+            <a href="actu-exemple.html" class="hover:text-usam-volt">Bastien Lafosse signe son premier contrat pro jusqu'en 2030</a>
+          </h3>
+          <p class="text-sm text-usam-slate-700 leading-relaxed">À 19 ans, le produit du centre de formation s'engage durablement avec la Green Team.</p>
+        </div>
+      </article>
+
+      <article class="bg-usam-bone border border-usam-slate-200 group">
+        <a href="actu-exemple.html" class="block aspect-[16/10] overflow-hidden bg-usam-charcoal relative">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <span class="font-display uppercase text-usam-volt tracking-widest">Photo Kamtchop</span>
+          </div>
+        </a>
+        <div class="p-5 sm:p-6">
+          <p class="text-[11px] uppercase tracking-widest text-usam-slate-700 mb-2">29 avril 2026 · Mercato</p>
+          <h3 class="font-display uppercase text-lg sm:text-xl mb-3 leading-tight">
+            <a href="actu-exemple.html" class="hover:text-usam-volt">Hugo Kamtchop-Baril prolonge jusqu'en 2029</a>
+          </h3>
+          <p class="text-sm text-usam-slate-700 leading-relaxed">Le pivot, élu Green Man de mars, prolonge son aventure dans le Gard.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LE PARNASSE ============ -->
+<section class="bg-usam-charcoal text-usam-bone py-16 sm:py-20 lg:py-24 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-10 lg:gap-16 lg:grid-cols-2 items-center">
+    <div>
+      <p class="font-display uppercase tracking-widest text-usam-volt text-xs sm:text-sm mb-2">Notre maison</p>
+      <h2 class="font-display uppercase leading-[0.9] mb-6" style="font-size: clamp(2.4rem, 8vw, 4.5rem);">Le Parnasse</h2>
+      <p class="text-base sm:text-lg text-usam-bone/80 mb-6 leading-relaxed">
+        3 333 places. Un chaudron debout, des soirs de Starligue qui font trembler les vitres.
+        Vingt fois par saison, on y défend nos couleurs devant le meilleur public du Sud.
+      </p>
+      <ul class="space-y-2 text-sm sm:text-base text-usam-bone/70 mb-8">
+        <li><span class="text-usam-volt mr-2">→</span> 160, Avenue du Languedoc · 30900 Nîmes</li>
+        <li><span class="text-usam-volt mr-2">→</span> Tram T1 arrêt Parnasse</li>
+        <li><span class="text-usam-volt mr-2">→</span> Parking gratuit (700 places)</li>
+      </ul>
+      <a href="#" class="inline-flex items-center px-6 py-3 border border-usam-volt text-usam-volt font-display uppercase text-sm tracking-widest hover:bg-usam-volt hover:text-usam-charcoal transition">
+        Visiter Le Parnasse
+      </a>
+    </div>
+    <div class="aspect-[4/3] bg-gradient-to-br from-usam-forest to-usam-charcoal border border-usam-volt/30 flex items-center justify-center relative">
+      <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_50%_50%,rgba(0,230,118,0.5),transparent_60%)]"></div>
+      <span class="relative font-display uppercase tracking-widest text-usam-volt/70">[ Photo Le Parnasse ]</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARTENAIRES ============ -->
+<section class="bg-white py-16 sm:py-20 lg:py-24 border-b border-usam-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header class="mb-10 sm:mb-12 max-w-2xl">
+      <p class="font-display uppercase tracking-widest text-usam-volt text-xs sm:text-sm mb-2">Ils nous soutiennent</p>
+      <h2 class="font-display uppercase leading-[0.95]" style="font-size: clamp(2rem, 6vw, 3.5rem);">Partenaires</h2>
+    </header>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-usam-slate-200">
+      <!-- 10 logos placeholder -->
+      <div class="aspect-[3/2] bg-usam-bone flex items-center justify-center p-4 sm:p-6"><span class="text-xs sm:text-sm text-usam-slate-700 font-medium">Liqui Moly</span></div>
+      <div class="aspect-[3/2] bg-usam-bone flex items-center justify-center p-4 sm:p-6"><span class="text-xs sm:text-sm text-usam-slate-700 font-medium">Kappa</span></div>
+      <div class="aspect-[3/2] bg-usam-bone flex items-center justify-center p-4 sm:p-6"><span class="text-xs sm:text-sm text-usam-slate-700 font-medium">Burger King</span></div>
+      <div class="aspect-[3/2] bg-usam-bone flex items-center justify-center p-4 sm:p-6"><span class="text-xs sm:text-sm text-usam-slate-700 font-medium">Groupe Maurin</span></div>
+      <div class="aspect-[3/2] bg-usam-bone flex items-center justify-center p-4 sm:p-6"><span class="text-xs sm:text-sm text-usam-slate-700 font-medium">Ford Nîmes</span></div>
+      <div class="aspect-[3/2] bg-usam-bone flex items-center justify-center p-4 sm:p-6"><span class="text-xs sm:text-sm text-usam-slate-700 font-medium">Bastide</span></div>
+      <div class="aspect-[3/2] bg-usam-bone flex items-center justify-center p-4 sm:p-6"><span class="text-xs sm:text-sm text-usam-slate-700 font-medium">Ocean Nîmes</span></div>
+      <div class="aspect-[3/2] bg-usam-bone flex items-center justify-center p-4 sm:p-6"><span class="text-xs sm:text-sm text-usam-slate-700 font-medium">AESIO</span></div>
+      <div class="aspect-[3/2] bg-usam-bone flex items-center justify-center p-4 sm:p-6"><span class="text-xs sm:text-sm text-usam-slate-700 font-medium">Keolis</span></div>
+      <div class="aspect-[3/2] bg-usam-bone flex items-center justify-center p-4 sm:p-6"><span class="text-xs sm:text-sm text-usam-slate-700 font-medium">Crédit Agricole</span></div>
+    </div>
+
+    <div class="mt-8 sm:mt-10 text-center">
+      <a href="#" class="inline-flex items-center text-usam-forest font-display uppercase tracking-widest text-sm hover:text-usam-volt">
+        Devenir partenaire →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CALL OUT NEWSLETTER ============ -->
+<section class="bg-usam-volt text-usam-charcoal">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 text-center">
+    <h2 class="font-display uppercase mb-4" style="font-size: clamp(1.6rem, 5vw, 2.5rem);">Reste connecté à la Green Team</h2>
+    <p class="text-sm sm:text-base mb-8 max-w-md mx-auto">Compositions, billetterie, coulisses et offres partenaires. Direct dans ta boîte.</p>
+    <form class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+      <input type="email" required placeholder="ton@email.fr"
+             class="flex-1 px-4 py-3 bg-usam-bone text-usam-charcoal placeholder:text-usam-slate-700 outline-none focus:ring-2 focus:ring-usam-charcoal">
+      <button type="submit" class="px-6 py-3 bg-usam-charcoal text-usam-volt font-display uppercase tracking-widest text-sm hover:bg-usam-forest transition">
+        Je m'inscris
+      </button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-usam-charcoal text-usam-bone">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <svg viewBox="0 0 400 400" class="h-12 w-12" aria-hidden="true">
+          <rect x="20" y="20" width="360" height="360" rx="32" fill="#0A0A0A" stroke="#00E676" stroke-width="8"/>
+          <text x="120" y="180" font-size="140" fill="#F5F5F0" font-family="Anton, Impact" text-anchor="middle">U</text>
+          <text x="280" y="180" font-size="140" fill="#F5F5F0" font-family="Anton, Impact" text-anchor="middle">S</text>
+          <text x="120" y="320" font-size="140" fill="#F5F5F0" font-family="Anton, Impact" text-anchor="middle">A</text>
+          <text x="280" y="320" font-size="140" fill="#00E676" font-family="Anton, Impact" text-anchor="middle">M</text>
+        </svg>
+        <span class="font-display tracking-widest text-lg">USAM <span class="text-usam-volt">NÎMES</span></span>
+      </div>
+      <p class="text-sm text-usam-bone/70 leading-relaxed">
+        Club professionnel de handball.<br>
+        Liqui Moly Starligue · Fondé en 1960.
+      </p>
+    </div>
+
+    <div>
+      <h2 class="font-display uppercase tracking-widest text-sm text-usam-volt mb-4">Le club</h2>
+      <ul class="space-y-2 text-sm">
+        <li><a href="le-club.html" class="hover:text-usam-volt">Histoire & palmarès</a></li>
+        <li><a href="#" class="hover:text-usam-volt">Le Parnasse</a></li>
+        <li><a href="#" class="hover:text-usam-volt">Partenaires</a></li>
+        <li><a href="#" class="hover:text-usam-volt">Recrutement</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="font-display uppercase tracking-widest text-sm text-usam-volt mb-4">Contact</h2>
+      <address class="not-italic text-sm space-y-2 text-usam-bone/80">
+        <p>Le Parnasse<br>160, Av. du Languedoc<br>30900 Nîmes</p>
+        <p><a href="tel:+33466380947" class="hover:text-usam-volt">04 66 38 09 47</a></p>
+        <p><a href="mailto:contact@usam-nimesgard.fr" class="hover:text-usam-volt break-all">contact@usam-nimesgard.fr</a></p>
+      </address>
+    </div>
+
+    <div>
+      <h2 class="font-display uppercase tracking-widest text-sm text-usam-volt mb-4">Suivre la Green Team</h2>
+      <ul class="flex gap-4 text-sm">
+        <li><a href="#" class="hover:text-usam-volt" aria-label="Facebook">Facebook</a></li>
+        <li><a href="#" class="hover:text-usam-volt" aria-label="Instagram">Instagram</a></li>
+        <li><a href="#" class="hover:text-usam-volt" aria-label="LinkedIn">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-usam-bone/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-usam-bone/60">
+      <p>© 2026 USAM Nîmes Gard. Tous droits réservés.</p>
+      <ul class="flex gap-6">
+        <li><a href="#" class="hover:text-usam-volt">Mentions légales</a></li>
+        <li><a href="#" class="hover:text-usam-volt">Confidentialité</a></li>
+        <li><a href="#" class="hover:text-usam-volt">Cookies</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+/* USAM Nîmes Gard — preview shared styles
+   Utilisé en complément de Tailwind CDN. */
+
+:root {
+  --usam-volt: #00E676;
+  --usam-forest: #0B3D2E;
+  --usam-charcoal: #0A0A0A;
+  --usam-bone: #F5F5F0;
+  --usam-yellow: #E8FF59;
+  --usam-slate-200: #E2E8F0;
+  --usam-slate-700: #334155;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+
+::selection {
+  background-color: var(--usam-volt);
+  color: var(--usam-charcoal);
+}
+
+/* Empêche le débordement horizontal en mobile */
+html, body { overflow-x: hidden; }
+
+/* Animation d'entrée pour les sections */
+@media (prefers-reduced-motion: no-preference) {
+  .fade-up { animation: fadeUp 600ms ease-out both; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: none; }
+  }
+}
+
+/* Lignes de hover sur menu */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 0;
+  background-color: var(--usam-volt);
+  transition: width 200ms;
+}
+.nav-link:hover::after,
+.nav-link[aria-current="page"]::after { width: 100%; }
+
+/* Conteneur prose simple pour pages texte */
+.prose-usam p { margin-bottom: 1em; line-height: 1.7; }
+.prose-usam h2 {
+  font-family: 'Anton', Impact, sans-serif;
+  text-transform: uppercase;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  margin: 2em 0 0.6em;
+  letter-spacing: 0.02em;
+}
+.prose-usam ul { list-style: disc; padding-left: 1.2em; margin-bottom: 1em; }
+.prose-usam li { margin-bottom: 0.4em; line-height: 1.7; }
+
+/* Drawer mobile */
+.mobile-drawer {
+  transform: translateX(100%);
+  transition: transform 250ms ease-out;
+}
+.mobile-drawer.open { transform: translateX(0); }
+body.no-scroll { overflow: hidden; }
+
+/* Mini badge poste joueur */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.6rem;
+  font-family: 'Anton', Impact, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  line-height: 1;
+}
+
+/* Touch targets : 44px min en mobile */
+@media (max-width: 768px) {
+  a, button { min-height: 44px; }
+}
