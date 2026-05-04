@@ -21,7 +21,57 @@
       }}
     };
   </script>
-  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/styles.css?v=3">
+
+  <style>
+    .usam-splash {
+      position: fixed; inset: 0; z-index: 9999;
+      background: #0A0A0A;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      cursor: pointer; user-select: none;
+      transition: opacity 600ms ease, transform 600ms cubic-bezier(0.65, 0, 0.35, 1);
+    }
+    .usam-splash.gone { opacity: 0; transform: scale(1.06); pointer-events: none; }
+    .usam-splash svg.usam-splash-logo { width: clamp(220px, 60vw, 360px); height: auto; }
+    .usam-splash .splash-frame {
+      fill: transparent; stroke: #00E676; stroke-width: 8;
+      stroke-dasharray: 1440; stroke-dashoffset: 1440;
+      animation: splashFrame 800ms 100ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
+    }
+    @keyframes splashFrame { to { stroke-dashoffset: 0; } }
+    .usam-splash .splash-cross {
+      stroke: #0B3D2E; stroke-width: 2; opacity: 0;
+      animation: splashFadeIn 500ms 700ms ease-out forwards;
+    }
+    .usam-splash .splash-letter {
+      font-family: Anton, Impact, sans-serif; font-size: 140px;
+      text-anchor: middle; opacity: 0;
+      animation: splashFadeIn 500ms ease-out forwards;
+    }
+    .usam-splash .splash-u { fill: #F5F5F0; animation-delay: 300ms; }
+    .usam-splash .splash-s { fill: #F5F5F0; animation-delay: 420ms; }
+    .usam-splash .splash-a { fill: #F5F5F0; animation-delay: 540ms; }
+    .usam-splash .splash-m { fill: #00E676; animation-delay: 660ms; }
+    .usam-splash .splash-tagline {
+      font-family: Sora, Inter, sans-serif; font-weight: 800;
+      font-size: 14px; fill: #00E676; letter-spacing: 6px;
+      text-anchor: middle; opacity: 0;
+      animation: splashFadeIn 600ms 1300ms ease-out forwards;
+    }
+    .usam-splash .splash-skip {
+      margin-top: 2.2rem; font-family: Sora, Inter, sans-serif;
+      font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(245, 245, 240, 0.4); opacity: 0;
+      animation: splashFadeIn 800ms 1800ms ease-out forwards;
+    }
+    @keyframes splashFadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    body.usam-locked { overflow: hidden; }
+    @media (prefers-reduced-motion: reduce) { .usam-splash { display: none; } }
+  </style>
 </head>
 <body class="bg-usam-bone text-usam-charcoal antialiased">
 
@@ -38,6 +88,30 @@
   </svg>
   <p class="splash-skip">Cliquer pour passer</p>
 </div>
+
+<script>
+(function () {
+  var splash = document.querySelector('[data-splash]');
+  if (!splash) return;
+  var seen = false;
+  try { seen = sessionStorage.getItem('usam-splash-seen') === '1'; } catch(e) {}
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || seen) { splash.parentNode && splash.parentNode.removeChild(splash); return; }
+  document.body.classList.add('usam-locked');
+  function dismiss() {
+    if (splash.classList.contains('gone')) return;
+    splash.classList.add('gone');
+    document.body.classList.remove('usam-locked');
+    try { sessionStorage.setItem('usam-splash-seen', '1'); } catch(e) {}
+    setTimeout(function () { splash.parentNode && splash.parentNode.removeChild(splash); }, 700);
+  }
+  var auto = setTimeout(dismiss, 2600);
+  splash.addEventListener('click', function () { clearTimeout(auto); dismiss(); });
+  splash.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') { clearTimeout(auto); dismiss(); }
+  });
+})();
+</script>
 
 <header class="bg-usam-charcoal text-usam-bone sticky top-0 z-40 border-b border-usam-volt/20">
   <div class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16 lg:h-20">

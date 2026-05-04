@@ -1,34 +1,7 @@
 // USAM Nîmes Gard — preview shared JS
+// Le JS du splash est inline dans chaque page (à la fin du <body>)
+// pour être robuste aux caches CDN.
 (function () {
-  // Splash d'arrivée
-  const splash = document.querySelector('[data-splash]');
-  if (splash) {
-    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const seen   = sessionStorage.getItem('usam-splash-seen') === '1';
-
-    if (reduce || seen) {
-      splash.remove();
-    } else {
-      document.body.classList.add('no-scroll');
-
-      const dismiss = () => {
-        if (splash.classList.contains('gone')) return;
-        splash.classList.add('gone');
-        document.body.classList.remove('no-scroll');
-        sessionStorage.setItem('usam-splash-seen', '1');
-        setTimeout(() => splash.remove(), 700);
-      };
-
-      const auto = setTimeout(dismiss, 2600);
-      splash.addEventListener('click', () => { clearTimeout(auto); dismiss(); });
-      splash.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') {
-          clearTimeout(auto); dismiss();
-        }
-      });
-    }
-  }
-
   // Mobile menu toggle
   const trigger = document.querySelector('[data-mobile-toggle]');
   const drawer  = document.querySelector('[data-mobile-drawer]');
