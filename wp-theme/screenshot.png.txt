@@ -1,0 +1,2 @@
+À remplacer par un screenshot.png 1200x900 du thème (capture de la home).
+WordPress affiche cette image dans Apparence → Thèmes.

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  USAM Nîmes Gard — Logo horizontal (premier jet)
+  Pour en-tête site, signatures mail, papier à lettre.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" role="img" aria-label="USAM Nîmes Gard">
+  <title>USAM Nîmes Gard</title>
+
+  <!-- Bloc monogramme -->
+  <rect x="20" y="20" width="160" height="160" rx="16" fill="#0A0A0A"/>
+  <rect x="20" y="20" width="160" height="160" rx="16" fill="none" stroke="#00E676" stroke-width="3"/>
+  <g font-family="Anton, Impact, sans-serif" text-anchor="middle">
+    <text x="65" y="95" font-size="60" fill="#F5F5F0">U</text>
+    <text x="135" y="95" font-size="60" fill="#F5F5F0">S</text>
+    <text x="65" y="160" font-size="60" fill="#F5F5F0">A</text>
+    <text x="135" y="160" font-size="60" fill="#00E676">M</text>
+  </g>
+
+  <!-- Wordmark -->
+  <g font-family="Sora, sans-serif" font-weight="800">
+    <text x="210" y="105" font-size="56" fill="#0A0A0A" letter-spacing="-1">USAM</text>
+    <text x="210" y="160" font-size="28" fill="#0B3D2E" letter-spacing="2">NÎMES · GARD</text>
+  </g>
+
+  <!-- Trait accent -->
+  <rect x="210" y="118" width="80" height="6" fill="#00E676"/>
+</svg>

@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Build artifacts
+wp-theme/assets/css/main.css
+wp-theme/assets/css/main.css.map
+wp-theme/build/
+dist/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+deploy.config
+
+# WordPress local
+wp-config.php
+.htaccess.local
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+error_log
+
+# Uploads (gérés en prod, jamais en git)
+wp-content/uploads/
+
+# Temp
+*.tmp
+*.bak

@@ -1,0 +1,16 @@
+/*
+Theme Name: USAM Nîmes Gard
+Theme URI: https://usam-nimesgard.fr
+Author: USAM Nîmes Gard
+Author URI: https://usam-nimesgard.fr
+Description: Thème officiel du site web de l'USAM Nîmes Gard, club de handball professionnel évoluant en Liqui Moly Starligue. Refonte 2026.
+Version: 0.1.0
+Requires at least: 6.4
+Requires PHP: 8.1
+License: Proprietary — © USAM Nîmes Gard
+Text Domain: usam
+Tags: handball, sport, club, custom
+*/
+
+/* Le CSS réel est compilé par Tailwind dans assets/css/main.css. */
+/* Ce fichier sert uniquement d'en-tête WordPress pour identifier le thème. */

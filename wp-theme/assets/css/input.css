@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variables CSS — accessibles partout (WP admin custom inclus) */
+:root {
+  --usam-volt: #00E676;
+  --usam-forest: #0B3D2E;
+  --usam-charcoal: #0A0A0A;
+  --usam-bone: #F5F5F0;
+  --usam-yellow: #E8FF59;
+  --usam-slate-200: #E2E8F0;
+  --usam-slate-700: #334155;
+}
+
+/* Polices self-hostées (à déposer dans assets/fonts/) */
+@font-face {
+  font-family: 'Anton';
+  src: url('../fonts/Anton-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sora';
+  src: url('../fonts/Sora-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sora';
+  src: url('../fonts/Sora-800.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Sélection */
+::selection {
+  background-color: var(--usam-volt);
+  color: var(--usam-charcoal);
+}
+
+/* Scrollbar discrète façon native moderne */
+@supports (scrollbar-color: auto) {
+  html {
+    scrollbar-color: var(--usam-volt) var(--usam-bone);
+  }
+}
