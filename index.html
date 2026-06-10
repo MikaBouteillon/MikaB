@@ -101,6 +101,12 @@
   .hero-photo .price-flash{position:absolute;top:16px;right:16px;z-index:3;background:var(--grad);color:#fff;font-family:'Archivo';font-weight:900;padding:11px 17px;border-radius:14px;font-size:.94rem;transform:rotate(3deg);box-shadow:0 14px 30px -8px rgba(255,46,116,.6)}
   .hero-photo .cap{position:absolute;left:14px;bottom:14px;z-index:3;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);padding:9px 14px;border-radius:999px;font-size:.82rem;font-weight:700;color:var(--ink);box-shadow:var(--shadow-sm)}
   .hero-photo .cap b{color:var(--pink)}
+  .hero-photo .hero-logo{position:absolute;left:16px;top:16px;z-index:3;width:130px;height:auto;filter:drop-shadow(0 4px 12px rgba(0,0,0,.5))}
+
+  /* ---------- Logo (zones sombres) ---------- */
+  .logo-img{width:150px;height:auto;display:block}
+  .cta-center{text-align:center;margin-top:40px}
+  .band .hero-ctas{margin-top:22px}
 
   /* ---------- Bandeau défilant ---------- */
   .marquee{background:var(--ink);overflow:hidden;padding:14px 0}
@@ -244,7 +250,7 @@
       <span class="eyebrow"><span class="pulse"></span> Inscriptions licence 2026 ouvertes · Nîmes / Marguerittes</span>
       <h1>Rejoins la communauté padel <span class="grad-txt">qui va te faire kiffer.</span></h1>
       <p class="lead">
-        10 terrains GreenSet dernière génération, des coachs bienveillants, des tournois toute l'année et des équipes à construire ensemble.
+        10 terrains de qualité Mondo (type officiel), des coachs bienveillants, des tournois toute l'année et de vrais championnats par équipes.
         Ici on ne prend pas juste une licence&nbsp;: <b>on rejoint une vraie aventure collective.</b>
       </p>
       <div class="hero-ctas">
@@ -252,16 +258,17 @@
         <a href="#aventure" class="btn btn-ghost">Découvrir l'aventure</a>
       </div>
       <div class="hero-meta">
-        <span>🎾 <b>10</b> terrains premium</span>
-        <span>🏆 Tournois <b>chaque semaine</b></span>
-        <span>💪 Club <b>à taille humaine</b></span>
+        <span>🎾 <b>10</b> terrains qualité Mondo</span>
+        <span>🏆 Championnats <b>par équipes</b></span>
+        <span>🌅 Coucher de soleil <b>tous les soirs</b></span>
       </div>
     </div>
 
-    <div class="hero-photo photo warm reveal in">
+    <div class="hero-photo photo reveal in">
+      <img class="hero-logo" src="assets/logo.png" alt="Logo Padel Performance Center" />
       <div class="price-flash">Licence dès 22€</div>
-      <img src="assets/hero.jpg" alt="Joueur de padel en position de jeu au soleil sur un terrain du Padel Performance Center" />
-      <div class="cap">🔥 L'ambiance club, <b>tous les jours</b></div>
+      <img src="assets/hero.jpg" alt="Le club Padel Performance Center au Parc Praden de nuit : terrasses, palmiers et terrains illuminés" />
+      <div class="cap">🌅 Coucher de soleil <b>tous les soirs</b></div>
     </div>
   </div>
 </section>
@@ -269,8 +276,8 @@
 <!-- ===================== MARQUEE ===================== -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
-    <span>TOURNOIS <b>★</b> COURS COLLECTIFS <b>★</b> COACHS BIENVEILLANTS <b>★</b> ÉQUIPES &amp; CHAMPIONNATS <b>★</b> TENUES DE QUALITÉ <b>★</b> AMBIANCE AU TOP <b>★</b> 10 TERRAINS GREENSET <b>★</b></span>
-    <span>TOURNOIS <b>★</b> COURS COLLECTIFS <b>★</b> COACHS BIENVEILLANTS <b>★</b> ÉQUIPES &amp; CHAMPIONNATS <b>★</b> TENUES DE QUALITÉ <b>★</b> AMBIANCE AU TOP <b>★</b> 10 TERRAINS GREENSET <b>★</b></span>
+    <span>CHAMPIONNATS PAR ÉQUIPES <b>★</b> 10 TERRAINS QUALITÉ MONDO <b>★</b> ÉCOLE DE PADEL <b>★</b> TOURNOIS HOMOLOGUÉS <b>★</b> CLUBHOUSE &amp; TERRASSES <b>★</b> TENUES DU CLUB <b>★</b> COUCHER DE SOLEIL TOUS LES SOIRS <b>★</b></span>
+    <span>CHAMPIONNATS PAR ÉQUIPES <b>★</b> 10 TERRAINS QUALITÉ MONDO <b>★</b> ÉCOLE DE PADEL <b>★</b> TOURNOIS HOMOLOGUÉS <b>★</b> CLUBHOUSE &amp; TERRASSES <b>★</b> TENUES DU CLUB <b>★</b> COUCHER DE SOLEIL TOUS LES SOIRS <b>★</b></span>
   </div>
 </div>
 
@@ -283,13 +290,14 @@
       <p>Beaucoup de clubs proposent du padel. Nous, on construit une communauté où chacun trouve sa place, progresse et vit des moments inoubliables.</p>
     </div>
     <div class="cards">
-      <div class="card reveal"><div class="ico">💪</div><h3>Une communauté au top</h3><p>Un club à taille humaine, un groupe de joueurs hyper actif, des soirées et des rencontres. Tu arrives seul, tu repars avec une bande de potes.</p></div>
+      <div class="card reveal"><div class="ico">💪</div><h3>Une communauté au top</h3><p>Un groupe de joueurs hyper actif, des soirées, des rencontres et un vrai esprit d'équipe. Tu arrives seul, tu repars avec une bande de potes.</p></div>
       <div class="card reveal"><div class="ico">🏆</div><h3>Des tournois toute l'année</h3><p>Tournois homologués, internes et amicaux chaque semaine. De quoi se challenger quel que soit ton niveau, du débutant au compétiteur.</p></div>
       <div class="card reveal"><div class="ico">🎓</div><h3>Des cours pour progresser</h3><p>Cours collectifs, leçons individuelles et stages. Une vraie école de padel pour enfants et adultes, avec un suivi personnalisé.</p></div>
       <div class="card reveal"><div class="ico">🤝</div><h3>Des coachs bienveillants</h3><p>Une équipe pédagogue et passionnée qui te fait progresser sans pression, dans la bonne humeur. Ici on apprend en s'amusant.</p></div>
-      <div class="card reveal"><div class="ico">⚡</div><h3>Des équipes à construire</h3><p>On crée des équipes, on monte des championnats, on défend les couleurs du club ensemble. Une belle aventure collective t'attend.</p></div>
-      <div class="card reveal"><div class="ico">🎾</div><h3>10 terrains premium</h3><p>Terrains GreenSet dernière génération, parking gratuit, terrasse, boissons et snacks. Tout est réuni pour ne penser qu'au jeu.</p></div>
+      <div class="card reveal"><div class="ico">⚡</div><h3>Les championnats par équipes</h3><p>Ici, on prend les interclubs au sérieux. Chaque saison, c'est le club entier qui vibre&nbsp;: on engage nos équipes, on défend nos couleurs et on met tout notre cœur à vivre des moments inoubliables ensemble. On mouille le maillot, et on adore ça.</p></div>
+      <div class="card reveal"><div class="ico">🌅</div><h3>Un club qui vit</h3><p>Clubhouse, vestiaires, terrasses et 10 terrains de qualité Mondo (type officiel). Un esprit d'équipe bien vivant la journée et une ambiance coucher de soleil tous les soirs.</p></div>
     </div>
+    <div class="cta-center reveal"><a href="#licence" class="btn btn-primary">Je prends ma licence dès 22€ →</a></div>
   </div>
 </section>
 
@@ -298,7 +306,8 @@
   <div class="photo warm"><img src="assets/community.jpg" alt="Joueurs et joueuses de padel qui partagent un moment convivial au soleil" /></div>
   <div class="wrap band-in reveal">
     <h2>Ici, on ne joue jamais <span class="grad-txt">tout seul.</span></h2>
-    <p>Des parties qui se montent en deux messages, des potes de tous niveaux, des fous rires et des troisièmes mi-temps au soleil. Bienvenue dans la communauté la plus vivante du coin.</p>
+    <p>Des parties qui se montent en deux messages, des potes de tous niveaux, des fous rires et des couchers de soleil sur la terrasse. Bienvenue dans la communauté la plus vivante du coin.</p>
+    <div class="hero-ctas"><a href="#licence" class="btn btn-light">Je prends ma licence dès 22€ →</a></div>
   </div>
 </section>
 
@@ -369,7 +378,7 @@
 <section class="sec">
   <div class="wrap">
     <div class="stats">
-      <div class="stat reveal"><div class="n grad-txt">10</div><div class="l">Terrains GreenSet</div></div>
+      <div class="stat reveal"><div class="n grad-txt">10</div><div class="l">Terrains qualité Mondo</div></div>
       <div class="stat reveal"><div class="n grad-txt">7j/7</div><div class="l">Ouvert 9h à 23h</div></div>
       <div class="stat reveal"><div class="n grad-txt">Tous</div><div class="l">Niveaux bienvenus</div></div>
       <div class="stat reveal"><div class="n grad-txt">100%</div><div class="l">Bonne humeur</div></div>
@@ -412,11 +421,12 @@
 <!-- ===================== CTA FINAL ===================== -->
 <section class="final" id="rejoindre">
   <div class="final-in reveal">
+    <img class="logo-img" src="assets/logo.png" alt="Padel Performance Center" style="margin:0 auto 22px" />
     <h2>Ta place dans l'équipe t'attend.</h2>
-    <p>Ne reste pas sur la touche. Prends ta licence, rejoins la communauté padel la plus vivante du coin et vis l'aventure avec nous.</p>
+    <p>Rejoins la communauté padel la plus vivante du coin, prends ta licence et écris la suite de l'aventure avec nous. Les plus beaux souvenirs se jouent ensemble.</p>
     <div class="hero-ctas">
       <a href="#licence" class="btn btn-light">Je prends ma licence dès 22€ →</a>
-      <a href="https://www.facebook.com/ppc.parcpraden" target="_blank" rel="noopener" class="btn btn-dark">Voir le club sur Facebook</a>
+      <a href="https://www.instagram.com/ppc_parcpraden/" target="_blank" rel="noopener" class="btn btn-dark">Voir le club sur Instagram</a>
     </div>
   </div>
 </section>
@@ -426,8 +436,8 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="brand" style="margin-bottom:14px"><span class="dot">P</span><span>PADEL PERFORMANCE CENTER<small>Parc Praden · Nîmes / Marguerittes</small></span></div>
-        <p style="color:#aebfd6">Le club de padel à taille humaine de Nîmes / Marguerittes. Une communauté, des tournois, des coachs bienveillants, des tenues de qualité et une belle aventure collective.</p>
+        <img class="logo-img" src="assets/logo.png" alt="Padel Performance Center - Parc Praden" style="margin-bottom:16px;width:170px" />
+        <p style="color:#aebfd6">Le club de padel de Nîmes / Marguerittes : clubhouse, vestiaires, terrasses et 10 terrains de qualité Mondo. Un esprit d'équipe bien vivant la journée et une ambiance coucher de soleil tous les soirs.</p>
       </div>
       <div>
         <h4>Le club</h4>
@@ -437,6 +447,7 @@
       </div>
       <div>
         <h4>Suivez-nous</h4>
+        <a href="https://www.instagram.com/ppc_parcpraden/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.facebook.com/ppc.parcpraden" target="_blank" rel="noopener">Facebook</a>
         <a href="https://padelperformancecenter.com/parcpraden/" target="_blank" rel="noopener">Site officiel</a>
         <a href="#licence">Prendre ma licence</a>
