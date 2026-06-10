@@ -177,6 +177,10 @@
   .tenue-copy b{color:var(--ink)}
   .tenue-feats{display:flex;flex-wrap:wrap;gap:9px;margin:20px 0}
   .tenue-feats span{font-size:.85rem;background:var(--surface);border:1px solid var(--line);padding:8px 13px;border-radius:999px;color:var(--ink-2);box-shadow:var(--shadow-sm)}
+  .tenue-name{display:flex;gap:12px;align-items:flex-start;background:var(--grad-soft);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:14px;padding:14px 16px;margin:4px 0}
+  .tenue-name .ic{font-size:1.35rem;line-height:1.1;flex:0 0 auto}
+  .tenue-name p{margin:0;color:var(--ink-2);font-size:1rem}
+  .tenue-name b{color:var(--ink)}
 
   /* Stats */
   .stats{display:grid;gap:14px;grid-template-columns:repeat(2,1fr);max-width:920px;margin:0 auto}
@@ -373,12 +377,16 @@
       <span class="soon">⚡ Nouveauté 2026</span>
       <h2>Des tenues de qualité<br><span class="grad-txt">pour tous les licenciés.</span></h2>
       <p>Cette année, on passe un cap&nbsp;: chaque licencié du club pourra porter <b>une tenue Parc Praden de vraie qualité</b>. On a écouté les remarques, et la qualité textile va être au rendez-vous.</p>
-      <p>Coupe moderne, matières techniques respirantes, finitions impeccables&nbsp;: <b>elles vont faire parler, et tu les porteras fièrement</b>, sur le terrain comme en dehors. Tu ne portes pas juste un maillot, tu appartiens à un club qui compte sur toi !</p>
+      <p>Coupe moderne, matières techniques respirantes, finitions impeccables&nbsp;: <b>elles vont faire parler, et tu les porteras fièrement</b>, sur le terrain comme en dehors.</p>
+      <div class="tenue-name">
+        <span class="ic">🏷️</span>
+        <p><b>Et le détail qui change tout : ton nom floqué dans le dos.</b> Ici, personne n'est un numéro&nbsp;: chaque licencié porte son nom au-dessus du logo, fièrement, comme un membre à part entière de l'équipe. On joue tous ensemble, et ça se voit.</p>
+      </div>
       <div class="tenue-feats">
-        <span>👕 Tenue aux couleurs du club</span>
+        <span>🏷️ Ton nom floqué dans le dos</span>
+        <span>👕 Aux couleurs du club</span>
         <span>💧 Tissu technique respirant</span>
         <span>🏅 Qualité textile premium</span>
-        <span>🤝 Esprit communauté</span>
       </div>
       <a href="#licence" class="btn btn-primary">Je rejoins le club →</a>
     </div>
