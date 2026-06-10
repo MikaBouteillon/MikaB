@@ -4,9 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Padel Performance Center | Deviens licencié à Nîmes / Marguerittes</title>
-<meta name="description" content="Rejoins la communauté padel du Padel Performance Center à Nîmes / Marguerittes. Licence dès 22€. Tournois, cours, coachs bienveillants, championnats par équipes, tenues de qualité et une belle aventure ensemble." />
+<meta name="description" content="Rejoins la communauté padel du Padel Performance Center à Nîmes / Marguerittes. Licence enfant 22€, adulte 25€. Tournois, cours, coachs bienveillants, championnats par équipes et tenues de qualité." />
 <meta property="og:title" content="Padel Performance Center | Deviens licencié !" />
-<meta property="og:description" content="Rejoins une communauté padel incroyable à Nîmes / Marguerittes. Licence dès 22€. Tournois, cours, championnats par équipes et tenues de qualité." />
+<meta property="og:description" content="Rejoins une communauté padel incroyable à Nîmes / Marguerittes. Licence enfant 22€, adulte 25€. Tournois, cours, championnats par équipes et tenues de qualité." />
 <meta property="og:image" content="assets/community.jpg" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="fr_FR" />
@@ -80,6 +80,7 @@
   .brand{display:flex;align-items:center;gap:11px;font-family:'Archivo';font-weight:900;font-size:1rem;color:var(--ink)}
   .brand .dot{width:34px;height:34px;border-radius:10px;background:var(--grad);display:grid;place-items:center;color:var(--on-accent);font-weight:900;flex:0 0 auto}
   .brand small{display:block;font-family:'Inter';font-weight:500;font-size:.64rem;letter-spacing:.15em;color:var(--muted);text-transform:uppercase}
+  .nav-logo{height:40px;width:auto;display:block}
   .nav-cta{display:none}
   @media(min-width:760px){.nav-cta{display:inline-flex;padding:11px 20px;font-size:.92rem}}
 
@@ -90,8 +91,8 @@
     radial-gradient(55% 50% at 5% 30%,var(--glow2),transparent 60%);pointer-events:none}
   .hero-grid{position:relative;z-index:1;display:grid;gap:30px;align-items:center}
   @media(min-width:980px){.hero-grid{grid-template-columns:1.04fr .96fr;gap:34px}}
-  .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:8px 15px;border-radius:999px;background:var(--grad-soft);border:1px solid var(--line);font-weight:600;font-size:.82rem;color:var(--accent-strong);margin-bottom:20px}
-  .eyebrow .pulse{width:9px;height:9px;border-radius:50%;background:var(--accent);animation:pulse 1.6s infinite}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:9px 15px;border-radius:11px;background:var(--grad-soft);border:1.5px solid var(--accent);font-family:'Archivo',sans-serif;font-weight:800;font-size:.78rem;letter-spacing:.07em;text-transform:uppercase;color:var(--accent-strong);margin-bottom:20px;box-shadow:0 6px 18px -10px var(--accent)}
+  .eyebrow .pulse{width:9px;height:9px;border-radius:2px;background:var(--accent);transform:rotate(45deg);animation:pulse 1.6s infinite}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
   .hero h1{font-size:clamp(2.3rem,7vw,4.2rem);font-weight:900}
   .hero .lead{color:var(--muted);font-size:1.1rem;max-width:540px;margin:18px 0 4px}
@@ -229,15 +230,36 @@
 
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
   .reveal.in{opacity:1;transform:none}
+
+  /* ---------- Animation d'intro (logo ~3s) ---------- */
+  #intro{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;overflow:hidden;
+    background:linear-gradient(135deg,#0d1828 0%,#16263c 100%);
+    animation:introOut .7s cubic-bezier(.7,0,.3,1) 2.35s forwards}
+  #intro::before{content:"";position:absolute;width:130vmax;height:130vmax;border-radius:50%;
+    background:radial-gradient(circle, rgba(255,122,47,.20), rgba(255,46,116,.10) 35%, transparent 58%);
+    animation:introGlow 2.4s ease-out forwards}
+  #intro .logo-wrap{position:relative;width:min(78vw,430px);z-index:2;animation:introLogo 1.1s cubic-bezier(.18,.9,.22,1.2) both}
+  #intro .logo-wrap img{width:100%;filter:drop-shadow(0 12px 34px rgba(0,0,0,.55))}
+  #intro .bar{position:absolute;left:50%;bottom:20%;transform:translateX(-50%);width:min(58vw,240px);height:4px;border-radius:99px;background:rgba(255,255,255,.14);overflow:hidden;z-index:2}
+  #intro .bar i{position:absolute;left:0;top:0;height:100%;width:0;border-radius:99px;background:var(--grad);animation:introBar 2.1s ease .1s forwards}
+  @keyframes introLogo{0%{opacity:0;transform:scale(.72) translateY(14px)}55%{opacity:1}100%{opacity:1;transform:scale(1) translateY(0)}}
+  @keyframes introBar{to{width:100%}}
+  @keyframes introGlow{0%{opacity:0;transform:scale(.55)}45%{opacity:1}100%{opacity:.75;transform:scale(1)}}
+  @keyframes introOut{to{opacity:0;visibility:hidden;transform:scale(1.05)}}
+  @media(prefers-reduced-motion:reduce){#intro{display:none}}
 </style>
 </head>
 <body>
 
+<div id="intro" aria-hidden="true">
+  <div class="logo-wrap"><img src="assets/logo.png" alt="Padel Performance Center - Parc Praden" /></div>
+  <div class="bar"><i></i></div>
+</div>
+
 <header class="nav">
   <div class="wrap nav-in">
     <a href="#top" class="brand">
-      <span class="dot">P</span>
-      <span>PADEL PERFORMANCE CENTER<small>Parc Praden · Nîmes / Marguerittes</small></span>
+      <img class="nav-logo" src="assets/logo-dark.png" alt="Padel Performance Center - Parc Praden" />
     </a>
     <a href="#licence" class="btn btn-primary nav-cta">Prendre ma licence</a>
   </div>
@@ -246,36 +268,30 @@
 <section class="hero" id="top">
   <div class="wrap hero-grid">
     <div class="reveal in">
-      <span class="eyebrow"><span class="pulse"></span> Inscriptions licence 2026 ouvertes · Nîmes / Marguerittes</span>
-      <h1>Rejoins la communauté padel <span class="grad-txt">où chacun a sa place.</span></h1>
+      <span class="eyebrow"><span class="pulse"></span> Deviens licencié · Saison 2026</span>
+      <h1>Rejoins la communauté padel <span class="grad-txt">où l'esprit club fait la différence.</span></h1>
       <p class="lead">
-        Des coachs bienveillants, des tournois toute l'année, de vrais championnats par équipes et une ambiance coucher de soleil tous les soirs.
-        Ici on ne prend pas juste une licence&nbsp;: <b>on rejoint une vraie aventure collective.</b>
+        À Nîmes / Marguerittes&nbsp;: des coachs bienveillants, des tournois toute l'année, de vrais championnats par équipes et une ambiance coucher de soleil tous les soirs.
+        Ici on ne prend pas juste une licence&nbsp;: <b>on rejoint une vraie communauté de passionnés.</b>
       </p>
       <div class="hero-ctas">
-        <a href="#licence" class="btn btn-primary">Je prends ma licence dès 22€ →</a>
-        <a href="#aventure" class="btn btn-ghost">Découvrir l'aventure</a>
-      </div>
-      <div class="hero-meta">
-        <span>🎾 <b>10</b> terrains de padel</span>
-        <span>🏆 Championnats <b>par équipes</b></span>
-        <span>🌅 Coucher de soleil <b>tous les soirs</b></span>
+        <a href="#licence" class="btn btn-primary">Je prends ma licence →</a>
       </div>
     </div>
 
     <div class="hero-photo photo reveal in">
       <img class="hero-logo" src="assets/logo.png" alt="Logo Padel Performance Center" />
-      <div class="price-flash">Licence dès 22€</div>
+      <div class="price-flash">Enfant 22€ · Adulte 25€</div>
       <img src="assets/hero.jpg" alt="Le club Padel Performance Center au Parc Praden de nuit : terrasses, palmiers et terrains illuminés" />
-      <div class="cap">🌅 Coucher de soleil <b>tous les soirs</b></div>
+      <div class="cap">🔥 L'ambiance <b>du club</b></div>
     </div>
   </div>
 </section>
 
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
-    <span>CHAMPIONNATS PAR ÉQUIPES <b>★</b> ÉCOLE DE PADEL <b>★</b> TOURNOIS HOMOLOGUÉS <b>★</b> CLUBHOUSE &amp; TERRASSES <b>★</b> TENUES DU CLUB <b>★</b> COUCHER DE SOLEIL TOUS LES SOIRS <b>★</b> ESPRIT D'ÉQUIPE <b>★</b></span>
-    <span>CHAMPIONNATS PAR ÉQUIPES <b>★</b> ÉCOLE DE PADEL <b>★</b> TOURNOIS HOMOLOGUÉS <b>★</b> CLUBHOUSE &amp; TERRASSES <b>★</b> TENUES DU CLUB <b>★</b> COUCHER DE SOLEIL TOUS LES SOIRS <b>★</b> ESPRIT D'ÉQUIPE <b>★</b></span>
+    <span>CHAMPIONNATS PAR ÉQUIPES <b>★</b> ÉCOLE DE PADEL <b>★</b> TOURNOIS HOMOLOGUÉS <b>★</b> CLUBHOUSE &amp; TERRASSES <b>★</b> TENUES DU CLUB <b>★</b> CLUB CONVIVIAL <b>★</b> ESPRIT D'ÉQUIPE <b>★</b></span>
+    <span>CHAMPIONNATS PAR ÉQUIPES <b>★</b> ÉCOLE DE PADEL <b>★</b> TOURNOIS HOMOLOGUÉS <b>★</b> CLUBHOUSE &amp; TERRASSES <b>★</b> TENUES DU CLUB <b>★</b> CLUB CONVIVIAL <b>★</b> ESPRIT D'ÉQUIPE <b>★</b></span>
   </div>
 </div>
 
@@ -292,18 +308,18 @@
       <div class="card reveal"><div class="ico">🎓</div><h3>Des cours pour progresser</h3><p>Cours collectifs, leçons individuelles et stages. Une vraie école de padel pour enfants et adultes, avec un suivi personnalisé.</p></div>
       <div class="card reveal"><div class="ico">🤝</div><h3>Des coachs bienveillants</h3><p>Une équipe pédagogue et passionnée qui te fait progresser sans pression, dans la bonne humeur. Ici on apprend en s'amusant.</p></div>
       <div class="card reveal"><div class="ico">⚡</div><h3>Les championnats par équipes</h3><p>Ici, on prend les interclubs au sérieux. Chaque saison, c'est le club entier qui vibre&nbsp;: on engage nos équipes, on défend nos couleurs et on met tout notre cœur à vivre des moments inoubliables ensemble. On mouille le maillot, et on adore ça.</p></div>
-      <div class="card reveal"><div class="ico">🌅</div><h3>Un club qui vit</h3><p>Clubhouse, vestiaires, terrasses et 10 terrains de qualité Mondo (type officiel). Un esprit d'équipe bien vivant la journée et une ambiance coucher de soleil tous les soirs.</p></div>
+      <div class="card reveal"><div class="ico">🏠</div><h3>Un club qui vit</h3><p>Clubhouse, vestiaires, terrasses et 10 terrains de qualité Mondo (type officiel). Un vrai lieu de vie où l'esprit d'équipe est bien présent, du matin au soir.</p></div>
     </div>
-    <div class="cta-center reveal"><a href="#licence" class="btn btn-primary">Je prends ma licence dès 22€ →</a></div>
+    <div class="cta-center reveal"><a href="#licence" class="btn btn-primary">Je prends ma licence →</a></div>
   </div>
 </section>
 
 <section class="band">
-  <div class="photo warm"><img src="assets/community.jpg" alt="La communauté du Padel Performance Center réunie sur la terrasse au coucher du soleil" /></div>
+  <div class="photo warm"><img loading="lazy" decoding="async" src="assets/community.jpg" alt="La communauté du Padel Performance Center réunie sur la terrasse du club" /></div>
   <div class="wrap band-in reveal">
     <h2>Ici, on ne joue jamais <span class="grad-txt">tout seul.</span></h2>
-    <p>Des parties qui se montent en deux messages, des potes de tous niveaux, des fous rires et des couchers de soleil sur la terrasse. Bienvenue dans la communauté la plus vivante du coin.</p>
-    <div class="hero-ctas"><a href="#licence" class="btn btn-light">Je prends ma licence dès 22€ →</a></div>
+    <p>Des parties qui se montent en deux messages, des potes de tous niveaux, des fous rires et des bons moments sur la terrasse. Bienvenue dans la communauté la plus vivante du coin.</p>
+    <div class="hero-ctas"><a href="#licence" class="btn btn-light">Je prends ma licence →</a></div>
   </div>
 </section>
 
@@ -318,9 +334,10 @@
       <div class="plan reveal">
         <h3>Licence Jeune</h3>
         <div class="price"><span class="amt">22</span><span class="cur">€</span></div>
-        <div class="per">par an · enfants &amp; jeunes</div>
+        <div class="per">par an · de 7 à 18 ans</div>
         <ul>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#12bd6e" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Accès aux tournois homologués FFT</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#12bd6e" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Championnats par équipes du club</li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#12bd6e" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg> École de padel &amp; stages vacances</li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#12bd6e" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Communauté &amp; événements du club</li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#12bd6e" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Encadrement par des coachs diplômés</li>
@@ -332,7 +349,7 @@
         <span class="tag">Le plus choisi</span>
         <h3>Licence Adulte</h3>
         <div class="price"><span class="amt">25</span><span class="cur">€</span></div>
-        <div class="per">par an · adultes</div>
+        <div class="per">par an · 18 ans et plus</div>
         <ul>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#12bd6e" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Accès aux tournois homologués FFT</li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#12bd6e" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Championnats par équipes du club</li>
@@ -350,13 +367,13 @@
   <div class="wrap tenue-grid">
     <div class="tenue-visual photo warm reveal">
       <div class="chip">Aux couleurs du <span>Parc Praden</span></div>
-      <img src="assets/jersey.jpg" alt="Joueur de dos portant le maillot Parc Praden floqué en grand sur le terrain au coucher du soleil" />
+      <img loading="lazy" decoding="async" src="assets/jersey.jpg" alt="Joueur de dos portant le maillot Parc Praden floqué en grand sur le terrain" />
     </div>
     <div class="tenue-copy reveal">
       <span class="soon">⚡ Nouveauté 2026</span>
       <h2>Des tenues de qualité<br><span class="grad-txt">pour tous les licenciés.</span></h2>
       <p>Cette année, on passe un cap&nbsp;: chaque licencié du club pourra porter <b>une tenue Parc Praden de vraie qualité</b>. On a écouté les remarques, et la qualité textile va être au rendez-vous.</p>
-      <p>Coupe moderne, matières techniques respirantes, finitions impeccables&nbsp;: <b>elles vont claquer fort</b>, sur le terrain comme en dehors. Tu ne portes pas juste un maillot, tu affiches ton appartenance à une communauté forte.</p>
+      <p>Coupe moderne, matières techniques respirantes, finitions impeccables&nbsp;: <b>elles vont faire parler, et tu les porteras fièrement</b>, sur le terrain comme en dehors. Tu ne portes pas juste un maillot, tu appartiens à un club qui compte sur toi !</p>
       <div class="tenue-feats">
         <span>👕 Tenue aux couleurs du club</span>
         <span>💧 Tissu technique respirant</span>
@@ -390,7 +407,7 @@
       <div class="step reveal"><div class="num">2</div><h3>Rejoins la communauté</h3><p>On t'accueille, on t'ajoute au groupe des joueurs et on t'oriente selon ton niveau et tes envies.</p></div>
       <div class="step reveal"><div class="num">3</div><h3>Joue, progresse, kiffe</h3><p>Cours, tournois, équipes, soirées. L'aventure commence. Bienvenue au Padel Performance Center !</p></div>
     </div>
-    <div class="cta-center reveal"><a href="#licence" class="btn btn-primary">Je prends ma licence dès 22€ →</a></div>
+    <div class="cta-center reveal"><a href="#licence" class="btn btn-primary">Je prends ma licence →</a></div>
   </div>
 </section>
 
@@ -402,9 +419,9 @@
     </div>
     <div class="faq">
       <details class="reveal"><summary>À quoi sert la licence ?<span class="chev">+</span></summary><p>La licence officielle te permet de participer aux tournois homologués et aux championnats par équipes (interclubs), et t'intègre pleinement à la vie du club : équipes, événements et communauté.</p></details>
-      <details class="reveal"><summary>Combien coûte-t-elle ?<span class="chev">+</span></summary><p>22€ par an pour les jeunes et 25€ par an pour les adultes. Le paiement se fait directement en ligne sur cette page, de façon 100% sécurisée.</p></details>
+      <details class="reveal"><summary>Combien coûte-t-elle ?<span class="chev">+</span></summary><p>22€ par an pour les jeunes (de 7 à 18 ans, catégorie jeune FFT) et 25€ par an pour les adultes (18 ans et plus). Le paiement se fait directement en ligne sur cette page, de façon 100% sécurisée.</p></details>
       <details class="reveal"><summary>Je débute, c'est fait pour moi ?<span class="chev">+</span></summary><p>Absolument ! Le padel est l'un des sports les plus accessibles et fun. Nos coachs bienveillants accueillent tous les niveaux, et la communauté adore intégrer les nouveaux. On t'aide à trouver des partenaires de ton niveau.</p></details>
-      <details class="reveal"><summary>Et les tenues du club ?<span class="chev">+</span></summary><p>Nouveauté 2026 : des tenues Parc Praden de qualité, pour tous les licenciés. Matières techniques, finitions soignées, elles vont claquer fort. En prenant ta licence, tu seras parmi les premiers informés de leur sortie.</p></details>
+      <details class="reveal"><summary>Et les tenues du club ?<span class="chev">+</span></summary><p>Nouveauté 2026 : des tenues Parc Praden de qualité, pour tous les licenciés. Matières techniques, finitions soignées, tu les porteras avec fierté. En prenant ta licence, tu seras parmi les premiers informés de leur sortie.</p></details>
       <details class="reveal"><summary>Où se trouve le club ?<span class="chev">+</span></summary><p>Au Parc Praden, Chemin Bas de Marguerittes, 30320 Marguerittes, entre Nîmes et la garrigue. Parking gratuit sur place, terrasse, boissons et snacks.</p></details>
     </div>
   </div>
@@ -412,11 +429,11 @@
 
 <section class="final" id="rejoindre">
   <div class="final-in reveal">
-    <img class="logo-img" src="assets/logo.png" alt="Padel Performance Center" style="margin:0 auto 22px" />
+    <img loading="lazy" decoding="async" class="logo-img" src="assets/logo.png" alt="Padel Performance Center" style="margin:0 auto 22px" />
     <h2>Ta place dans l'équipe t'attend.</h2>
     <p>Rejoins la communauté padel la plus vivante du coin, prends ta licence et écris la suite de l'aventure avec nous. Les plus beaux souvenirs se jouent ensemble.</p>
     <div class="hero-ctas">
-      <a href="#licence" class="btn btn-light">Je prends ma licence dès 22€ →</a>
+      <a href="#licence" class="btn btn-light">Je prends ma licence →</a>
       <a href="https://www.instagram.com/ppc_parcpraden/" target="_blank" rel="noopener" class="btn btn-dark">Voir le club sur Instagram</a>
     </div>
   </div>
@@ -426,8 +443,8 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <img class="logo-img" src="assets/logo.png" alt="Padel Performance Center - Parc Praden" style="margin-bottom:16px;width:170px" />
-        <p>Le club de padel de Nîmes / Marguerittes : clubhouse, vestiaires, terrasses et 10 terrains de padel. Un esprit d'équipe bien vivant la journée et une ambiance coucher de soleil tous les soirs.</p>
+        <img loading="lazy" decoding="async" class="logo-img" src="assets/logo.png" alt="Padel Performance Center - Parc Praden" style="margin-bottom:16px;width:170px" />
+        <p>Le club de padel de Nîmes / Marguerittes : clubhouse, vestiaires, terrasses et 10 terrains de padel. Un vrai lieu de vie, un esprit d'équipe et une communauté bien vivante.</p>
       </div>
       <div>
         <h4>Le club</h4>
@@ -451,7 +468,7 @@
 </footer>
 
 <div class="sticky-cta">
-  <div class="info"><b>Licence dès 22€</b><small>Rejoins la communauté padel</small></div>
+  <div class="info"><b>Enfant 22€ · Adulte 25€</b><small>Licence à l'année</small></div>
   <a href="#licence" class="btn btn-primary">Je m'inscris</a>
 </div>
 
@@ -466,6 +483,14 @@
   };
 </script>
 <script>
+/* Intro logo : nettoyage apres l'animation + skip au clic */
+(function(){
+  var intro = document.getElementById('intro');
+  if(!intro) return;
+  function kill(){ if(intro){ intro.style.display='none'; intro=null; } }
+  setTimeout(kill, 3150);
+  intro.addEventListener('click', kill);
+})();
 (function(){
   var cfg = window.PPC_CONFIG || {};
   var map = { jeune: cfg.licenceJeune, adulte: cfg.licenceAdulte };
