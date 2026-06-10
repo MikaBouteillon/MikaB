@@ -18,7 +18,7 @@
      CONFIG : liens de paiement -> bloc <script id="config"> en bas.
      ========================================================= */
   :root{
-        /* THEME-START : Noir · Sunset (orange -> rose) */
+        /* THEME-START : Noir · Sunset */
     --bg:#0a0e17;
     --alt-bg:#0e1320;
     --surface:#121a2b;
@@ -177,6 +177,10 @@
   .tenue-copy b{color:var(--ink)}
   .tenue-feats{display:flex;flex-wrap:wrap;gap:9px;margin:20px 0}
   .tenue-feats span{font-size:.85rem;background:var(--surface);border:1px solid var(--line);padding:8px 13px;border-radius:999px;color:var(--ink-2);box-shadow:var(--shadow-sm)}
+  .tenue-name{display:flex;gap:12px;align-items:flex-start;background:var(--grad-soft);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:14px;padding:14px 16px;margin:4px 0}
+  .tenue-name .ic{font-size:1.35rem;line-height:1.1;flex:0 0 auto}
+  .tenue-name p{margin:0;color:var(--ink-2);font-size:1rem}
+  .tenue-name b{color:var(--ink)}
 
   /* Stats */
   .stats{display:grid;gap:14px;grid-template-columns:repeat(2,1fr);max-width:920px;margin:0 auto}
@@ -281,7 +285,6 @@
 
     <div class="hero-photo photo reveal in">
       <img class="hero-logo" src="assets/logo.png" alt="Logo Padel Performance Center" />
-      <div class="price-flash">Enfant 22€ · Adulte 25€</div>
       <img src="assets/hero.jpg" alt="Le club Padel Performance Center au Parc Praden de nuit : terrasses, palmiers et terrains illuminés" />
       <div class="cap">🔥 L'ambiance <b>du club</b></div>
     </div>
@@ -317,7 +320,7 @@
 <section class="band">
   <div class="photo warm"><img loading="lazy" decoding="async" src="assets/community.jpg" alt="La communauté du Padel Performance Center réunie sur la terrasse du club" /></div>
   <div class="wrap band-in reveal">
-    <h2>Ici, on ne joue jamais <span class="grad-txt">tout seul.</span></h2>
+    <h2>Ici, <span class="grad-txt">vous n'êtes jamais seul.</span></h2>
     <p>Des parties qui se montent en deux messages, des potes de tous niveaux, des fous rires et des bons moments sur la terrasse. Bienvenue dans la communauté la plus vivante du coin.</p>
     <div class="hero-ctas"><a href="#licence" class="btn btn-light">Je prends ma licence →</a></div>
   </div>
@@ -327,7 +330,7 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="kicker">Ta licence 2026</div>
-      <h2>Choisis ta licence.<br><span class="grad-txt">L'aventure commence aujourd'hui.</span></h2>
+      <h2><span class="grad-txt">L'aventure commence aujourd'hui.</span></h2>
       <p>La licence officielle te donne accès aux tournois homologués et t'intègre pleinement à la vie du club. Inscription en ligne, en 2 minutes.</p>
     </div>
     <div class="pricing">
@@ -373,12 +376,16 @@
       <span class="soon">⚡ Nouveauté 2026</span>
       <h2>Des tenues de qualité<br><span class="grad-txt">pour tous les licenciés.</span></h2>
       <p>Cette année, on passe un cap&nbsp;: chaque licencié du club pourra porter <b>une tenue Parc Praden de vraie qualité</b>. On a écouté les remarques, et la qualité textile va être au rendez-vous.</p>
-      <p>Coupe moderne, matières techniques respirantes, finitions impeccables&nbsp;: <b>elles vont faire parler, et tu les porteras fièrement</b>, sur le terrain comme en dehors. Tu ne portes pas juste un maillot, tu appartiens à un club qui compte sur toi !</p>
+      <p>Coupe moderne, matières techniques respirantes, finitions impeccables&nbsp;: <b>elles vont faire parler, et tu les porteras fièrement</b>, sur le terrain comme en dehors.</p>
+      <div class="tenue-name">
+        <span class="ic">🏷️</span>
+        <p><b>Et le détail qui change tout : ton nom floqué dans le dos.</b> Ici, personne n'est un numéro&nbsp;: chaque licencié porte son nom au-dessus du logo, fièrement, comme un membre à part entière de l'équipe. On joue tous ensemble, et ça se voit.</p>
+      </div>
       <div class="tenue-feats">
-        <span>👕 Tenue aux couleurs du club</span>
+        <span>🏷️ Ton nom floqué dans le dos</span>
+        <span>👕 Aux couleurs du club</span>
         <span>💧 Tissu technique respirant</span>
         <span>🏅 Qualité textile premium</span>
-        <span>🤝 Esprit communauté</span>
       </div>
       <a href="#licence" class="btn btn-primary">Je rejoins le club →</a>
     </div>
