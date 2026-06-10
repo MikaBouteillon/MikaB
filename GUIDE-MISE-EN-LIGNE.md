@@ -8,17 +8,23 @@ Voici **les 2 seules choses à faire** pour qu'il soit en ligne et qu'on puisse 
 
 ## ✅ Étape 1 — Mettre le site en ligne (gratuit, et ça dure)
 
-Le site se met en ligne tout seul via **GitHub Pages** (hébergement gratuit et permanent — bien plus que 3 mois).
+Le site se met en ligne via **GitHub Pages** (hébergement gratuit et permanent — bien plus que 3 mois). La méthode la plus simple :
 
-1. Va sur le dépôt GitHub `mikabouteillon/mikab`.
+1. Va sur le dépôt GitHub `MikaBouteillon/MikaB`.
 2. Clique sur **Settings** (Paramètres) → menu de gauche **Pages**.
-3. Dans **Build and deployment → Source**, choisis **GitHub Actions**.
-4. C'est tout ! À chaque fois que la page change, elle se publie automatiquement.
+3. Dans **Build and deployment → Source**, choisis **Deploy from a branch**.
+4. Juste en dessous (**Branch**), sélectionne la branche
+   **`claude/padel-performance-landing-3homgn`** et le dossier **`/ (root)`**, puis **Save**.
+5. Attends 1-2 minutes : ta page est en ligne. ✅
 
 ➡️ L'adresse de ton site sera :
-**https://mikabouteillon.github.io/mikab/**
+**https://mikabouteillon.github.io/MikaB/**
 
 C'est ce lien que tu partages sur les réseaux sociaux. 🎯
+
+> ℹ️ Il y a aussi un déploiement automatique prêt à l'emploi (`.github/workflows/deploy.yml`)
+> si tu préfères la source **GitHub Actions** — mais la méthode « Deploy from a branch »
+> ci-dessus est la plus simple et fonctionne parfaitement.
 
 > 💡 Tu veux une adresse plus jolie (ex. `licence.padelperformancecenter.com`) ?
 > C'est possible gratuitement dans **Settings → Pages → Custom domain**. Dis-le moi et je t'explique.
