@@ -33,15 +33,15 @@ C'est ce lien que tu partages sur les réseaux sociaux. 🎯
 
 ## ✅ Étape 2 — Activer le paiement de la licence
 
-Pour encaisser les licences (22€ jeunes / 26€ adultes), le plus simple en France :
+Pour encaisser les licences (21€ jeunes / 30€ adultes), le plus simple en France :
 
 ### Option recommandée : **HelloAsso** (100% gratuit pour les clubs/associations)
 1. Crée un compte sur **helloasso.com** (gratuit, sans commission).
-2. Crée une **« Adhésion »** ou un **« Paiement »** → un tarif **Licence Jeune 22€** et un tarif **Licence Adulte 26€** (tu peux faire un seul formulaire avec les 2 tarifs, ou deux liens séparés).
+2. Crée une **« Adhésion »** ou un **« Paiement »** → un tarif **Licence Jeune 21€** et un tarif **Licence Adulte 30€** (tu peux faire un seul formulaire avec les 2 tarifs, ou deux liens séparés).
 3. Récupère le **lien de paiement** de chaque tarif.
 
 ### Alternative : **Stripe Payment Links**
-1. Compte sur **stripe.com** → **Payment Links** → crée un lien à 22€ et un à 26€.
+1. Compte sur **stripe.com** → **Payment Links** → crée un lien à 21€ et un à 30€.
 2. Récupère les 2 liens.
 
 ### Puis : colle tes liens dans la page
