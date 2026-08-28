@@ -106,6 +106,30 @@ section.alt .limits>div{background:var(--paper)}
 .matters p{font-size:16px;line-height:1.6;color:#b9c0bc}
 .matters p b{color:#fff;font-weight:600}
 
+.zones{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.zone{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px 20px;display:flex;flex-direction:column;gap:10px}
+section.alt .zone{background:var(--paper)}
+.zone .zi{width:44px;height:44px;border-radius:12px;background:var(--ink);color:var(--sun);display:grid;place-items:center;margin-bottom:2px}
+.zone .zi svg{width:24px;height:24px}
+.zone h3{font-size:17px;font-family:Inter,sans-serif;font-weight:700;letter-spacing:-.01em}
+.zone p{font-size:14.5px;color:var(--muted);line-height:1.5}
+.zone p b{color:var(--ink);font-weight:600}
+
+section.wow{background:var(--ink);color:#e8ece9;border-bottom-color:rgba(255,255,255,.14)}
+section.wow .shead h2{color:#fff}
+section.wow .snum{color:var(--sun)}
+section.wow .sintro{color:#aab2ae}
+section.wow .sintro strong{color:#fff}
+section.wow .zone{background:transparent;border-color:rgba(255,255,255,.2)}
+section.wow .zone .zi{background:var(--sun);color:var(--ink)}
+section.wow .zone h3{color:#fff}
+section.wow .zone p{color:#a3aca8}
+section.wow .zone p b{color:var(--sun)}
+section.wow .pull{background:transparent;border-left-color:var(--sun)}
+section.wow .pull .lbl{color:var(--sun)}
+section.wow .pull p{color:#c3cac6}
+section.wow .pull p strong{color:#fff}
+
 /* ---------- cards ---------- */
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .card{
@@ -240,14 +264,14 @@ section.alt .req .tags span{background:#fff}
   .facts{grid-template-columns:1fr 1fr}
   .fact{border-bottom:1px solid rgba(255,255,255,.14);padding-left:0}
   .fact:nth-child(2n){border-right:0;padding-left:24px}
-  .cards,.specs,.gal{grid-template-columns:1fr 1fr}
+  .cards,.specs,.gal,.zones{grid-template-columns:1fr 1fr}
   .zonegrid{grid-template-columns:1fr}
 }
 @media(max-width:680px){
   .wrap,.bar-in{padding:0 18px}
   .bar-tag{display:none}
   section{padding:44px 0}
-  .cards,.specs,.gal,.reqs,.contacts,.limits{grid-template-columns:1fr}
+  .cards,.specs,.gal,.reqs,.contacts,.limits,.zones{grid-template-columns:1fr}
   .hero-thumbs{grid-template-columns:1fr 1fr}
   .pull,.warn{grid-template-columns:1fr;gap:10px}
   .req.key,.req.wide{grid-column:auto}
@@ -259,7 +283,11 @@ section.alt .req .tags span{background:#fff}
   html{scroll-padding-top:0}
   body{background:#fff;font-size:10.5pt}
   .bar,.lb,.galnote svg{display:none!important}
-  .hero,.foot{background:#fff!important;color:#000!important;padding:0 0 10mm}
+  .hero,.foot,section.wow{background:#fff!important;color:#000!important;padding:0 0 10mm}
+  section.wow .shead h2,section.wow .zone h3,section.wow .sintro strong,section.wow .pull p strong{color:#000!important}
+  section.wow .sintro,section.wow .zone p,section.wow .pull p{color:#444!important}
+  section.wow .zone,section.wow .pull{border-color:#bbb!important}
+  section.wow .zone .zi{background:#eee!important;color:#000!important}
   .hero h1,.foot h2,.ct .n{color:#000!important}
   .hero p.lede,.fact .n,.foot p.sub,.ct .r{color:#444!important}
   .fact .v,.fact .k{color:#000!important}
@@ -281,12 +309,13 @@ section.alt .req .tags span{background:#fff}
     <div class="bar-tag">Request for Proposal · 2026</div>
     <nav class="toc">
       <a href="#concept">01 Concept</a>
-      <a href="#site">02 Site</a>
-      <a href="#quality">03 Quality</a>
-      <a href="#refs">04 References</a>
-      <a href="#specs">05 Specs</a>
-      <a href="#deliverables">06 What we expect</a>
-      <a href="#contact">07 Contact</a>
+      <a href="#action">02 Action</a>
+      <a href="#site">03 Site</a>
+      <a href="#quality">04 Quality</a>
+      <a href="#refs">05 References</a>
+      <a href="#specs">06 Specs</a>
+      <a href="#deliverables">07 Expectations</a>
+      <a href="#contact">08 Contact</a>
     </nav>
   </div>
   <div class="prog" id="prog"></div>
@@ -352,10 +381,54 @@ section.alt .req .tags span{background:#fff}
   </div>
 </section>
 
-<!-- ══════════════ 02 SITE ══════════════ -->
-<section class="alt" id="site">
+<!-- ══════════════ 02 ACTION ZONE ══════════════ -->
+<section class="wow" id="action">
   <div class="wrap">
-    <div class="shead"><span class="snum">02</span><h2>The site &amp; layout plan</h2></div>
+    <div class="shead"><span class="snum">02</span><h2>The action zone</h2></div>
+    <p class="sintro">Alongside the streets of the miniature city we want <strong>one big action zone</strong>: a different world, louder and more physical, built for the wow effect and for <strong>high capacity</strong>. It is what lets us welcome a lot of children at once, and it gives visitors somewhere to burn energy between the roleplay spaces.</p>
+
+    <div class="zones">
+      <div class="zone">
+        <div class="zi" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 34c0-14 8-24 22-26"/><path d="M12 34h22"/><path d="M28 8l6 2M30 14l6 1M31 21l6 0"/></svg>
+        </div>
+        <h3>Illuminated slides</h3>
+        <p>Slides that light up. Colour, movement and light are what pull children in from across the room.</p>
+      </div>
+      <div class="zone">
+        <div class="zi" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 32h32M8 32v-8h10v8"/><path d="M18 24l4-12 8 3-3 9"/><circle cx="12" cy="35" r="3"/><circle cx="26" cy="35" r="3"/></svg>
+        </div>
+        <h3>Construction &amp; excavation</h3>
+        <p>A dig site with <b>ride-on and hand-operated diggers</b>. Children move real material, not just look at machines.</p>
+      </div>
+      <div class="zone">
+        <div class="zi" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="13" cy="14" r="5"/><circle cx="27" cy="18" r="6"/><circle cx="16" cy="28" r="6"/><circle cx="29" cy="31" r="4"/></svg>
+        </div>
+        <h3>Ball pit park</h3>
+        <p>A large ball pool with games built into it: cannons, targets, tunnels, climbing. Not an empty pool of balls.</p>
+      </div>
+      <div class="zone">
+        <div class="zi" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6v28M34 6v28M6 9h28"/><path d="M12 9v7M20 9v10M28 9v6"/><path d="M9 30h22"/></svg>
+        </div>
+        <h3>Ninja course</h3>
+        <p>A short obstacle course of the kind children already know: hanging steps, ropes, balance beams, a soft landing.</p>
+      </div>
+    </div>
+
+    <div class="pull">
+      <div class="lbl">Your call</div>
+      <p>These four can sit together in <strong>one big zone</strong> or be split across the floor. <strong>Tell us what you think works best</strong>, and how many children each element handles at the same time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 03 SITE ══════════════ -->
+<section id="site">
+  <div class="wrap">
+    <div class="shead"><span class="snum">03</span><h2>The site &amp; layout plan</h2></div>
     <p class="sintro">The red dashed line is the MiniMundo perimeter inside the shared Aubagne building. <strong>Inside it the floor is open: where each themed space goes is yours to propose.</strong> Reception, bar, birthday boxes, changing room, restrooms, shop and storage are already fixed. A high-resolution CAD file goes to shortlisted manufacturers.</p>
 
     <div class="limits">
@@ -377,10 +450,10 @@ section.alt .req .tags span{background:#fff}
   </div>
 </section>
 
-<!-- ══════════════ 03 QUALITY ══════════════ -->
-<section id="quality">
+<!-- ══════════════ 04 QUALITY ══════════════ -->
+<section class="alt" id="quality">
   <div class="wrap">
-    <div class="shead"><span class="snum">03</span><h2>What these images mean.</h2></div>
+    <div class="shead"><span class="snum">04</span><h2>What these images mean.</h2></div>
     <p class="sintro lead"><strong>The images in the next section are not the design we want. They show the level of detail we want.</strong> Do not copy them. They are style references, not photos of existing builds. Bring us your own design, at this level of detail or better.</p>
 
     <div class="matters">
@@ -414,10 +487,10 @@ section.alt .req .tags span{background:#fff}
   </div>
 </section>
 
-<!-- ══════════════ 04 REFERENCES ══════════════ -->
-<section class="alt" id="refs">
+<!-- ══════════════ 05 REFERENCES ══════════════ -->
+<section id="refs">
   <div class="wrap">
-    <div class="shead"><span class="snum">04</span><h2>Visual references</h2></div>
+    <div class="shead"><span class="snum">05</span><h2>Visual references</h2></div>
     <p class="sintro">Look at the <strong>level of detail</strong> in each one: the façades, the signage, the props on the shelves. <strong>This is the standard to match or beat, not a design to copy.</strong></p>
 
     <div class="gal">
@@ -434,15 +507,15 @@ section.alt .req .tags span{background:#fff}
 
     <p class="galnote">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-      <span><b>These are references for style and level of detail, not a layout to copy.</b> The themed spaces you propose, and where you place them inside the perimeter, are part of your design work (see section 02).</span>
+      <span><b>These are references for style and level of detail, not a layout to copy.</b> The themed spaces you propose, and where you place them inside the perimeter, are part of your design work (see section 03).</span>
     </p>
   </div>
 </section>
 
-<!-- ══════════════ 05 SPECS ══════════════ -->
-<section id="specs">
+<!-- ══════════════ 06 SPECS ══════════════ -->
+<section class="alt" id="specs">
   <div class="wrap">
-    <div class="shead"><span class="snum">05</span><h2>Technical specifications</h2></div>
+    <div class="shead"><span class="snum">06</span><h2>Technical specifications</h2></div>
     <p class="sintro">What the build has to deliver architecturally, in materials, and in safety. <strong>Material choice is open; the outcome is not.</strong></p>
 
     <div class="specs">
@@ -463,13 +536,14 @@ section.alt .req .tags span{background:#fff}
           <li><b>Interactive &amp; educational games</b> encouraging manipulation and experimentation</li>
           <li><b>Physical &amp; soft-play</b> built directly into the buildings and façades</li>
           <li><b>Free play</b>, with no imposed route</li>
+          <li><b>The action zone</b> of section 02: slides, dig site, ball pit and ninja course, sized for high capacity</li>
           <li>Overall coherence: the venue must read as <b>a street</b>, not a collection of standalone modules</li>
         </ul>
       </div>
       <div class="spec b">
         <h3>Materials &amp; maintenance</h3>
         <ul>
-          <li>Any solution, whether timber, composite, metal or other, that achieves the look, feel and durability of section 04</li>
+          <li>Any solution, whether timber, composite, metal or other, that achieves the look, feel and durability of section 05</li>
           <li>Durable and suited to <b>intensive daily public use</b> in a supervised children's venue (ERP)</li>
           <li>Easy to clean and maintain daily</li>
           <li>Finishes consistent with the reference gallery</li>
@@ -498,17 +572,17 @@ section.alt .req .tags span{background:#fff}
         <h3>Certification</h3>
         <ul>
           <li>Play equipment and furniture must meet safety standards applicable in the country of installation: <b>France / European Union</b></li>
-          <li>Detail on product certifications is requested in <b>section 06</b></li>
+          <li>Detail on product certifications is requested in <b>section 07</b></li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════ 06 DELIVERABLES ══════════════ -->
-<section class="alt" id="deliverables">
+<!-- ══════════════ 07 DELIVERABLES ══════════════ -->
+<section id="deliverables">
   <div class="wrap">
-    <div class="shead"><span class="snum">06</span><h2>What we expect from you</h2></div>
+    <div class="shead"><span class="snum">07</span><h2>What we expect from you</h2></div>
     <p class="sintro">We are building this together, so these seven points are what we need from your side to hold the December 2026 opening. <strong>Treat all seven as required.</strong></p>
 
     <div class="reqs">
@@ -570,7 +644,7 @@ section.alt .req .tags span{background:#fff}
 <!-- ══════════════ 07 CONTACT ══════════════ -->
 <footer class="foot" id="contact">
   <div class="wrap">
-    <div class="eyebrow" style="color:#9aa4a0">07 · Working together</div>
+    <div class="eyebrow" style="color:#9aa4a0">08 · Working together</div>
     <h2 style="margin-top:14px">We want a partner who moves fast.</h2>
     <p class="sub"><b>Reactivity matters more to us than anything else on this list.</b> Quick answers, one clear point of contact, and short turnaround on questions and revisions are what will keep December 2026 reachable. We are available whenever you need us: detailed site plans, clarifications on the space programme, or any technical question.</p>
 
