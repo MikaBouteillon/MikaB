@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MiniMundo — Request for Proposal</title>
-<meta name="description" content="MiniMundo — Design, manufacturing &amp; installation of an immersive indoor play park. Aubagne, France. 1,000–2,000 m². Opening early 2027.">
+<title>MiniMundo · Request for Proposal</title>
+<meta name="description" content="MiniMundo. Design, manufacturing &amp; installation of an immersive indoor play park. Aubagne, France. 1,100 m². Opening December 2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@ html{scroll-behavior:smooth;scroll-padding-top:64px}
 body{
   background:var(--paper);color:var(--ink);
   font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
-  font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;
+  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;
 }
 img{max-width:100%;display:block}
 a{color:inherit}
@@ -92,8 +92,9 @@ section.alt{background:var(--paper-2)}
   letter-spacing:.08em;
 }
 .shead h2{font-size:clamp(26px,3.2vw,34px)}
-.sintro{color:var(--muted);max-width:76ch;font-size:15.5px;margin-bottom:34px}
+.sintro{color:var(--muted);max-width:74ch;font-size:17px;line-height:1.6;margin-bottom:34px}
 .sintro strong{color:var(--ink);font-weight:600}
+.sintro.lead{color:var(--ink);font-size:18px}
 
 /* ---------- cards ---------- */
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
@@ -104,7 +105,7 @@ section.alt{background:var(--paper-2)}
 section.alt .card{background:var(--paper)}
 .card .ic{width:26px;height:26px;color:var(--accent)}
 .card h3{font-size:16.5px;font-family:Inter,sans-serif;font-weight:700;letter-spacing:-.01em}
-.card p{font-size:13.5px;color:var(--muted);line-height:1.5}
+.card p{font-size:14.5px;color:var(--muted);line-height:1.5}
 
 .pull{
   margin-top:24px;border-left:3px solid var(--accent);background:#fff;
@@ -148,8 +149,18 @@ section.alt .ztot div{background:var(--paper)}
   background:linear-gradient(to top,rgba(12,15,16,.92) 12%,rgba(12,15,16,0));
 }
 .shot figcaption b{display:block;font-family:Newsreader,Georgia,serif;font-size:17px;font-weight:600;letter-spacing:-.01em}
-.shot figcaption span{display:block;font-size:12px;color:#c6cecb;margin-top:2px;line-height:1.35}
-.galnote{margin-top:16px;font-size:13px;color:var(--muted);display:flex;gap:10px;align-items:flex-start}
+.shot figcaption span{display:block;font-size:12.5px;color:#c6cecb;margin-top:2px;line-height:1.35}
+.shot.draw{cursor:default;background:#e9ebe5;display:flex;flex-direction:column}
+.shot.draw .dw{aspect-ratio:16/10}
+.shot.draw figcaption{position:static;background:var(--ink);padding:13px 16px 15px;flex:1}
+.shot.draw svg{width:100%;height:100%;display:block}
+.shot.draw:hover img{transform:none}
+.shot .study{
+  position:absolute;top:11px;right:11px;font-style:normal;
+  font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;
+  background:rgba(21,24,26,.82);color:#e3a52f;padding:4px 9px;border-radius:20px;
+}
+.galnote{margin-top:16px;font-size:14px;color:var(--muted);display:flex;gap:10px;align-items:flex-start}
 .galnote svg{flex:0 0 auto;margin-top:2px;color:var(--accent)}
 
 /* ---------- spec lists ---------- */
@@ -158,8 +169,8 @@ section.alt .ztot div{background:var(--paper)}
 section.alt .spec{background:var(--paper)}
 .spec h3{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
 .spec.g h3{color:var(--green)} .spec.b h3{color:var(--blue)} .spec.s h3{color:#a8791f}
-.spec ul{list-style:none;display:flex;flex-direction:column;gap:9px}
-.spec li{font-size:13.5px;line-height:1.45;padding-left:18px;position:relative;color:var(--ink-2)}
+.spec ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.spec li{font-size:14.5px;line-height:1.5;padding-left:18px;position:relative;color:var(--ink-2)}
 .spec li::before{
   content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:50%;
   border:1.5px solid currentColor;color:var(--line);
@@ -185,7 +196,7 @@ section.alt .req{background:var(--paper)}
   border:1px solid var(--line);border-radius:8px;height:30px;display:grid;place-items:center;
 }
 .req h3{font-family:Inter,sans-serif;font-size:15.5px;font-weight:700;letter-spacing:-.01em}
-.req p{font-size:13.5px;color:var(--muted);margin-top:5px;line-height:1.5}
+.req p{font-size:14.5px;color:var(--muted);margin-top:6px;line-height:1.55}
 .req p b{color:var(--ink);font-weight:600}
 .req .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
 .req .tags span{
@@ -199,7 +210,7 @@ section.alt .req .tags span{background:#fff}
 /* ---------- contact ---------- */
 .foot{background:var(--ink);color:#ecefec;padding:66px 0 40px;border:0}
 .foot h2{font-size:clamp(28px,4vw,42px);color:#fff;max-width:16ch}
-.foot p.sub{color:#9aa4a0;max-width:50ch;margin-top:16px;font-size:15px}
+.foot p.sub{color:#b3bab6;max-width:56ch;margin-top:16px;font-size:16.5px;line-height:1.6}
 .contacts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px;max-width:720px}
 .ct{border:1px solid rgba(255,255,255,.16);border-radius:var(--r);padding:20px}
 .ct .k{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--sun)}
@@ -274,7 +285,7 @@ section.alt .req .tags span{background:#fff}
       <a href="#quality">03 Quality</a>
       <a href="#refs">04 References</a>
       <a href="#specs">05 Specs</a>
-      <a href="#deliverables">06 Your proposal</a>
+      <a href="#deliverables">06 What we expect</a>
       <a href="#contact">07 Contact</a>
     </nav>
   </div>
@@ -288,7 +299,7 @@ section.alt .req .tags span{background:#fff}
       <div>
         <div class="eyebrow" style="color:#9aa4a0">Request for Proposal · Consultation document</div>
         <h1>A miniature city,<br>built at <em>children's scale</em>.</h1>
-        <p class="lede">Design, manufacturing and installation of an immersive indoor play park. Sent to shortlisted manufacturers ahead of a commercial offer and a design proposal.</p>
+        <p class="lede">Design, manufacturing and installation of an immersive indoor play park.</p>
       </div>
       <div class="hero-thumbs">
         <img src="img/supermarket.jpg" alt="Supermarket façade reference" loading="eager">
@@ -298,9 +309,9 @@ section.alt .req .tags span{background:#fff}
     </div>
     <div class="facts">
       <div class="fact"><div class="k">Location</div><div class="v">Aubagne, France</div><div class="n">Shared building with Prison Island &amp; Decathlon</div></div>
-      <div class="fact"><div class="k">Target surface</div><div class="v">1,000–2,000 m²</div><div class="n">Operating surface, excl. technical &amp; reception areas</div></div>
-      <div class="fact"><div class="k">Target opening</div><div class="v">Early 2027</div><div class="n">Manufacturing, transport &amp; install must fit this</div></div>
-      <div class="fact"><div class="k">Regulations</div><div class="v">French ERP code</div><div class="n">Client-side architect leads regulatory approvals</div></div>
+      <div class="fact"><div class="k">Target surface</div><div class="v">1,100 m²</div><div class="n">Operating surface, excluding technical and reception areas</div></div>
+      <div class="fact"><div class="k">Target opening</div><div class="v">December 2026</div><div class="n">Manufacturing, transport and installation must fit this date</div></div>
+      <div class="fact"><div class="k">Regulations</div><div class="v">French ERP law + PV</div><div class="n">Compliance with French ERP law and PV is mandatory</div></div>
     </div>
   </div>
 </div>
@@ -309,7 +320,7 @@ section.alt .req .tags span{background:#fff}
 <section id="concept">
   <div class="wrap">
     <div class="shead"><span class="snum">01</span><h2>The concept</h2></div>
-    <p class="sintro">MiniMundo is <strong>not a traditional indoor playground</strong>. It is a miniature city — small streets, themed buildings, a shopfront on every façade — that children move through freely, discovering trades, shops and everyday situations. Positioning is <strong>premium</strong>: between roleplay, interactive play park and immersive experience.</p>
+    <p class="sintro">MiniMundo is <strong>not a traditional indoor playground</strong>. It is a miniature city of small streets and themed buildings, a shopfront on every façade, that children move through freely, discovering trades, shops and everyday situations. Positioning is <strong>premium</strong>: between roleplay, interactive play park and immersive experience.</p>
 
     <div class="cards">
       <div class="card">
@@ -325,18 +336,18 @@ section.alt .req .tags span{background:#fff}
       <div class="card">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V9l4-3 4 3 4-3 4 3v11"/><path d="M4 20h16M9 20v-4h2v4M13 20v-4h2v4"/></svg>
         <h3>Detail-rich art direction</h3>
-        <p>Shopfronts, signage, mouldings, shutters, planters, lighting, street furniture, greenery — colourful, playful, warm.</p>
+        <p>Shopfronts, signage, mouldings, shutters, planters, lighting, street furniture and greenery, all colourful, playful and warm.</p>
       </div>
       <div class="card">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.4 6.8 19.2l1-5.9L3.5 9.2l5.9-.8z"/></svg>
         <h3>Not a copy</h3>
-        <p>The goal is a freer, more accessible experience — not a replication of an existing concept.</p>
+        <p>The goal is a freer, more accessible experience, not a replication of an existing concept.</p>
       </div>
     </div>
 
     <div class="pull">
       <div class="lbl">Design brief</div>
-      <p>Show us thinking around <strong>circulation, visual continuity between façades</strong> (heights, tones, rhythm) and a <strong>hierarchy of spaces</strong> — landmark buildings, secondary lanes, a central square where relevant.</p>
+      <p>Show us thinking around <strong>circulation, visual continuity between façades</strong> (heights, tones, rhythm) and a <strong>hierarchy of spaces</strong>: landmark buildings, secondary lanes, a central square where relevant.</p>
     </div>
   </div>
 </section>
@@ -345,30 +356,18 @@ section.alt .req .tags span{background:#fff}
 <section class="alt" id="site">
   <div class="wrap">
     <div class="shead"><span class="snum">02</span><h2>The site &amp; layout plan</h2></div>
-    <p class="sintro">Current space allocation within the shared Aubagne building. <strong>Base your proposal on this layout</strong> — a high-resolution CAD file goes to shortlisted manufacturers. Remaining building constraints (ceiling height, access, utilities) will be shared directly for the detailed costing phase.</p>
+    <p class="sintro">Current space allocation within the shared Aubagne building. <strong>Base your design on this layout.</strong> A high-resolution CAD file goes to shortlisted manufacturers. Remaining building constraints (ceiling height, access, utilities) will be shared directly for the detailed costing phase.</p>
 
     <div class="planbox">
       <div class="planscroll">
-        <img src="img/plan-aubagne.jpg" alt="MiniMundo Aubagne ground floor plan, scale 1:200" data-cap="MINIMUNDO AUBAGNE — ground floor plan, 1:200 (Out4Blood Development, ref. MA.02.06)">
+        <img src="img/plan-aubagne.jpg" alt="MiniMundo Aubagne ground floor plan, scale 1:200" data-cap="MINIMUNDO AUBAGNE · ground floor plan, 1:200 (Out4Blood Development, ref. MA.02.06)">
       </div>
       <div class="plancap">
-        <span>Extract — <b>MINIMUNDO AUBAGNE</b>, ground floor plan, scale 1:200 · Out4Blood Development, ref. MA.02.06</span>
+        <span>Extract · <b>MINIMUNDO AUBAGNE</b>, ground floor plan, scale 1:200 · Out4Blood Development, ref. MA.02.06</span>
         <span class="mono">Click to enlarge ⤢</span>
       </div>
     </div>
 
-    <div class="zonegrid" id="zones"></div>
-
-    <div class="ztot">
-      <div><div class="b">10 + 1</div><div class="s">Themed modules, plus the Soft&nbsp;Area / Ball&nbsp;Pool / Slides zone</div></div>
-      <div><div class="b">428.6 m²</div><div class="s">Themed spaces and soft zone combined</div></div>
-      <div><div class="b">301.2 m²</div><div class="s">Circulation — the streets that tie the city together</div></div>
-    </div>
-
-    <div class="pull">
-      <div class="lbl">Project oversight</div>
-      <p>An architect acts as client-side project lead, responsible for <strong>accessibility, fire safety and smoke extraction</strong> compliance. Any design proposal must stay compatible with these constraints. The programme above reflects the current floor plan and <strong>may still evolve</strong> with the selected manufacturer.</p>
-    </div>
   </div>
 </section>
 
@@ -376,7 +375,7 @@ section.alt .req .tags span{background:#fff}
 <section id="quality">
   <div class="wrap">
     <div class="shead"><span class="snum">03</span><h2>The quality bar</h2></div>
-    <p class="sintro">The images in the next section are <strong>style and detail-level references</strong>, not photos of existing builds. They set the level of realism, materiality and finish quality MiniMundo expects — <strong>regardless of the technique or materials used to reach it</strong>.</p>
+    <p class="sintro lead"><strong>The images in the next section are style and detail-level references, not photos of existing builds. They set the level of realism, materiality and finish quality MiniMundo expects, regardless of the technique or materials used to reach it. Your work is assessed on how close it comes to this level of quality, alongside price and lead time.</strong></p>
 
     <div class="cards">
       <div class="card">
@@ -387,7 +386,7 @@ section.alt .req .tags span{background:#fff}
       <div class="card">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h18v10H3zM3 12h18M8 7v5M14 12v5"/></svg>
         <h3>Materials</h3>
-        <p>Genuine, durable finishes and credible textures — timber, brick, metal or equivalent. <b>Not bare plastic.</b></p>
+        <p>Genuine, durable finishes and credible textures in timber, brick, metal or equivalent. <b>Not bare plastic.</b></p>
       </div>
       <div class="card">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18h6M10 21h4M12 3a6 6 0 00-3.5 10.9c.5.4.8 1 .8 1.6V16h5.4v-.5c0-.6.3-1.2.8-1.6A6 6 0 0012 3z"/></svg>
@@ -401,12 +400,6 @@ section.alt .req .tags span{background:#fff}
       </div>
     </div>
 
-    <div class="specs" style="margin-top:14px">
-      <div class="warn">
-        <div class="lbl">Key<br>takeaway</div>
-        <p>Every proposal is assessed on <b>how close it comes to this level of quality</b>, alongside price and lead time. We are not prescribing materials — propose whichever solution best achieves this look, feel and durability.</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -414,7 +407,7 @@ section.alt .req .tags span{background:#fff}
 <section class="alt" id="refs">
   <div class="wrap">
     <div class="shead"><span class="snum">04</span><h2>Visual references</h2></div>
-    <p class="sintro">The benchmark, space by space. <strong>Read these as the target standard of finish</strong> — architecture, materials, signage, lighting and props.</p>
+    <p class="sintro">The benchmark, space by space. <strong>Read these as the target standard of finish</strong> for architecture, materials, signage, lighting and props.</p>
 
     <div class="gal">
       <figure class="shot"><img src="img/supermarket.jpg" alt="Supermarket"><figcaption><b>Supermarket</b><span>Striped awnings, wooden posts, open shopfront onto the shelving</span></figcaption></figure>
@@ -425,12 +418,134 @@ section.alt .req .tags span{background:#fff}
       <figure class="shot"><img src="img/hospital.jpg" alt="Hospital"><figcaption><b>Hospital</b><span>Clear signage, fully furnished care stations</span></figcaption></figure>
       <figure class="shot"><img src="img/pet-hospital.jpg" alt="Pet Hospital"><figcaption><b>Pet Hospital</b><span>Consistent themed world, matching furniture and props</span></figcaption></figure>
       <figure class="shot"><img src="img/construction-site.jpg" alt="Construction Site"><figcaption><b>Construction Site</b><span>Multi-level timber structure, crane, ball pit built into the set</span></figcaption></figure>
-      <figure class="shot"><img src="img/little-princess.jpg" alt="Little Princess"><figcaption><b>Little Princess</b><span>Curtains, chandeliers, vanity stations — highly finished art direction</span></figcaption></figure>
+      <figure class="shot"><img src="img/little-princess.jpg" alt="Little Princess"><figcaption><b>Little Princess</b><span>Curtains, chandeliers and vanity stations, highly finished art direction</span></figcaption></figure>
+      <figure class="shot draw"><div class="dw"><svg viewBox="0 0 900 562" role="img" aria-label="Veterinary shopfront elevation study">
+<defs>
+ <linearGradient id="gv" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="#f4e7c9" stop-opacity=".95"/><stop offset="1" stop-color="#bcd4cb"/>
+ </linearGradient>
+ <pattern id="bv" width="56" height="28" patternUnits="userSpaceOnUse">
+  <rect width="56" height="28" fill="#7fae9c"/>
+  <path d="M0 14h56M28 0v14M0 14v14M56 14v14" stroke="#6b9a89" stroke-width="2.5" fill="none"/>
+ </pattern>
+</defs>
+<rect width="900" height="562" fill="#e9ebe5"/>
+<rect y="492" width="900" height="70" fill="#dcdfd7"/>
+<path d="M0 492h900" stroke="#bfc5bb" stroke-width="2.5"/>
+<ellipse cx="450" cy="500" rx="360" ry="13" fill="#1d3b33" opacity=".2"/>
+
+<rect x="84" y="126" width="732" height="366" fill="url(#bv)"/>
+<rect x="60" y="92" width="780" height="26" rx="7" fill="#f4f6f1"/>
+<rect x="74" y="118" width="752" height="16" fill="#f4f6f1"/>
+<rect x="96" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="124" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="152" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="180" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="208" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="236" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="264" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="292" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="320" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="348" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="376" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="404" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="432" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="460" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="488" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="516" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="544" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="572" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="600" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="628" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="656" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="684" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="712" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="740" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="768" y="132" width="14" height="14" fill="#f4f6f1"/><rect x="796" y="132" width="14" height="14" fill="#f4f6f1"/>
+<rect x="84" y="146" width="732" height="7" fill="#f4f6f1" opacity=".75"/>
+
+<rect x="84" y="126" width="66" height="366" fill="#f4f6f1"/>
+<rect x="750" y="126" width="66" height="366" fill="#f4f6f1"/>
+<rect x="96" y="162" width="42" height="290" fill="#1d3b33" opacity=".16"/>
+<rect x="762" y="162" width="42" height="290" fill="#1d3b33" opacity=".16"/>
+<rect x="90" y="446" width="54" height="18" rx="4" fill="#f4f6f1"/>
+<rect x="756" y="446" width="54" height="18" rx="4" fill="#f4f6f1"/>
+
+<rect x="84" y="458" width="732" height="34" fill="#f4f6f1"/>
+<rect x="84" y="458" width="732" height="7" fill="#1d3b33" opacity=".22"/>
+
+<rect x="176" y="268" width="548" height="190" rx="8" fill="url(#gv)"/>
+<rect x="196" y="330" width="86" height="52" rx="5" fill="#2c6b56" opacity=".5"/><rect x="604" y="312" width="100" height="9" fill="#2c6b56" opacity=".38"/><rect x="604" y="342" width="100" height="9" fill="#2c6b56" opacity=".38"/><rect x="616" y="322" width="18" height="20" fill="#2c6b56" opacity=".3"/><rect x="656" y="322" width="18" height="20" fill="#2c6b56" opacity=".3"/><rect x="196" y="382" width="86" height="8" fill="#2c6b56" opacity=".35"/>
+<rect x="176" y="268" width="548" height="190" rx="8" fill="none" stroke="#f4f6f1" stroke-width="13"/>
+<path d="M300 274v178M600 274v178" stroke="#f4f6f1" stroke-width="7"/>
+<path d="M382 276h136v182H382z" fill="#f4f6f1"/>
+<path d="M396 290h108v154H396z" fill="url(#gv)"/>
+<path d="M450 290v154" stroke="#f4f6f1" stroke-width="6"/>
+<circle cx="470" cy="372" r="7" fill="#f4f6f1"/>
+
+<rect x="176" y="228" width="548" height="40" fill="#478c72"/>
+<rect x="214" y="228" width="30" height="40" fill="#faf9f4" opacity=".9"/><rect x="274" y="228" width="30" height="40" fill="#faf9f4" opacity=".9"/><rect x="334" y="228" width="30" height="40" fill="#faf9f4" opacity=".9"/><rect x="394" y="228" width="30" height="40" fill="#faf9f4" opacity=".9"/><rect x="454" y="228" width="30" height="40" fill="#faf9f4" opacity=".9"/><rect x="514" y="228" width="30" height="40" fill="#faf9f4" opacity=".9"/><rect x="574" y="228" width="30" height="40" fill="#faf9f4" opacity=".9"/><rect x="634" y="228" width="30" height="40" fill="#faf9f4" opacity=".9"/>
+<path d="M176 268h548v6l-16 18H192l-16-18z" fill="#478c72"/>
+<path d="M176 268h548v6H176z" fill="#1d3b33" opacity=".3"/>
+
+<rect x="288" y="160" width="324" height="62" rx="14" fill="#f4f6f1" stroke="#f4f6f1" stroke-width="7"/>
+<rect x="300" y="170" width="300" height="6" rx="3" fill="#fff" opacity=".3"/>
+<text x="450" y="203" text-anchor="middle" font-family="Georgia,serif" font-size="31" font-weight="700" letter-spacing="1.5" fill="#2c6b56">VETERINARY</text>
+<path d="M436 118h28v-16h16v16h28v16h-28v16h-16v-16h-28z" fill="#2c6b56"/>
+
+<rect x="150" y="424" width="58" height="42" rx="6" fill="#f4f6f1"/>
+<rect x="156" y="430" width="46" height="8" rx="4" fill="#1d3b33" opacity=".2"/>
+<path d="M158 424q21-38 42 0z" fill="#5c8a52"/>
+<rect x="692" y="424" width="58" height="42" rx="6" fill="#f4f6f1"/>
+<rect x="698" y="430" width="46" height="8" rx="4" fill="#1d3b33" opacity=".2"/>
+<path d="M700 424q21-38 42 0z" fill="#5c8a52"/>
+
+<rect x="44" y="300" width="11" height="192" rx="3" fill="#f4f6f1"/>
+<path d="M28 296h43l-9-30H37z" fill="#f4f6f1"/>
+<circle cx="49.5" cy="292" r="5" fill="#2c6b56" opacity=".6"/>
+</svg></div><figcaption><b>Veterinary</b><span>Panelled shopfront, moulded pilasters, carved sign board, consulting bench behind the glazing</span></figcaption><i class="study">Elevation study</i></figure>
+      <figure class="shot draw"><div class="dw"><svg viewBox="0 0 900 562" role="img" aria-label="Auto Garage shopfront elevation study">
+<defs>
+ <linearGradient id="gg" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="#f7e3b4" stop-opacity=".95"/><stop offset="1" stop-color="#c3d2dd"/>
+ </linearGradient>
+ <pattern id="bg" width="56" height="28" patternUnits="userSpaceOnUse">
+  <rect width="56" height="28" fill="#7d8fa2"/>
+  <path d="M0 14h56M28 0v14M0 14v14M56 14v14" stroke="#6a7c8f" stroke-width="2.5" fill="none"/>
+ </pattern>
+</defs>
+<rect width="900" height="562" fill="#e9ebe5"/>
+<rect y="492" width="900" height="70" fill="#dcdfd7"/>
+<path d="M0 492h900" stroke="#bfc5bb" stroke-width="2.5"/>
+<ellipse cx="450" cy="500" rx="360" ry="13" fill="#1b2733" opacity=".2"/>
+
+<rect x="84" y="126" width="732" height="366" fill="url(#bg)"/>
+<rect x="60" y="92" width="780" height="26" rx="7" fill="#f2f4f1"/>
+<rect x="74" y="118" width="752" height="16" fill="#f2f4f1"/>
+<rect x="96" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="124" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="152" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="180" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="208" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="236" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="264" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="292" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="320" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="348" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="376" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="404" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="432" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="460" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="488" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="516" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="544" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="572" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="600" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="628" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="656" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="684" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="712" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="740" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="768" y="132" width="14" height="14" fill="#f2f4f1"/><rect x="796" y="132" width="14" height="14" fill="#f2f4f1"/>
+<rect x="84" y="146" width="732" height="7" fill="#f2f4f1" opacity=".75"/>
+
+<rect x="84" y="126" width="66" height="366" fill="#f2f4f1"/>
+<rect x="750" y="126" width="66" height="366" fill="#f2f4f1"/>
+<rect x="96" y="162" width="42" height="290" fill="#1b2733" opacity=".16"/>
+<rect x="762" y="162" width="42" height="290" fill="#1b2733" opacity=".16"/>
+<rect x="90" y="446" width="54" height="18" rx="4" fill="#f2f4f1"/>
+<rect x="756" y="446" width="54" height="18" rx="4" fill="#f2f4f1"/>
+
+<rect x="84" y="458" width="732" height="34" fill="#f2f4f1"/>
+<rect x="84" y="458" width="732" height="7" fill="#1b2733" opacity=".22"/>
+
+<rect x="176" y="268" width="548" height="190" rx="8" fill="url(#gg)"/>
+<rect x="196" y="316" width="150" height="66" rx="14" fill="#22303d" opacity=".55"/><rect x="212" y="328" width="52" height="30" rx="6" fill="#c3d2dd" opacity=".8"/><circle cx="224" cy="388" r="17" fill="#22303d" opacity=".55"/><circle cx="318" cy="388" r="17" fill="#22303d" opacity=".55"/><rect x="596" y="306" width="106" height="10" fill="#22303d" opacity=".4"/><rect x="608" y="316" width="10" height="34" fill="#22303d" opacity=".4"/><rect x="636" y="316" width="10" height="26" fill="#22303d" opacity=".4"/><rect x="664" y="316" width="10" height="38" fill="#22303d" opacity=".4"/>
+<rect x="176" y="268" width="548" height="190" rx="8" fill="none" stroke="#f2f4f1" stroke-width="13"/>
+<path d="M300 274v178M600 274v178" stroke="#f2f4f1" stroke-width="7"/>
+<path d="M382 276h136v182H382z" fill="#f2f4f1"/>
+<path d="M396 290h108v154H396z" fill="url(#gg)"/>
+<path d="M450 290v154" stroke="#f2f4f1" stroke-width="6"/>
+<circle cx="470" cy="372" r="7" fill="#e3a52f"/>
+
+<rect x="176" y="228" width="548" height="40" fill="#3b4d5f"/>
+<rect x="214" y="228" width="30" height="40" fill="#faf9f4" opacity=".9"/><rect x="274" y="228" width="30" height="40" fill="#faf9f4" opacity=".9"/><rect x="334" y="228" width="30" height="40" fill="#faf9f4" opacity=".9"/><rect x="394" y="228" width="30" height="40" fill="#faf9f4" opacity=".9"/><rect x="454" y="228" width="30" height="40" fill="#faf9f4" opacity=".9"/><rect x="514" y="228" width="30" height="40" fill="#faf9f4" opacity=".9"/><rect x="574" y="228" width="30" height="40" fill="#faf9f4" opacity=".9"/><rect x="634" y="228" width="30" height="40" fill="#faf9f4" opacity=".9"/>
+<path d="M176 268h548v6l-16 18H192l-16-18z" fill="#3b4d5f"/>
+<path d="M176 268h548v6H176z" fill="#1b2733" opacity=".3"/>
+
+<rect x="288" y="160" width="324" height="62" rx="14" fill="#e3a52f" stroke="#f2f4f1" stroke-width="7"/>
+<rect x="300" y="170" width="300" height="6" rx="3" fill="#fff" opacity=".3"/>
+<text x="450" y="203" text-anchor="middle" font-family="Georgia,serif" font-size="31" font-weight="700" letter-spacing="1.5" fill="#22303d">AUTO GARAGE</text>
+<path d="M424 104h52v12h-52zM432 116h36l6 18h-48z" fill="#22303d"/><circle cx="440" cy="140" r="7" fill="#22303d"/><circle cx="460" cy="140" r="7" fill="#22303d"/>
+
+<rect x="150" y="424" width="58" height="42" rx="6" fill="#f2f4f1"/>
+<rect x="156" y="430" width="46" height="8" rx="4" fill="#1b2733" opacity=".2"/>
+<path d="M158 424q21-38 42 0z" fill="#5c8a52"/>
+<rect x="692" y="424" width="58" height="42" rx="6" fill="#f2f4f1"/>
+<rect x="698" y="430" width="46" height="8" rx="4" fill="#1b2733" opacity=".2"/>
+<path d="M700 424q21-38 42 0z" fill="#5c8a52"/>
+
+<rect x="44" y="300" width="11" height="192" rx="3" fill="#f2f4f1"/>
+<path d="M28 296h43l-9-30H37z" fill="#e3a52f"/>
+<circle cx="49.5" cy="292" r="5" fill="#22303d" opacity=".6"/>
+</svg></div><figcaption><b>Auto Garage</b><span>Workshop bay with roller front, illuminated sign, service pit and toolboards inside</span></figcaption><i class="study">Elevation study</i></figure>
     </div>
 
     <p class="galnote">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-      <span><b>Farm</b> and the <b>Soft Area / Ball Pool / Slides</b> zone are also part of the current layout (see section 02); dedicated visual references for these will be confirmed separately.</span>
+      <span><b>Veterinary</b> and <b>Auto Garage</b> are shown as elevation studies: they set the façade intent (mouldings, pilasters, sign board, awning, planters) while reference images are being finalised. <b>Farm</b> and the <b>Soft Area / Ball Pool / Slides</b> zone are also part of the current layout (see section 02); references for these will be confirmed separately.</span>
     </p>
   </div>
 </section>
@@ -439,7 +554,7 @@ section.alt .req .tags span{background:#fff}
 <section id="specs">
   <div class="wrap">
     <div class="shead"><span class="snum">05</span><h2>Technical specifications</h2></div>
-    <p class="sintro">What the build has to deliver — architecturally, in materials, and in safety. <strong>Material choice is open; the outcome is not.</strong></p>
+    <p class="sintro">What the build has to deliver architecturally, in materials, and in safety. <strong>Material choice is open; the outcome is not.</strong></p>
 
     <div class="specs">
       <div class="spec">
@@ -448,14 +563,14 @@ section.alt .req .tags span{background:#fff}
           <li>Open or semi-open shopfronts allowing a <b>view into each space</b></li>
           <li>Doors and windows as <b>genuine architectural openings</b>, not cut-outs</li>
           <li>Distinct signage per building, ideally <b>backlit or illuminated</b></li>
-          <li>Mouldings, shutters, planters, street furniture — lampposts, benches, street signage</li>
+          <li>Mouldings, shutters, planters, street furniture: lampposts, benches, street signage</li>
           <li>Varied materials and textures from one building to the next</li>
         </ul>
       </div>
       <div class="spec g">
         <h3>Activity types</h3>
         <ul>
-          <li><b>Roleplay</b> — re-enacting everyday situations</li>
+          <li><b>Roleplay</b>, re-enacting everyday situations</li>
           <li><b>Interactive &amp; educational games</b> encouraging manipulation and experimentation</li>
           <li><b>Physical &amp; soft-play</b> built directly into the buildings and façades</li>
           <li><b>Free play</b>, with no imposed route</li>
@@ -465,7 +580,7 @@ section.alt .req .tags span{background:#fff}
       <div class="spec b">
         <h3>Materials &amp; maintenance</h3>
         <ul>
-          <li>Any solution — timber, composite, metal or other — that achieves the look, feel and durability of section 04</li>
+          <li>Any solution, whether timber, composite, metal or other, that achieves the look, feel and durability of section 04</li>
           <li>Durable and suited to <b>intensive daily public use</b> in a supervised children's venue (ERP)</li>
           <li>Easy to clean and maintain daily</li>
           <li>Finishes consistent with the reference gallery</li>
@@ -475,7 +590,7 @@ section.alt .req .tags span{background:#fff}
       <div class="spec s">
         <h3>Child safety</h3>
         <ul>
-          <li>Intensive daily use by young children — reflect this in material and construction choices <b>from the outset</b></li>
+          <li>Intensive daily use by young children, so reflect this in material and construction choices <b>from the outset</b></li>
           <li>Soft, <b>impact-absorbing</b> play surfaces, walls and structural edges within children's reach</li>
           <li><b>Rounded corners and edges</b> throughout; no sharp elements at child height</li>
           <li>Non-slip, easy-to-disinfect flooring in all play areas</li>
@@ -487,13 +602,13 @@ section.alt .req .tags span{background:#fff}
         <ul>
           <li>Design compatible with French <b>accessibility, fire safety and smoke extraction</b> requirements</li>
           <li>Constraints confirmed jointly with the project architect during detailed costing</li>
-          <li>You are <b>not expected to fully anticipate them</b> at this stage — but do indicate your ability to comply</li>
+          <li>You are <b>not expected to fully anticipate them</b> at this stage, but do indicate your ability to comply</li>
         </ul>
       </div>
       <div class="spec">
         <h3>Certification</h3>
         <ul>
-          <li>Play equipment and furniture must meet safety standards applicable in the country of installation — <b>France / European Union</b></li>
+          <li>Play equipment and furniture must meet safety standards applicable in the country of installation: <b>France / European Union</b></li>
           <li>Detail on product certifications is requested in <b>section 06</b></li>
         </ul>
       </div>
@@ -504,59 +619,59 @@ section.alt .req .tags span{background:#fff}
 <!-- ══════════════ 06 DELIVERABLES ══════════════ -->
 <section class="alt" id="deliverables">
   <div class="wrap">
-    <div class="shead"><span class="snum">06</span><h2>What we expect in your proposal</h2></div>
-    <p class="sintro">Structure your response around the seven points below. <strong>An incomplete response on any point will be treated as such when offers are compared.</strong></p>
+    <div class="shead"><span class="snum">06</span><h2>What we expect from you</h2></div>
+    <p class="sintro">We are building this together, so these seven points are what we need from your side to hold the December 2026 opening. <strong>Treat all seven as required.</strong></p>
 
     <div class="reqs">
       <div class="req key">
         <div class="no">01</div>
         <div>
-          <h3>Detailed commercial offer</h3>
-          <p><b>Itemised pricing by themed space — not a single global price.</b></p>
+          <h3>Pricing broken down by space</h3>
+          <p><b>An itemised price per themed space, never a single global figure.</b></p>
           <div class="tags"><span>Manufacturing</span><span>Transport to Aubagne</span><span>On-site installation</span><span>Options</span><span>Payment terms &amp; schedule</span></div>
         </div>
       </div>
       <div class="req key">
         <div class="no">02</div>
         <div>
-          <h3>Design proposal</h3>
-          <p>Built on the floor plan shared with shortlisted manufacturers. We primarily want <b>visuals, not a written description</b>: photorealistic 3D renders for each themed zone.</p>
+          <h3>Design work on our floor plan</h3>
+          <p>Work directly from the plan we share. We want to see it, not read it: <b>photorealistic 3D renders for every themed zone.</b></p>
           <div class="tags"><span>3D render per zone</span><span>Scaled 2D layout plan</span><span>Materials / mood board</span></div>
         </div>
       </div>
       <div class="req">
         <div class="no">03</div>
         <div>
-          <h3>Furnishing detail per space</h3>
-          <p>For each themed module: a precise list of furniture, equipment and props, with the material used for each. <b>"Supermarket included" is not sufficient</b> — we expect the itemised content supplied.</p>
+          <h3>Furnishing detail, space by space</h3>
+          <p>For each themed module, the precise list of furniture, equipment and props with the material used for each. <b>"Supermarket included" tells us nothing.</b> We need the itemised content you supply.</p>
         </div>
       </div>
       <div class="req">
         <div class="no">04</div>
         <div>
-          <h3>Manufacturer references</h3>
-          <p>Photos and, where possible, videos of <b>genuine completed sites</b> — not only 3D renders. List comparable delivered projects with surface area and country where shareable.</p>
+          <h3>Your delivered projects</h3>
+          <p>Photos and, where possible, videos of <b>real completed sites</b>, not only 3D renders. List comparable projects you have delivered, with surface area and country where you can share them.</p>
         </div>
       </div>
       <div class="req">
         <div class="no">05</div>
         <div>
           <h3>Certifications &amp; compliance</h3>
-          <p>Product certifications applicable to children's play equipment (<b>EU / France</b>), and confirmation that materials used comply with current standards.</p>
+          <p>Product certifications for children's play equipment (<b>EU / France</b>), and written confirmation that every material used meets current standards.</p>
         </div>
       </div>
       <div class="req">
         <div class="no">06</div>
         <div>
-          <h3>Lead times</h3>
-          <p>Manufacturing, transport to Aubagne and on-site installation — <b>referenced against a target opening of early 2027</b>.</p>
+          <h3>Lead times you can hold</h3>
+          <p>Manufacturing, transport to Aubagne and on-site installation, <b>each dated against a December 2026 opening.</b></p>
         </div>
       </div>
       <div class="req wide">
         <div class="no">07</div>
         <div>
           <h3>Commercial terms &amp; after-sales</h3>
-          <p>Payment terms, warranty duration and conditions, and after-sales arrangements — <b>spare parts, intervention on breakage or wear</b>.</p>
+          <p>Payment terms, warranty duration and conditions, and how after-sales works in practice: <b>spare parts, and how fast you intervene on breakage or wear.</b></p>
         </div>
       </div>
     </div>
@@ -566,15 +681,15 @@ section.alt .req .tags span{background:#fff}
 <!-- ══════════════ 07 CONTACT ══════════════ -->
 <footer class="foot" id="contact">
   <div class="wrap">
-    <div class="eyebrow" style="color:#9aa4a0">07 — How to respond</div>
-    <h2 style="margin-top:14px">We look forward to receiving your proposal.</h2>
-    <p class="sub">We remain available ahead of your submission — detailed site plans, clarifications on the space programme, or technical questions.</p>
+    <div class="eyebrow" style="color:#9aa4a0">07 · Working together</div>
+    <h2 style="margin-top:14px">We want a partner who moves fast.</h2>
+    <p class="sub"><b>Reactivity matters more to us than anything else on this list.</b> Quick answers, one clear point of contact, and short turnaround on questions and revisions are what will keep December 2026 reachable. We are available whenever you need us: detailed site plans, clarifications on the space programme, or any technical question.</p>
 
     <div class="contacts">
       <div class="ct">
         <div class="k">Project contact</div>
         <div class="n">Bastien Pelé</div>
-        <div class="r">Architect — MiniMundo Project Lead</div>
+        <div class="r">Architect, MiniMundo Project Lead</div>
         <a href="mailto:bastien@makeitnow.live">bastien@makeitnow.live</a>
         <a href="tel:+33680130104">+33 6 80 13 01 04</a>
       </div>
@@ -587,8 +702,8 @@ section.alt .req .tags span{background:#fff}
     </div>
 
     <div class="end">
-      <span>MiniMundo — Consultation document</span>
-      <span>Aubagne, France · Opening early 2027</span>
+      <span>MiniMundo · Consultation document</span>
+      <span>Aubagne, France · Opening December 2026</span>
     </div>
   </div>
 </footer>
@@ -596,31 +711,13 @@ section.alt .req .tags span{background:#fff}
 <div class="lb" id="lb"><button class="x" aria-label="Close">&times;</button><img alt=""><div class="cap"></div></div>
 
 <script>
-/* ---- zone table (from the 1:200 plan) ---- */
-const ZONES=[
-  ["Supermarket",17.64,"#4b7448"],["Bakery",17.64,"#c8342b"],
-  ["Kitchen",32.11,"#e3a52f"],["Hospital",33.62,"#2e6f8e"],
-  ["Fire Station",33.62,"#c8342b"],["Police",33.62,"#2e6f8e"],
-  ["Construction Site",59.65,"#e3a52f"],["Farm",27.89,"#4b7448"],
-  ["Little Princess",15.43,"#a8558a"],["Pet Hospital",15.75,"#2e6f8e"],
-  ["Soft Area / Ball Pool / Slides",141.61,"#6f5cb8"],["Circulation",301.21,"#838b84"]
-];
-const max=Math.max(...ZONES.map(z=>z[1]));
-document.getElementById('zones').innerHTML=ZONES.map(([n,v,c])=>`
-  <div class="zrow">
-    <div class="zname"><i class="dot" style="background:${c}"></i>${n}
-      <i class="zbar"><i style="width:${(v/max*100).toFixed(1)}%;background:${c}"></i></i>
-    </div>
-    <div class="zval">${v.toFixed(2)} m²</div>
-  </div>`).join('');
-
 /* ---- lightbox ---- */
 const lb=document.getElementById('lb'),lbi=lb.querySelector('img'),lbc=lb.querySelector('.cap');
 document.querySelectorAll('.shot img, .planscroll img').forEach(img=>{
   img.addEventListener('click',()=>{
     lbi.src=img.src; lbi.alt=img.alt;
     const fc=img.closest('figure')?.querySelector('figcaption');
-    lbc.textContent=img.dataset.cap || (fc?fc.innerText.replace(/\n/g,' — '):img.alt);
+    lbc.textContent=img.dataset.cap || (fc?fc.innerText.replace(/\n/g,' · '):img.alt);
     lb.classList.add('open'); document.body.style.overflow='hidden';
   });
 });
