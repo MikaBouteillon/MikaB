@@ -99,11 +99,15 @@ h2{font-size:34pt;margin-bottom:4mm}
 .c4 p b{color:var(--ink);font-weight:600}
 
 /* ── plan ── */
-.planwrap{flex:1;display:flex;align-items:center;justify-content:center;padding:2mm 0}
+.limits{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm;margin:3.5mm 0 0}
+.limits>div{border-left:1.2mm solid var(--red);padding:1mm 0 1mm 4.5mm;display:flex;flex-direction:column}
+.limits .k{font-family:"IBM Plex Mono",monospace;font-size:8pt;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.limits .v{font-family:Newsreader,Georgia,serif;font-size:16.5pt;font-weight:600;margin-top:.5mm}
+.planwrap{flex:1;display:flex;align-items:center;justify-content:center;padding:4mm 0 1mm}
 .planwrap img{width:100%;height:auto;max-height:100%;object-fit:contain}
 .plancap{
-  font-family:"IBM Plex Mono",monospace;font-size:8pt;letter-spacing:.06em;
-  color:var(--muted);text-align:center;padding-top:3mm;
+  font-family:"IBM Plex Mono",monospace;font-size:7.5pt;letter-spacing:.04em;
+  color:var(--muted);text-align:center;padding-top:2mm;
 }
 
 /* ── gallery ── */
@@ -228,10 +232,15 @@ h2{font-size:34pt;margin-bottom:4mm}
 <section class="page">
   <div class="rh"><span>MiniMundo · Request for Proposal</span><span>The site</span></div>
   <div class="kicker">03 · The site</div>
-  <h2 style="font-size:28pt;margin-bottom:2mm">Work from this layout plan.</h2>
-  <p class="sub" style="font-size:11.5pt">A high-resolution CAD file will be provided. Ceiling height, access and utilities will be shared for the detailed costing phase.</p>
+  <h2 style="font-size:27pt;margin-bottom:2mm">The floor is open. You design the layout.</h2>
+  <p class="sub" style="font-size:11pt">The red dashed line is the MiniMundo perimeter. Reception, bar, birthday boxes, changing room, restrooms, shop and storage are fixed. <b>Where each themed space goes is yours to propose.</b> A high-resolution CAD file will be provided.</p>
+  <div class="limits">
+    <div><span class="k">Maximum installation height</span><span class="v">5 m</span></div>
+    <div><span class="k">Clear height under HVAC</span><span class="v">3.87 to 4.23 m</span></div>
+    <div><span class="k">Emergency exits</span><span class="v">Access must stay clear</span></div>
+  </div>
   <div class="planwrap"><img src="img/plan-aubagne.jpg" alt="MiniMundo Aubagne ground floor plan"></div>
-  <div class="plancap">MINIMUNDO AUBAGNE · Ground floor plan · Scale 1:200 · Out4Blood Development · Ref. MA.02.06</div>
+  <div class="plancap">MINIMUNDO AUBAGNE · Ground floor plan · Scale 1:200 · Phase AT · Ref. MA.02.06 · 28/08/2026 · ZI les Paluds, 13400 Aubagne</div>
   <div class="pn">04</div>
 </section>
 
@@ -239,14 +248,14 @@ h2{font-size:34pt;margin-bottom:4mm}
 <section class="page tint">
   <div class="rh"><span>MiniMundo · Request for Proposal</span><span>Quality level</span></div>
   <div class="kicker">04 · Quality level</div>
-  <h2>This is the quality we expect.</h2>
-  <p class="sub">The images on the next two pages are <b>style references, not photos of existing builds.</b> They show the level of realism, materials and finish we want. You are free to reach it with any technique or material.</p>
-  <div class="statement" style="font-size:26pt">Your work is judged on <b>how close it comes to this quality</b>, together with price and lead time.</div>
+  <h2>What these images mean.</h2>
+  <p class="sub">The images on the next two pages are <b>not the design we want.</b> They show the <b>level of detail</b> we want. Do not copy them. They are style references, not photos of existing builds. Bring us your own design, at this level of detail or better.</p>
+  <div class="statement" style="font-size:23pt">Three things decide how we judge your work: <b>the detail of the façades</b>, <b>the quality of the toys and props</b>, and <b>how many different ways a child can play</b>.</div>
   <div class="cards4">
-    <div class="c4"><div class="num">01</div><h3>Façades</h3><p>Shopfronts, illuminated signage, mouldings, shutters, planters.</p></div>
-    <div class="c4"><div class="num">02</div><h3>Materials</h3><p>Real, durable finishes and believable textures. Timber, brick, metal or equivalent. <b>No bare plastic.</b></p></div>
-    <div class="c4"><div class="num">03</div><h3>Lighting</h3><p>Backlit signage, built-in spotlights, and a lighting mood for each space.</p></div>
-    <div class="c4"><div class="num">04</div><h3>Furniture</h3><p>Counters, shelving and props that match each trade.</p></div>
+    <div class="c4"><div class="num">01</div><h3>Façade detail</h3><p>Shopfronts, illuminated signage, mouldings, shutters, planters. <b>Our first priority.</b></p></div>
+    <div class="c4"><div class="num">02</div><h3>Toys and props</h3><p>Everything a child picks up: counters, tools, costumes, equipment. <b>Judged as closely as the buildings.</b></p></div>
+    <div class="c4"><div class="num">03</div><h3>Many ways to play</h3><p>One space should offer several things to do. A child who comes back should find something new.</p></div>
+    <div class="c4"><div class="num">04</div><h3>Materials and light</h3><p>Real, durable textures. Timber, brick, metal or equivalent. <b>No bare plastic.</b> Backlit signage per space.</p></div>
   </div>
   <div class="pn">05</div>
 </section>
@@ -255,7 +264,8 @@ h2{font-size:34pt;margin-bottom:4mm}
 <section class="page">
   <div class="rh"><span>MiniMundo · Request for Proposal</span><span>Visual references · 1 / 2</span></div>
   <div class="kicker">05 · Visual references</div>
-  <h2 style="font-size:28pt;margin-bottom:5mm">Retail and services.</h2>
+  <h2 style="font-size:28pt;margin-bottom:1.5mm">Retail and services.</h2>
+  <p class="sub" style="font-size:10.5pt;margin-bottom:4mm">Look at the level of detail, not the design. Match it or beat it.</p>
   <div class="gal3 two-row">
     <figure class="gshot"><img src="img/supermarket.jpg" alt="Supermarket"><figcaption class="cap"><b>Supermarket</b><span>Striped awnings, wooden posts, open shopfront onto the shelving</span></figcaption></figure>
     <figure class="gshot"><img src="img/bakery.jpg" alt="Bakery"><figcaption class="cap"><b>Bakery</b><span>Arched signage, pastry display case, visible kitchen</span></figcaption></figure>
@@ -277,7 +287,7 @@ h2{font-size:34pt;margin-bottom:4mm}
     <figure class="gshot"><img src="img/construction-site.jpg" alt="Construction Site"><figcaption class="cap"><b>Construction Site</b><span>Multi-level timber structure, crane, ball pit built into the set</span></figcaption></figure>
     <figure class="gshot"><img src="img/little-princess.jpg" alt="Little Princess"><figcaption class="cap"><b>Little Princess</b><span>Curtains, chandeliers and vanity stations, highly finished art direction</span></figcaption></figure>
   </div>
-  <p class="sub" style="font-size:10.5pt;margin-top:6mm"><b>Farm</b> and the <b>Soft Area / Ball Pool / Slides</b> zone are also part of the layout. References for these will be confirmed separately.</p>
+  <p class="sub" style="font-size:10.5pt;margin-top:6mm"><b>These images set the style and the level of detail. They are not a layout to copy.</b> Which themed spaces you propose, and where you place them inside the perimeter, is part of your design work.</p>
   <div class="pn">07</div>
 </section>
 
