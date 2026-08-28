@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MiniMundo · Request for Proposal</title>
+<meta name="description" content="MiniMundo. Design, manufacturing &amp; installation of an immersive indoor play park. Aubagne, France. 1,100 m². Opening December 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#15181a;
+  --ink-2:#333a3b;
+  --paper:#f1f2ed;
+  --paper-2:#e5e8e0;
+  --line:#cfd4ca;
+  --muted:#646b64;
+  --accent:#c8342b;
+  --green:#4b7448;
+  --sun:#e3a52f;
+  --blue:#2e6f8e;
+  --maxw:1180px;
+  --r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+/* ---------- primitives ---------- */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+.eyebrow{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+}
+h1,h2,h3,.disp{font-family:Newsreader,"Iowan Old Style",Georgia,serif;font-weight:600;letter-spacing:-.015em;line-height:1.08}
+.rule{height:1px;background:var(--line);border:0}
+
+/* ---------- top bar ---------- */
+.bar{
+  position:sticky;top:0;z-index:60;background:rgba(241,242,237,.88);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
+}
+.bar-in{max-width:var(--maxw);margin:0 auto;padding:0 28px;height:56px;display:flex;align-items:center;gap:24px}
+.brand{font-family:Newsreader,Georgia,serif;font-weight:700;font-size:17px;letter-spacing:-.02em;white-space:nowrap}
+.brand span{color:var(--accent)}
+.bar-tag{
+  font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);border-left:1px solid var(--line);padding-left:16px;white-space:nowrap;
+}
+nav.toc{margin-left:auto;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+nav.toc::-webkit-scrollbar{display:none}
+nav.toc a{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.06em;text-decoration:none;
+  color:var(--muted);padding:6px 9px;border-radius:7px;white-space:nowrap;transition:.18s;
+}
+nav.toc a:hover{color:var(--ink);background:var(--paper-2)}
+nav.toc a.on{color:var(--paper);background:var(--ink)}
+.prog{position:absolute;left:0;bottom:-1px;height:2px;background:var(--accent);width:0}
+
+/* ---------- hero ---------- */
+.hero{background:var(--ink);color:#eef0ee;padding:60px 0 0;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.35fr .95fr;gap:48px;align-items:end}
+.hero h1{font-size:clamp(38px,5.4vw,64px);color:#fff;margin:16px 0 18px}
+.hero h1 em{font-style:normal;color:var(--sun)}
+.hero p.lede{font-size:16.5px;color:#b3bab6;max-width:52ch}
+.hero-thumbs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.hero-thumbs img{border-radius:10px;aspect-ratio:16/10;object-fit:cover;filter:saturate(1.02)}
+.hero-thumbs img:first-child{grid-column:1/-1;aspect-ratio:16/8}
+
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:52px;border-top:1px solid rgba(255,255,255,.14)}
+.fact{padding:20px 24px 26px;border-right:1px solid rgba(255,255,255,.14)}
+.fact:last-child{border-right:0}
+.fact:first-child{padding-left:0}
+.fact .k{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#7f8a86}
+.fact .v{font-family:Newsreader,Georgia,serif;font-size:23px;font-weight:600;color:#fff;margin-top:7px;line-height:1.15}
+.fact .n{font-size:12.5px;color:#8d9793;margin-top:5px;line-height:1.4}
+
+/* ---------- sections ---------- */
+section{padding:62px 0;border-bottom:1px solid var(--line)}
+section.alt{background:var(--paper-2)}
+.shead{display:flex;align-items:baseline;gap:16px;margin-bottom:8px}
+.snum{
+  font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;color:var(--accent);
+  letter-spacing:.08em;
+}
+.shead h2{font-size:clamp(26px,3.2vw,34px)}
+.sintro{color:var(--muted);max-width:74ch;font-size:17px;line-height:1.6;margin-bottom:34px}
+.sintro strong{color:var(--ink);font-weight:600}
+.sintro.lead{color:var(--ink);font-size:18px}
+
+.limits{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px}
+.limits>div{background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:13px 16px}
+section.alt .limits>div{background:var(--paper)}
+.limits .k{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.limits .v{font-family:Fraunces,Newsreader,Georgia,serif;font-size:21px;font-weight:600;margin-top:4px;line-height:1.2}
+.matters{background:var(--ink);color:#e8ece9;border-radius:var(--r);padding:20px 24px;margin-bottom:30px}
+.matters .m-lbl{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--sun);margin-bottom:8px}
+.matters p{font-size:16px;line-height:1.6;color:#b9c0bc}
+.matters p b{color:#fff;font-weight:600}
+
+.zones{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.zone{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px 20px;display:flex;flex-direction:column;gap:10px}
+section.alt .zone{background:var(--paper)}
+.zone .zi{width:44px;height:44px;border-radius:12px;background:var(--ink);color:var(--sun);display:grid;place-items:center;margin-bottom:2px}
+.zone .zi svg{width:24px;height:24px}
+.zone h3{font-size:17px;font-family:Inter,sans-serif;font-weight:700;letter-spacing:-.01em}
+.zone p{font-size:14.5px;color:var(--muted);line-height:1.5}
+.zone p b{color:var(--ink);font-weight:600}
+
+section.wow{background:var(--ink);color:#e8ece9;border-bottom-color:rgba(255,255,255,.14)}
+section.wow .shead h2{color:#fff}
+section.wow .snum{color:var(--sun)}
+section.wow .sintro{color:#aab2ae}
+section.wow .sintro strong{color:#fff}
+section.wow .zone{background:transparent;border-color:rgba(255,255,255,.2)}
+section.wow .zone .zi{background:var(--sun);color:var(--ink)}
+section.wow .zone h3{color:#fff}
+section.wow .zone p{color:#a3aca8}
+section.wow .zone p b{color:var(--sun)}
+section.wow .pull{background:transparent;border-left-color:var(--sun)}
+section.wow .pull .lbl{color:var(--sun)}
+section.wow .pull p{color:#c3cac6}
+section.wow .pull p strong{color:#fff}
+
+/* ---------- cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px;
+  display:flex;flex-direction:column;gap:9px;
+}
+section.alt .card{background:var(--paper)}
+.card .ic{width:26px;height:26px;color:var(--accent)}
+.card h3{font-size:16.5px;font-family:Inter,sans-serif;font-weight:700;letter-spacing:-.01em}
+.card p{font-size:14.5px;color:var(--muted);line-height:1.5}
+
+.pull{
+  margin-top:24px;border-left:3px solid var(--accent);background:#fff;
+  border-radius:0 var(--r) var(--r) 0;padding:18px 22px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;
+}
+section.alt .pull{background:var(--paper)}
+.pull .lbl{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
+.pull p{font-size:14.5px}
+.pull p strong{font-weight:600}
+
+/* ---------- plan ---------- */
+.planbox{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:12px;overflow:hidden}
+section.alt .planbox{background:#fff}
+.planscroll{overflow-x:auto;border-radius:8px}
+.planscroll img{min-width:900px;cursor:zoom-in}
+.plancap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:11px 6px 3px;font-size:11.5px;color:var(--muted)}
+
+.zonegrid{display:grid;grid-template-columns:1fr 1fr;gap:6px 34px;margin-top:26px}
+.zrow{display:grid;grid-template-columns:1fr 74px;align-items:center;gap:12px;padding:7px 0;border-bottom:1px dotted var(--line)}
+.zname{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:500}
+.dot{width:8px;height:8px;border-radius:2px;flex:0 0 auto}
+.zbar{position:relative;height:4px;background:var(--line);border-radius:2px;flex:1;max-width:150px}
+.zbar i{position:absolute;inset:0 auto 0 0;border-radius:2px;display:block}
+.zval{font-family:"IBM Plex Mono",monospace;font-size:12px;text-align:right;color:var(--ink-2)}
+.ztot{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.ztot div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+section.alt .ztot div{background:var(--paper)}
+.ztot .b{font-family:Newsreader,Georgia,serif;font-size:25px;font-weight:600}
+.ztot .s{font-size:12px;color:var(--muted);margin-top:2px}
+
+/* ---------- gallery ---------- */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.shot{
+  position:relative;border-radius:var(--r);overflow:hidden;background:#000;
+  border:1px solid var(--line);cursor:zoom-in;
+}
+.shot img{aspect-ratio:16/10;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.shot:hover img{transform:scale(1.04)}
+.shot figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:34px 16px 13px;color:#fff;
+  background:linear-gradient(to top,rgba(12,15,16,.92) 12%,rgba(12,15,16,0));
+}
+.shot figcaption b{display:block;font-family:Newsreader,Georgia,serif;font-size:17px;font-weight:600;letter-spacing:-.01em}
+.shot figcaption span{display:block;font-size:12.5px;color:#c6cecb;margin-top:2px;line-height:1.35}
+.galnote{margin-top:16px;font-size:14px;color:var(--muted);display:flex;gap:10px;align-items:flex-start}
+.galnote svg{flex:0 0 auto;margin-top:2px;color:var(--accent)}
+
+/* ---------- spec lists ---------- */
+.specs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.spec{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px 20px 18px}
+section.alt .spec{background:var(--paper)}
+.spec h3{font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.spec.g h3{color:var(--green)} .spec.b h3{color:var(--blue)} .spec.s h3{color:#a8791f}
+.spec ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.spec li{font-size:14.5px;line-height:1.5;padding-left:18px;position:relative;color:var(--ink-2)}
+.spec li::before{
+  content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:50%;
+  border:1.5px solid currentColor;color:var(--line);
+}
+.spec li b{font-weight:600;color:var(--ink)}
+.warn{
+  grid-column:1/-1;background:var(--ink);color:#ecefec;border-radius:var(--r);padding:20px 24px;
+  display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;
+}
+.warn .lbl{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--sun);max-width:120px;line-height:1.5}
+.warn p{font-size:14px;color:#b6bebb}
+.warn p b{color:#fff;font-weight:600}
+
+/* ---------- deliverables ---------- */
+.reqs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.req{
+  background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;
+  display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:start;
+}
+section.alt .req{background:var(--paper)}
+.req .no{
+  font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;color:var(--accent);
+  border:1px solid var(--line);border-radius:8px;height:30px;display:grid;place-items:center;
+}
+.req h3{font-family:Inter,sans-serif;font-size:15.5px;font-weight:700;letter-spacing:-.01em}
+.req p{font-size:14.5px;color:var(--muted);margin-top:6px;line-height:1.55}
+.req p b{color:var(--ink);font-weight:600}
+.req .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.req .tags span{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.03em;color:var(--ink-2);
+  background:var(--paper-2);border:1px solid var(--line);border-radius:20px;padding:3px 9px;
+}
+section.alt .req .tags span{background:#fff}
+.req.wide{grid-column:1/-1}
+.req.key{grid-column:1/-1;border-color:var(--accent);box-shadow:0 0 0 3px rgba(200,52,43,.09)}
+
+/* ---------- contact ---------- */
+.foot{background:var(--ink);color:#ecefec;padding:66px 0 40px;border:0}
+.foot h2{font-size:clamp(28px,4vw,42px);color:#fff;max-width:16ch}
+.foot p.sub{color:#b3bab6;max-width:56ch;margin-top:16px;font-size:16.5px;line-height:1.6}
+.contacts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px;max-width:720px}
+.ct{border:1px solid rgba(255,255,255,.16);border-radius:var(--r);padding:20px}
+.ct .k{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--sun)}
+.ct .n{font-family:Newsreader,Georgia,serif;font-size:21px;font-weight:600;color:#fff;margin-top:9px}
+.ct .r{font-size:12.5px;color:#9aa4a0;margin-top:2px}
+.ct a{display:block;font-size:13.5px;color:#dee4e1;text-decoration:none;margin-top:11px;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:2px;width:fit-content}
+.ct a:hover{color:var(--sun);border-color:var(--sun)}
+.foot .end{
+  margin-top:52px;padding-top:20px;border-top:1px solid rgba(255,255,255,.14);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#6c7673;
+}
+
+/* ---------- lightbox ---------- */
+.lb{position:fixed;inset:0;z-index:200;background:rgba(14,17,18,.95);display:none;place-items:center;padding:24px;cursor:zoom-out}
+.lb.open{display:grid}
+.lb img{max-width:96vw;max-height:88vh;width:auto;border-radius:8px;object-fit:contain}
+.lb .cap{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#b6bebb;font-size:12.5px;font-family:"IBM Plex Mono",monospace}
+.lb .x{position:absolute;top:16px;right:20px;color:#fff;font-size:26px;line-height:1;background:none;border:0;cursor:pointer;opacity:.7}
+.lb .x:hover{opacity:1}
+
+/* ---------- responsive ---------- */
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:30px}
+  .hero-thumbs{grid-template-columns:repeat(3,1fr)}
+  .hero-thumbs img:first-child{grid-column:auto;aspect-ratio:16/10}
+  .facts{grid-template-columns:1fr 1fr}
+  .fact{border-bottom:1px solid rgba(255,255,255,.14);padding-left:0}
+  .fact:nth-child(2n){border-right:0;padding-left:24px}
+  .cards,.specs,.gal,.zones{grid-template-columns:1fr 1fr}
+  .zonegrid{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  .wrap,.bar-in{padding:0 18px}
+  .bar-tag{display:none}
+  section{padding:44px 0}
+  .cards,.specs,.gal,.reqs,.contacts,.limits,.zones{grid-template-columns:1fr}
+  .hero-thumbs{grid-template-columns:1fr 1fr}
+  .pull,.warn{grid-template-columns:1fr;gap:10px}
+  .req.key,.req.wide{grid-column:auto}
+}
+
+/* ---------- print ---------- */
+@media print{
+  @page{size:A4;margin:12mm}
+  html{scroll-padding-top:0}
+  body{background:#fff;font-size:10.5pt}
+  .bar,.lb,.galnote svg{display:none!important}
+  .hero,.foot,section.wow{background:#fff!important;color:#000!important;padding:0 0 10mm}
+  section.wow .shead h2,section.wow .zone h3,section.wow .sintro strong,section.wow .pull p strong{color:#000!important}
+  section.wow .sintro,section.wow .zone p,section.wow .pull p{color:#444!important}
+  section.wow .zone,section.wow .pull{border-color:#bbb!important}
+  section.wow .zone .zi{background:#eee!important;color:#000!important}
+  .hero h1,.foot h2,.ct .n{color:#000!important}
+  .hero p.lede,.fact .n,.foot p.sub,.ct .r{color:#444!important}
+  .fact .v,.fact .k{color:#000!important}
+  .facts,.fact,.ct,.foot .end{border-color:#bbb!important}
+  .warn{background:#f2f2f2!important;color:#000!important}
+  .warn p,.warn p b,.warn .lbl{color:#000!important}
+  section{page-break-inside:avoid;border-bottom:1px solid #ddd;padding:8mm 0}
+  .shot,.card,.spec,.req,.planbox{page-break-inside:avoid}
+  .gal{grid-template-columns:1fr 1fr}
+  a{text-decoration:none}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <div class="brand">Mini<span>Mundo</span></div>
+    <div class="bar-tag">Request for Proposal · 2026</div>
+    <nav class="toc">
+      <a href="#concept">01 Concept</a>
+      <a href="#action">02 Action</a>
+      <a href="#site">03 Site</a>
+      <a href="#quality">04 Quality</a>
+      <a href="#refs">05 References</a>
+      <a href="#specs">06 Specs</a>
+      <a href="#deliverables">07 Expectations</a>
+      <a href="#contact">08 Contact</a>
+    </nav>
+  </div>
+  <div class="prog" id="prog"></div>
+</header>
+
+<!-- ══════════════ HERO ══════════════ -->
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow" style="color:#9aa4a0">Request for Proposal · Consultation document</div>
+        <h1>A miniature city,<br>built at <em>children's scale</em>.</h1>
+        <p class="lede">Design, manufacturing and installation of an immersive indoor play park.</p>
+      </div>
+      <div class="hero-thumbs">
+        <img src="img/supermarket.jpg" alt="Supermarket façade reference" loading="eager">
+        <img src="img/construction-site.jpg" alt="Construction site play structure reference">
+        <img src="img/little-princess.jpg" alt="Little Princess themed space reference">
+      </div>
+    </div>
+    <div class="facts">
+      <div class="fact"><div class="k">Location</div><div class="v">Aubagne, France</div><div class="n">Shared building with Prison Island &amp; Decathlon</div></div>
+      <div class="fact"><div class="k">Target surface</div><div class="v">1,100 m²</div><div class="n">Operating surface, excluding technical and reception areas</div></div>
+      <div class="fact"><div class="k">Target opening</div><div class="v">December 2026</div><div class="n">Manufacturing, transport and installation must fit this date</div></div>
+      <div class="fact"><div class="k">Regulations</div><div class="v">French ERP law + PV</div><div class="n">Compliance with French ERP law and PV is mandatory</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ 01 CONCEPT ══════════════ -->
+<section id="concept">
+  <div class="wrap">
+    <div class="shead"><span class="snum">01</span><h2>The concept</h2></div>
+    <p class="sintro">MiniMundo is <strong>not a traditional indoor playground</strong>. It is a miniature city of small streets and themed buildings, a shopfront on every façade, that children move through freely, discovering trades, shops and everyday situations. Positioning is <strong>premium</strong>: between roleplay, interactive play park and immersive experience.</p>
+
+    <div class="cards">
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5"/></svg>
+        <h3>Streets, not modules</h3>
+        <p>Façades and interiors are the experience. Realistic, detail-rich architecture reading as a continuous street.</p>
+      </div>
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <h3>Four kinds of play</h3>
+        <p>Roleplay, interactive &amp; educational games, physical soft-play built into the buildings, and free unstructured play.</p>
+      </div>
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V9l4-3 4 3 4-3 4 3v11"/><path d="M4 20h16M9 20v-4h2v4M13 20v-4h2v4"/></svg>
+        <h3>Detail-rich art direction</h3>
+        <p>Shopfronts, signage, mouldings, shutters, planters, lighting, street furniture and greenery, all colourful, playful and warm.</p>
+      </div>
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.4 6.8 19.2l1-5.9L3.5 9.2l5.9-.8z"/></svg>
+        <h3>Not a copy</h3>
+        <p>The goal is a freer, more accessible experience, not a replication of an existing concept.</p>
+      </div>
+    </div>
+
+    <div class="pull">
+      <div class="lbl">Design brief</div>
+      <p>Show us thinking around <strong>circulation, visual continuity between façades</strong> (heights, tones, rhythm) and a <strong>hierarchy of spaces</strong>: landmark buildings, secondary lanes, a central square where relevant.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 02 ACTION ZONE ══════════════ -->
+<section class="wow" id="action">
+  <div class="wrap">
+    <div class="shead"><span class="snum">02</span><h2>The action zone</h2></div>
+    <p class="sintro">Alongside the streets of the miniature city we want <strong>one big action zone</strong>: a different world, louder and more physical, built for the wow effect and for <strong>high capacity</strong>. It is what lets us welcome a lot of children at once, and it gives visitors somewhere to burn energy between the roleplay spaces.</p>
+
+    <div class="zones">
+      <div class="zone">
+        <div class="zi" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 34c0-14 8-24 22-26"/><path d="M12 34h22"/><path d="M28 8l6 2M30 14l6 1M31 21l6 0"/></svg>
+        </div>
+        <h3>Illuminated slides</h3>
+        <p>Slides that light up. Colour, movement and light are what pull children in from across the room.</p>
+      </div>
+      <div class="zone">
+        <div class="zi" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 32h32M8 32v-8h10v8"/><path d="M18 24l4-12 8 3-3 9"/><circle cx="12" cy="35" r="3"/><circle cx="26" cy="35" r="3"/></svg>
+        </div>
+        <h3>Construction &amp; excavation</h3>
+        <p>A dig site with <b>ride-on and hand-operated diggers</b>. Children move real material, not just look at machines.</p>
+      </div>
+      <div class="zone">
+        <div class="zi" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="13" cy="14" r="5"/><circle cx="27" cy="18" r="6"/><circle cx="16" cy="28" r="6"/><circle cx="29" cy="31" r="4"/></svg>
+        </div>
+        <h3>Ball pit park</h3>
+        <p>A large ball pool with games built into it: cannons, targets, tunnels, climbing. Not an empty pool of balls.</p>
+      </div>
+      <div class="zone">
+        <div class="zi" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6v28M34 6v28M6 9h28"/><path d="M12 9v7M20 9v10M28 9v6"/><path d="M9 30h22"/></svg>
+        </div>
+        <h3>Ninja course</h3>
+        <p>A short obstacle course of the kind children already know: hanging steps, ropes, balance beams, a soft landing.</p>
+      </div>
+    </div>
+
+    <div class="pull">
+      <div class="lbl">Your call</div>
+      <p>These four can sit together in <strong>one big zone</strong> or be split across the floor. <strong>Tell us what you think works best</strong>, and how many children each element handles at the same time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 03 SITE ══════════════ -->
+<section id="site">
+  <div class="wrap">
+    <div class="shead"><span class="snum">03</span><h2>The site &amp; layout plan</h2></div>
+    <p class="sintro">The red dashed line is the MiniMundo perimeter inside the shared Aubagne building. <strong>Inside it the floor is open: where each themed space goes is yours to propose.</strong> Reception, bar, birthday boxes, changing room, restrooms, shop and storage are already fixed. A high-resolution CAD file goes to shortlisted manufacturers.</p>
+
+    <div class="limits">
+      <div><div class="k">Maximum installation height</div><div class="v">5 m</div></div>
+      <div><div class="k">Clear height under HVAC</div><div class="v">3.87 – 4.23 m</div></div>
+      <div><div class="k">Emergency exits</div><div class="v">Access must stay clear</div></div>
+    </div>
+
+    <div class="planbox">
+      <div class="planscroll">
+        <img src="img/plan-aubagne.jpg" alt="MiniMundo Aubagne ground floor plan, scale 1:200" data-cap="MINIMUNDO AUBAGNE · ground floor plan, 1:200 · Phase AT · ref. MA.02.06 · 28/08/2026">
+      </div>
+      <div class="plancap">
+        <span><b>MINIMUNDO AUBAGNE</b>, ground floor plan, scale 1:200 · Phase AT · Out4Blood Development, ref. MA.02.06 · 28/08/2026 · ZI les Paluds, 13400 Aubagne</span>
+        <span class="mono">Click to enlarge ⤢</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ 04 QUALITY ══════════════ -->
+<section class="alt" id="quality">
+  <div class="wrap">
+    <div class="shead"><span class="snum">04</span><h2>What these images mean.</h2></div>
+    <p class="sintro lead"><strong>The images in the next section are not the design we want. They show the level of detail we want.</strong> Do not copy them. They are style references, not photos of existing builds. Bring us your own design, at this level of detail or better.</p>
+
+    <div class="matters">
+      <div class="m-lbl">What matters most to us</div>
+      <p><b>The detail of the façades.</b> <b>The quality of the toys and props children handle.</b> <b>And an experience where a child can play in many different ways.</b> These three points decide how we judge your work, together with price and lead time.</p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="8" width="18" height="13" rx="1.5"/><path d="M3 8l2-4h14l2 4M8 21v-7h8v7"/></svg>
+        <h3>Façade detail</h3>
+        <p>Shopfronts, illuminated signage, mouldings, shutters, planters. <b>This is our first priority.</b></p>
+      </div>
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h18v10H3zM3 12h18M8 7v5M14 12v5"/></svg>
+        <h3>Toys &amp; props</h3>
+        <p>Everything a child picks up and handles. Counters, shelving, tools, costumes, equipment. <b>Toy quality is judged as closely as the buildings.</b></p>
+      </div>
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18h6M10 21h4M12 3a6 6 0 00-3.5 10.9c.5.4.8 1 .8 1.6V16h5.4v-.5c0-.6.3-1.2.8-1.6A6 6 0 0012 3z"/></svg>
+        <h3>Many ways to play</h3>
+        <p>One space should offer several things to do. A child who returns should find something new.</p>
+      </div>
+      <div class="card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20v-9h16v9M4 11V7h16v4M8 20v-9M16 20v-9"/></svg>
+        <h3>Materials &amp; light</h3>
+        <p>Real, durable textures in timber, brick, metal or equivalent. <b>Not bare plastic.</b> Backlit signage and a lighting mood per space.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ 05 REFERENCES ══════════════ -->
+<section id="refs">
+  <div class="wrap">
+    <div class="shead"><span class="snum">05</span><h2>Visual references</h2></div>
+    <p class="sintro">Look at the <strong>level of detail</strong> in each one: the façades, the signage, the props on the shelves. <strong>This is the standard to match or beat, not a design to copy.</strong></p>
+
+    <div class="gal">
+      <figure class="shot"><img src="img/supermarket.jpg" alt="Supermarket"><figcaption><b>Supermarket</b><span>Striped awnings, wooden posts, open shopfront onto the shelving</span></figcaption></figure>
+      <figure class="shot"><img src="img/bakery.jpg" alt="Bakery"><figcaption><b>Bakery</b><span>Arched signage, pastry display case, visible kitchen</span></figcaption></figure>
+      <figure class="shot"><img src="img/kitchen.jpg" alt="Kitchen"><figcaption><b>Kitchen</b><span>Arches and continuous balconies, full kitchen set at the back</span></figcaption></figure>
+      <figure class="shot"><img src="img/police.jpg" alt="Police"><figcaption><b>Police</b><span>Painted brick, wall lighting, furnished front desk</span></figcaption></figure>
+      <figure class="shot"><img src="img/fire-station.jpg" alt="Fire Station"><figcaption><b>Fire Station</b><span>Red brick, fire truck built into the set, site signage</span></figcaption></figure>
+      <figure class="shot"><img src="img/hospital.jpg" alt="Hospital"><figcaption><b>Hospital</b><span>Clear signage, fully furnished care stations</span></figcaption></figure>
+      <figure class="shot"><img src="img/pet-hospital.jpg" alt="Pet Hospital"><figcaption><b>Pet Hospital</b><span>Consistent themed world, matching furniture and props</span></figcaption></figure>
+      <figure class="shot"><img src="img/construction-site.jpg" alt="Construction Site"><figcaption><b>Construction Site</b><span>Multi-level timber structure, crane, ball pit built into the set</span></figcaption></figure>
+      <figure class="shot"><img src="img/little-princess.jpg" alt="Little Princess"><figcaption><b>Little Princess</b><span>Curtains, chandeliers and vanity stations, highly finished art direction</span></figcaption></figure>
+    </div>
+
+    <p class="galnote">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+      <span><b>These are references for style and level of detail, not a layout to copy.</b> The themed spaces you propose, and where you place them inside the perimeter, are part of your design work (see section 03).</span>
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════ 06 SPECS ══════════════ -->
+<section class="alt" id="specs">
+  <div class="wrap">
+    <div class="shead"><span class="snum">06</span><h2>Technical specifications</h2></div>
+    <p class="sintro">What the build has to deliver architecturally, in materials, and in safety. <strong>Material choice is open; the outcome is not.</strong></p>
+
+    <div class="specs">
+      <div class="spec">
+        <h3>Façade detail</h3>
+        <ul>
+          <li>Open or semi-open shopfronts allowing a <b>view into each space</b></li>
+          <li>Doors and windows as <b>genuine architectural openings</b>, not cut-outs</li>
+          <li>Distinct signage per building, ideally <b>backlit or illuminated</b></li>
+          <li>Mouldings, shutters, planters, street furniture: lampposts, benches, street signage</li>
+          <li>Varied materials and textures from one building to the next</li>
+        </ul>
+      </div>
+      <div class="spec g">
+        <h3>Activity types</h3>
+        <ul>
+          <li><b>Roleplay</b>, re-enacting everyday situations</li>
+          <li><b>Interactive &amp; educational games</b> encouraging manipulation and experimentation</li>
+          <li><b>Physical &amp; soft-play</b> built directly into the buildings and façades</li>
+          <li><b>Free play</b>, with no imposed route</li>
+          <li><b>The action zone</b> of section 02: slides, dig site, ball pit and ninja course, sized for high capacity</li>
+          <li>Overall coherence: the venue must read as <b>a street</b>, not a collection of standalone modules</li>
+        </ul>
+      </div>
+      <div class="spec b">
+        <h3>Materials &amp; maintenance</h3>
+        <ul>
+          <li>Any solution, whether timber, composite, metal or other, that achieves the look, feel and durability of section 05</li>
+          <li>Durable and suited to <b>intensive daily public use</b> in a supervised children's venue (ERP)</li>
+          <li>Easy to clean and maintain daily</li>
+          <li>Finishes consistent with the reference gallery</li>
+          <li><b>Specify the exact materials proposed for each module</b></li>
+        </ul>
+      </div>
+      <div class="spec s">
+        <h3>Child safety</h3>
+        <ul>
+          <li>Intensive daily use by young children, so reflect this in material and construction choices <b>from the outset</b></li>
+          <li>Soft, <b>impact-absorbing</b> play surfaces, walls and structural edges within children's reach</li>
+          <li><b>Rounded corners and edges</b> throughout; no sharp elements at child height</li>
+          <li>Non-slip, easy-to-disinfect flooring in all play areas</li>
+          <li>All materials non-toxic and compliant with children's product safety standards</li>
+        </ul>
+      </div>
+      <div class="spec">
+        <h3>Regulatory (ERP)</h3>
+        <ul>
+          <li>Design compatible with French <b>accessibility, fire safety and smoke extraction</b> requirements</li>
+          <li>Constraints confirmed jointly with the project architect during detailed costing</li>
+          <li>You are <b>not expected to fully anticipate them</b> at this stage, but do indicate your ability to comply</li>
+        </ul>
+      </div>
+      <div class="spec">
+        <h3>Certification</h3>
+        <ul>
+          <li>Play equipment and furniture must meet safety standards applicable in the country of installation: <b>France / European Union</b></li>
+          <li>Detail on product certifications is requested in <b>section 07</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 07 DELIVERABLES ══════════════ -->
+<section id="deliverables">
+  <div class="wrap">
+    <div class="shead"><span class="snum">07</span><h2>What we expect from you</h2></div>
+    <p class="sintro">We are building this together, so these seven points are what we need from your side to hold the December 2026 opening. <strong>Treat all seven as required.</strong></p>
+
+    <div class="reqs">
+      <div class="req key">
+        <div class="no">01</div>
+        <div>
+          <h3>Pricing broken down by space</h3>
+          <p><b>An itemised price per themed space, never a single global figure.</b></p>
+          <div class="tags"><span>Manufacturing</span><span>Transport to Aubagne</span><span>On-site installation</span><span>Options</span><span>Payment terms &amp; schedule</span></div>
+        </div>
+      </div>
+      <div class="req key">
+        <div class="no">02</div>
+        <div>
+          <h3>Design work on our floor plan</h3>
+          <p>Work directly from the plan we share. We want to see it, not read it: <b>photorealistic 3D renders for every themed zone.</b></p>
+          <div class="tags"><span>3D render per zone</span><span>Scaled 2D layout plan</span><span>Materials / mood board</span></div>
+        </div>
+      </div>
+      <div class="req">
+        <div class="no">03</div>
+        <div>
+          <h3>Furnishing detail, space by space</h3>
+          <p>For each themed module, the precise list of furniture, equipment and props with the material used for each. <b>"Supermarket included" tells us nothing.</b> We need the itemised content you supply.</p>
+        </div>
+      </div>
+      <div class="req">
+        <div class="no">04</div>
+        <div>
+          <h3>Your delivered projects</h3>
+          <p>Photos and, where possible, videos of <b>real completed sites</b>, not only 3D renders. List comparable projects you have delivered, with surface area and country where you can share them.</p>
+        </div>
+      </div>
+      <div class="req">
+        <div class="no">05</div>
+        <div>
+          <h3>Certifications &amp; compliance</h3>
+          <p>Product certifications for children's play equipment (<b>EU / France</b>), and written confirmation that every material used meets current standards.</p>
+        </div>
+      </div>
+      <div class="req">
+        <div class="no">06</div>
+        <div>
+          <h3>Lead times you can hold</h3>
+          <p>Manufacturing, transport to Aubagne and on-site installation, <b>each dated against a December 2026 opening.</b></p>
+        </div>
+      </div>
+      <div class="req wide">
+        <div class="no">07</div>
+        <div>
+          <h3>Commercial terms &amp; after-sales</h3>
+          <p>Payment terms, warranty duration and conditions, and how after-sales works in practice: <b>spare parts, and how fast you intervene on breakage or wear.</b></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 07 CONTACT ══════════════ -->
+<footer class="foot" id="contact">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#9aa4a0">08 · Working together</div>
+    <h2 style="margin-top:14px">We want a partner who moves fast.</h2>
+    <p class="sub"><b>Reactivity matters more to us than anything else on this list.</b> Quick answers, one clear point of contact, and short turnaround on questions and revisions are what will keep December 2026 reachable. We are available whenever you need us: detailed site plans, clarifications on the space programme, or any technical question.</p>
+
+    <div class="contacts">
+      <div class="ct">
+        <div class="k">Project contact</div>
+        <div class="n">Bastien Pelé</div>
+        <div class="r">Architect, MiniMundo Project Lead</div>
+        <a href="mailto:bastien@makeitnow.live">bastien@makeitnow.live</a>
+        <a href="tel:+33680130104">+33 6 80 13 01 04</a>
+      </div>
+      <div class="ct">
+        <div class="k">Executive contact</div>
+        <div class="n">Mikael Bouteillon</div>
+        <div class="r">CEO</div>
+        <a href="mailto:management@makeitnow.live">management@makeitnow.live</a>
+      </div>
+    </div>
+
+    <div class="end">
+      <span>MiniMundo · Consultation document</span>
+      <span>Aubagne, France · Opening December 2026</span>
+    </div>
+  </div>
+</footer>
+
+<div class="lb" id="lb"><button class="x" aria-label="Close">&times;</button><img alt=""><div class="cap"></div></div>
+
+<script>
+/* ---- lightbox ---- */
+const lb=document.getElementById('lb'),lbi=lb.querySelector('img'),lbc=lb.querySelector('.cap');
+document.querySelectorAll('.shot img, .planscroll img').forEach(img=>{
+  img.addEventListener('click',()=>{
+    lbi.src=img.src; lbi.alt=img.alt;
+    const fc=img.closest('figure')?.querySelector('figcaption');
+    lbc.textContent=img.dataset.cap || (fc?fc.innerText.replace(/\n/g,' · '):img.alt);
+    lb.classList.add('open'); document.body.style.overflow='hidden';
+  });
+});
+const close=()=>{lb.classList.remove('open');document.body.style.overflow=''};
+lb.addEventListener('click',close);
+addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+
+/* ---- scrollspy + progress ---- */
+const links=[...document.querySelectorAll('nav.toc a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const prog=document.getElementById('prog');
+const onScroll=()=>{
+  const y=scrollY, h=document.body.scrollHeight-innerHeight;
+  prog.style.width=(h>0?Math.min(100,y/h*100):0)+'%';
+  let cur=-1;
+  secs.forEach((s,i)=>{if(s.getBoundingClientRect().top<=innerHeight*0.35)cur=i});
+  links.forEach((a,i)=>a.classList.toggle('on',i===cur));
+};
+addEventListener('scroll',onScroll,{passive:true}); onScroll();
+</script>
+</body>
+</html>

@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MiniMundo — Request for Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+@page{size:A4 landscape;margin:0}
+:root{
+  --ink:#15181a; --ink-2:#333a3b; --muted:#5f6763;
+  --paper:#ffffff; --paper-2:#f1f2ed; --line:#cfd4ca;
+  --red:#c8342b; --green:#4b7448; --blue:#2e6f8e; --sun:#e3a52f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#8a8f88}
+body{
+  font-family:Inter,system-ui,sans-serif;color:var(--ink);
+  font-size:11pt;line-height:1.5;-webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+
+.page{
+  position:relative;width:297mm;height:210mm;background:var(--paper);
+  padding:16mm 18mm 14mm;overflow:hidden;page-break-after:always;
+  margin:0 auto 6mm;display:flex;flex-direction:column;
+}
+.page:last-child{page-break-after:auto;margin-bottom:0}
+.page.dark{background:var(--ink);color:#eef0ee}
+.page.tint{background:var(--paper-2)}
+
+/* running head + foot */
+.rh{
+  display:flex;justify-content:space-between;align-items:baseline;
+  font-family:"IBM Plex Mono",monospace;font-size:7.5pt;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);
+  padding-bottom:3mm;border-bottom:.6pt solid var(--line);margin-bottom:7mm;
+}
+.page.dark .rh{color:#8d9793;border-color:rgba(255,255,255,.18)}
+.pn{
+  position:absolute;right:18mm;bottom:8mm;
+  font-family:"IBM Plex Mono",monospace;font-size:8pt;letter-spacing:.1em;color:var(--muted);
+}
+.page.dark .pn{color:#7f8a86}
+
+/* headings */
+h1,h2,.disp{font-family:Newsreader,Georgia,serif;font-weight:600;letter-spacing:-.015em;line-height:1.04}
+h2{font-size:34pt;margin-bottom:4mm}
+.kicker{
+  font-family:"IBM Plex Mono",monospace;font-size:9pt;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--red);margin-bottom:3mm;
+}
+.sub{font-size:13pt;color:var(--muted);max-width:180mm;line-height:1.45}
+.sub b{color:var(--ink);font-weight:600}
+
+/* ── cover ── */
+.cover{justify-content:space-between}
+.cover .mark{font-family:Newsreader,serif;font-size:20pt;font-weight:600;letter-spacing:-.01em}
+.cover .mark span{color:var(--red)}
+.cover h1{font-size:56pt;color:#fff;max-width:170mm;margin:6mm 0 5mm}
+.cover h1 em{font-style:normal;color:var(--sun)}
+.cover .lede{font-size:14pt;color:#b3bab6;max-width:150mm}
+.cover-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:12mm;align-items:center;flex:1}
+.cover-shots{display:grid;grid-template-columns:1fr 1fr;gap:3mm}
+.cover-shots img{border-radius:2mm;aspect-ratio:16/10;object-fit:cover}
+.cover-shots img:first-child{grid-column:1/-1;aspect-ratio:16/7.5}
+.cover-strip{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  border-top:.8pt solid rgba(255,255,255,.22);padding-top:5mm;
+}
+.cover-strip div{padding-right:8mm}
+.cover-strip .k{font-family:"IBM Plex Mono",monospace;font-size:7.5pt;letter-spacing:.16em;text-transform:uppercase;color:#8d9793}
+.cover-strip .v{font-family:Newsreader,serif;font-size:20pt;color:#fff;margin-top:1.5mm}
+
+/* ── big facts ── */
+.facts4{display:grid;grid-template-columns:repeat(2,1fr);gap:6mm;flex:1}
+.f4{
+  border:1pt solid var(--line);border-radius:3mm;padding:8mm 9mm;
+  display:flex;flex-direction:column;justify-content:center;background:#fff;
+}
+.f4 .k{font-family:"IBM Plex Mono",monospace;font-size:9pt;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.f4 .v{font-family:Newsreader,serif;font-size:38pt;font-weight:600;margin:3mm 0 2mm;line-height:1}
+.f4 .n{font-size:11pt;color:var(--muted);line-height:1.4}
+
+/* ── statement ── */
+.statement{
+  font-family:Newsreader,serif;font-size:30pt;line-height:1.15;
+  border-left:2.5mm solid var(--red);padding-left:8mm;margin:6mm 0;
+}
+.statement b{font-weight:600;color:var(--red)}
+
+/* ── 4-up cards ── */
+.cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:5mm;flex:0 0 auto;align-items:stretch}
+.c4{border:1pt solid var(--line);border-radius:3mm;padding:7mm;background:#fff;display:flex;flex-direction:column}
+.c4 .num{font-family:"IBM Plex Mono",monospace;font-size:8.5pt;font-weight:600;color:var(--red);letter-spacing:.1em;margin-bottom:4mm}
+.c4 h3{font-size:15pt;font-weight:700;letter-spacing:-.01em;margin-bottom:3mm;line-height:1.15}
+.c4 p{font-size:10.5pt;color:var(--muted);line-height:1.45}
+.c4 p b{color:var(--ink);font-weight:600}
+
+/* ── plan ── */
+.limits{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm;margin:3.5mm 0 0}
+.limits>div{border-left:1.2mm solid var(--red);padding:1mm 0 1mm 4.5mm;display:flex;flex-direction:column}
+.limits .k{font-family:"IBM Plex Mono",monospace;font-size:8pt;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.limits .v{font-family:Newsreader,Georgia,serif;font-size:16.5pt;font-weight:600;margin-top:.5mm}
+.planwrap{flex:1;display:flex;align-items:center;justify-content:center;padding:4mm 0 1mm}
+.planwrap img{width:100%;height:auto;max-height:100%;object-fit:contain}
+.plancap{
+  font-family:"IBM Plex Mono",monospace;font-size:7.5pt;letter-spacing:.04em;
+  color:var(--muted);text-align:center;padding-top:2mm;
+}
+
+/* ── gallery ── */
+.gal3{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm;flex:1 1 auto;min-height:0}
+.gal3.two-row{grid-template-rows:1fr 1fr}
+.gal3 .gshot{min-height:0}
+.gal3.two-row .gshot img{aspect-ratio:auto;flex:1 1 0;min-height:0;height:auto}
+.gal3.two-row .gshot .cap{flex:0 0 auto;height:21mm;padding:3.5mm 4mm;overflow:hidden}
+.gal3.two-row .gshot .cap b{font-size:12.5pt}
+.gal3.two-row .gshot .cap span{font-size:9pt}
+.gshot{border:1pt solid var(--line);border-radius:3mm;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+.gshot img{width:100%;aspect-ratio:16/10;object-fit:cover;flex:0 0 auto}
+.gshot .cap{padding:4.5mm 5mm;flex:0 0 auto;height:24mm;overflow:hidden}
+.gshot .cap b{display:block;font-family:Newsreader,serif;font-size:14pt;font-weight:600;letter-spacing:-.01em}
+.gshot .cap span{display:block;font-size:9.5pt;color:var(--muted);line-height:1.35;margin-top:1mm}
+
+/* ── spec columns ── */
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:8mm;flex:1}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:7mm;flex:1;align-items:start}
+.col h3{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5pt;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--red);padding-bottom:2.5mm;
+  border-bottom:1.2pt solid var(--red);margin-bottom:4mm;
+}
+.col.g h3{color:var(--green);border-color:var(--green)}
+.col.b h3{color:var(--blue);border-color:var(--blue)}
+.col.s h3{color:#a8791f;border-color:#a8791f}
+.col ul{list-style:none;display:flex;flex-direction:column;gap:5mm}
+.col li{font-size:11.5pt;line-height:1.45;padding-left:6mm;position:relative;color:var(--ink-2)}
+.col li::before{content:"";position:absolute;left:0;top:2.1mm;width:2.4mm;height:2.4mm;border-radius:50%;background:var(--line)}
+.col li b{color:var(--ink);font-weight:700}
+
+/* ── requirement rows ── */
+.reqs{display:flex;flex-direction:column;gap:3mm;flex:1}
+.req{
+  display:grid;grid-template-columns:15mm 1fr;gap:5mm;align-items:start;
+  border:1pt solid var(--line);border-radius:3mm;padding:4.5mm 6mm;background:#fff;
+}
+.req.hi{border-color:var(--red);border-width:1.5pt;background:#fdf6f5}
+.req .no{font-family:Newsreader,serif;font-size:26pt;font-weight:600;color:var(--red);line-height:.9}
+.req h3{font-size:14.5pt;font-weight:700;letter-spacing:-.01em;margin-bottom:1.5mm}
+.req p{font-size:10.5pt;color:var(--muted);line-height:1.38}
+.req p b{color:var(--ink);font-weight:700}
+.req .tags{display:flex;flex-wrap:wrap;gap:2mm;margin-top:2.5mm}
+.req .tags span{
+  font-family:"IBM Plex Mono",monospace;font-size:8.5pt;letter-spacing:.03em;
+  border:.8pt solid var(--line);border-radius:10mm;padding:1mm 3mm;background:#fff;color:var(--ink-2);
+}
+
+/* ── closing ── */
+.page.wow h2{color:#fff}
+.page.wow .cards4{flex:1 1 auto}
+.page.wow .sub{color:#b9c0bc}
+.page.wow .sub b{color:#fff}
+.page.wow .c4{background:transparent;border-color:rgba(255,255,255,.22)}
+.page.wow .c4 h3{color:#fff}
+.page.wow .c4 p{color:#aab2ae}
+.page.wow .c4 p b{color:var(--sun)}
+.page.wow .c4 .num{color:var(--sun)}
+.page.wow .statement{border-left-color:var(--sun);color:#eef0ee}
+.page.wow .statement b{color:var(--sun)}
+.close-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:14mm;flex:1;align-items:center}
+.close h2{font-size:40pt;color:#fff;max-width:150mm}
+.close .big{
+  font-size:15pt;color:#cdd3d0;margin-top:6mm;line-height:1.5;max-width:150mm;
+}
+.close .big b{color:var(--sun);font-weight:700}
+.ct{border:.8pt solid rgba(255,255,255,.2);border-radius:3mm;padding:7mm;margin-bottom:5mm}
+.ct:last-child{margin-bottom:0}
+.ct .k{font-family:"IBM Plex Mono",monospace;font-size:8pt;letter-spacing:.16em;text-transform:uppercase;color:var(--sun)}
+.ct .n{font-family:Newsreader,serif;font-size:20pt;color:#fff;margin-top:2mm}
+.ct .r{font-size:10pt;color:#9aa4a0}
+.ct .l{font-size:11pt;color:#dee4e1;margin-top:3mm}
+</style>
+</head>
+<body>
+
+<!-- ═══ 1 · COVER ═══ -->
+<section class="page dark cover">
+  <div class="rh"><span>Consultation document</span><span>Aubagne, France</span></div>
+  <div class="cover-grid">
+    <div>
+      <div class="mark">Mini<span>Mundo</span></div>
+      <div class="kicker" style="color:#9aa4a0;margin-top:8mm">Request for Proposal</div>
+      <h1>A miniature city,<br>built at <em>children's scale</em>.</h1>
+      <p class="lede">Design, manufacturing and installation of an immersive indoor play park.</p>
+    </div>
+    <div class="cover-shots">
+      <img src="img/supermarket.jpg" alt="Supermarket reference">
+      <img src="img/construction-site.jpg" alt="Construction site reference">
+      <img src="img/little-princess.jpg" alt="Little Princess reference">
+    </div>
+  </div>
+  <div class="cover-strip">
+    <div><div class="k">Location</div><div class="v">Aubagne, France</div></div>
+    <div><div class="k">Surface</div><div class="v">1,100 m²</div></div>
+    <div><div class="k">Opening</div><div class="v">December 2026</div></div>
+  </div>
+</section>
+
+<!-- ═══ 2 · KEY FACTS ═══ -->
+<section class="page">
+  <div class="rh"><span>MiniMundo · Request for Proposal</span><span>The project</span></div>
+  <div class="kicker">01 · The project</div>
+  <h2>Four facts to build around.</h2>
+  <p class="sub" style="margin-bottom:7mm">Everything in this document follows from these four points.</p>
+  <div class="facts4">
+    <div class="f4"><div class="k">Location</div><div class="v">Aubagne, France</div><div class="n">Shared building with Prison Island and Decathlon. Access and delivery logistics to be confirmed.</div></div>
+    <div class="f4"><div class="k">Surface</div><div class="v">1,100 m²</div><div class="n">Operating surface. Technical and reception areas are not included.</div></div>
+    <div class="f4"><div class="k">Opening</div><div class="v">December 2026</div><div class="n">Manufacturing, shipping and on-site installation must all fit inside this date.</div></div>
+    <div class="f4"><div class="k">Regulations</div><div class="v">French ERP + PV</div><div class="n">Compliance with French ERP law and PV is mandatory. An architect on our side leads the approvals.</div></div>
+  </div>
+  <div class="pn">02</div>
+</section>
+
+<!-- ═══ 3 · CONCEPT ═══ -->
+<section class="page tint">
+  <div class="rh"><span>MiniMundo · Request for Proposal</span><span>The concept</span></div>
+  <div class="kicker">02 · The concept</div>
+  <h2>Not a playground. A city.</h2>
+  <p class="sub">Small streets. Themed buildings. A shopfront on every façade. Children walk through freely and discover trades, shops and everyday life. <b>Our positioning is premium.</b></p>
+  <div class="statement">A visitor must feel they are walking down <b>a real street</b>, not past a row of separate boxes.</div>
+  <div class="cards4">
+    <div class="c4"><div class="num">A</div><h3>Streets, not modules</h3><p>Façades and interiors are the experience. The architecture must be realistic and rich in detail.</p></div>
+    <div class="c4"><div class="num">B</div><h3>Four kinds of play</h3><p>Roleplay. Interactive and educational games. Physical soft-play built into the buildings. Free play with no fixed route.</p></div>
+    <div class="c4"><div class="num">C</div><h3>Detail everywhere</h3><p>Shopfronts, signage, mouldings, shutters, planters, lighting, street furniture, greenery. Colourful, playful, warm.</p></div>
+    <div class="c4"><div class="num">D</div><h3>Not a copy</h3><p>We do not want an existing concept repeated. We want a freer, more open experience.</p></div>
+  </div>
+  <div class="pn">03</div>
+</section>
+
+<!-- ═══ ACTION ZONE ═══ -->
+<section class="page dark wow">
+  <div class="rh"><span>MiniMundo · Request for Proposal</span><span>The action zone</span></div>
+  <div class="kicker" style="color:var(--sun)">03 · The action zone</div>
+  <h2 style="font-size:30pt;margin-bottom:2mm">One more world: the action zone.</h2>
+  <p class="sub" style="font-size:11.5pt;margin-bottom:3mm">Next to the streets of the miniature city we want <b>one big action zone</b>. A different world: louder, more physical, built for the wow effect and for <b>high capacity</b>. It is what lets us welcome many children at the same time.</p>
+  <div class="cards4">
+    <div class="c4"><div class="num">01</div><h3>Illuminated slides</h3><p>Slides that light up. Colour, movement and light pull children in from across the room.</p></div>
+    <div class="c4"><div class="num">02</div><h3>Construction and excavation</h3><p>A dig site with <b>ride-on and hand-operated diggers</b>. Children move real material, not just look at machines.</p></div>
+    <div class="c4"><div class="num">03</div><h3>Ball pit park</h3><p>A large ball pool with games built into it: cannons, targets, tunnels, climbing. <b>Not an empty pool of balls.</b></p></div>
+    <div class="c4"><div class="num">04</div><h3>Ninja course</h3><p>A short obstacle course of the kind children already know: hanging steps, ropes, balance beams, a soft landing.</p></div>
+  </div>
+  <div class="statement" style="font-size:19pt;margin:5mm 0 0">These four can sit together in <b>one big zone</b>, or be split across the floor. Tell us what works best, and <b>how many children each element handles at once</b>.</div>
+  <div class="pn">04</div>
+</section>
+
+<!-- ═══ 4 · PLAN ═══ -->
+<section class="page">
+  <div class="rh"><span>MiniMundo · Request for Proposal</span><span>The site</span></div>
+  <div class="kicker">04 · The site</div>
+  <h2 style="font-size:27pt;margin-bottom:2mm">The floor is open. You design the layout.</h2>
+  <p class="sub" style="font-size:11pt">The red dashed line is the MiniMundo perimeter. Reception, bar, birthday boxes, changing room, restrooms, shop and storage are fixed. <b>Where each themed space goes is yours to propose.</b> A high-resolution CAD file will be provided.</p>
+  <div class="limits">
+    <div><span class="k">Maximum installation height</span><span class="v">5 m</span></div>
+    <div><span class="k">Clear height under HVAC</span><span class="v">3.87 to 4.23 m</span></div>
+    <div><span class="k">Emergency exits</span><span class="v">Access must stay clear</span></div>
+  </div>
+  <div class="planwrap"><img src="img/plan-aubagne.jpg" alt="MiniMundo Aubagne ground floor plan"></div>
+  <div class="plancap">MINIMUNDO AUBAGNE · Ground floor plan · Scale 1:200 · Phase AT · Ref. MA.02.06 · 28/08/2026 · ZI les Paluds, 13400 Aubagne</div>
+  <div class="pn">05</div>
+</section>
+
+<!-- ═══ 5 · QUALITY ═══ -->
+<section class="page tint">
+  <div class="rh"><span>MiniMundo · Request for Proposal</span><span>Quality level</span></div>
+  <div class="kicker">05 · Quality level</div>
+  <h2>What these images mean.</h2>
+  <p class="sub">The images on the next two pages are <b>not the design we want.</b> They show the <b>level of detail</b> we want. Do not copy them. They are style references, not photos of existing builds. Bring us your own design, at this level of detail or better.</p>
+  <div class="statement" style="font-size:23pt">Three things decide how we judge your work: <b>the detail of the façades</b>, <b>the quality of the toys and props</b>, and <b>how many different ways a child can play</b>.</div>
+  <div class="cards4">
+    <div class="c4"><div class="num">01</div><h3>Façade detail</h3><p>Shopfronts, illuminated signage, mouldings, shutters, planters. <b>Our first priority.</b></p></div>
+    <div class="c4"><div class="num">02</div><h3>Toys and props</h3><p>Everything a child picks up: counters, tools, costumes, equipment. <b>Judged as closely as the buildings.</b></p></div>
+    <div class="c4"><div class="num">03</div><h3>Many ways to play</h3><p>One space should offer several things to do. A child who comes back should find something new.</p></div>
+    <div class="c4"><div class="num">04</div><h3>Materials and light</h3><p>Real, durable textures. Timber, brick, metal or equivalent. <b>No bare plastic.</b> Backlit signage per space.</p></div>
+  </div>
+  <div class="pn">06</div>
+</section>
+
+<!-- ═══ 6 · REFERENCES 1 ═══ -->
+<section class="page">
+  <div class="rh"><span>MiniMundo · Request for Proposal</span><span>Visual references · 1 / 2</span></div>
+  <div class="kicker">06 · Visual references</div>
+  <h2 style="font-size:28pt;margin-bottom:1.5mm">Retail and services.</h2>
+  <p class="sub" style="font-size:10.5pt;margin-bottom:4mm">Look at the level of detail, not the design. Match it or beat it.</p>
+  <div class="gal3 two-row">
+    <figure class="gshot"><img src="img/supermarket.jpg" alt="Supermarket"><figcaption class="cap"><b>Supermarket</b><span>Striped awnings, wooden posts, open shopfront onto the shelving</span></figcaption></figure>
+    <figure class="gshot"><img src="img/bakery.jpg" alt="Bakery"><figcaption class="cap"><b>Bakery</b><span>Arched signage, pastry display case, visible kitchen</span></figcaption></figure>
+    <figure class="gshot"><img src="img/kitchen.jpg" alt="Kitchen"><figcaption class="cap"><b>Kitchen</b><span>Arches and continuous balconies, full kitchen set at the back</span></figcaption></figure>
+    <figure class="gshot"><img src="img/police.jpg" alt="Police"><figcaption class="cap"><b>Police</b><span>Painted brick, wall lighting, furnished front desk</span></figcaption></figure>
+    <figure class="gshot"><img src="img/fire-station.jpg" alt="Fire Station"><figcaption class="cap"><b>Fire Station</b><span>Red brick, fire truck built into the set, site signage</span></figcaption></figure>
+    <figure class="gshot"><img src="img/hospital.jpg" alt="Hospital"><figcaption class="cap"><b>Hospital</b><span>Clear signage, fully furnished care stations</span></figcaption></figure>
+  </div>
+  <div class="pn">07</div>
+</section>
+
+<!-- ═══ 7 · REFERENCES 2 ═══ -->
+<section class="page">
+  <div class="rh"><span>MiniMundo · Request for Proposal</span><span>Visual references · 2 / 2</span></div>
+  <div class="kicker">06 · Visual references</div>
+  <h2 style="font-size:28pt;margin-bottom:5mm">Care, construction and special worlds.</h2>
+  <div class="gal3">
+    <figure class="gshot"><img src="img/pet-hospital.jpg" alt="Pet Hospital"><figcaption class="cap"><b>Pet Hospital</b><span>Consistent themed world, matching furniture and props</span></figcaption></figure>
+    <figure class="gshot"><img src="img/construction-site.jpg" alt="Construction Site"><figcaption class="cap"><b>Construction Site</b><span>Multi-level timber structure, crane, ball pit built into the set</span></figcaption></figure>
+    <figure class="gshot"><img src="img/little-princess.jpg" alt="Little Princess"><figcaption class="cap"><b>Little Princess</b><span>Curtains, chandeliers and vanity stations, highly finished art direction</span></figcaption></figure>
+  </div>
+  <p class="sub" style="font-size:10.5pt;margin-top:6mm"><b>These images set the style and the level of detail. They are not a layout to copy.</b> Which themed spaces you propose, and where you place them inside the perimeter, is part of your design work.</p>
+  <div class="pn">08</div>
+</section>
+
+<!-- ═══ SPECS 1 ═══ -->
+<section class="page tint">
+  <div class="rh"><span>MiniMundo · Request for Proposal</span><span>Specifications · 1 / 2</span></div>
+  <div class="kicker">07 · Technical specifications</div>
+  <h2 style="font-size:28pt;margin-bottom:5mm">Architecture, play and materials.</h2>
+  <div class="cols3">
+    <div class="col">
+      <h3>Façade detail</h3>
+      <ul>
+        <li>Open or semi-open shopfronts. Visitors must <b>see inside each space</b>.</li>
+        <li>Doors and windows must be <b>real architectural openings</b>, not flat cut-outs.</li>
+        <li>A different sign for every building, <b>backlit or illuminated</b> where possible.</li>
+        <li>Mouldings, shutters, planters and street furniture: lampposts, benches, street signs.</li>
+        <li>Different materials and textures from one building to the next.</li>
+      </ul>
+    </div>
+    <div class="col g">
+      <h3>Types of play</h3>
+      <ul>
+        <li><b>Roleplay.</b> Children act out everyday situations.</li>
+        <li><b>Interactive and educational games.</b> Things to handle and try.</li>
+        <li><b>Physical and soft-play</b> built directly into the buildings and façades.</li>
+        <li><b>Free play.</b> No fixed route through the park.</li>
+        <li><b>The action zone</b> of section 03: slides, dig site, ball pit and ninja course, sized for high capacity.</li>
+        <li>The whole venue must read as <b>one street</b>, with landmark buildings, smaller lanes, and a central square where it makes sense.</li>
+      </ul>
+    </div>
+    <div class="col b">
+      <h3>Materials &amp; maintenance</h3>
+      <ul>
+        <li>Any material is accepted: timber, composite, metal or other. It must reach the quality shown in the references.</li>
+        <li>Built for <b>heavy daily use</b> in a supervised children's venue.</li>
+        <li>Easy to clean and maintain every day.</li>
+        <li>Finishes must match the quality level of the reference images.</li>
+        <li><b>Name the exact material used for every module.</b></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pn">09</div>
+</section>
+
+<!-- ═══ SPECS 2 ═══ -->
+<section class="page tint">
+  <div class="rh"><span>MiniMundo · Request for Proposal</span><span>Specifications · 2 / 2</span></div>
+  <div class="kicker">07 · Technical specifications</div>
+  <h2 style="font-size:28pt;margin-bottom:5mm">Safety, regulations and certification.</h2>
+  <div class="cols3">
+    <div class="col s">
+      <h3>Child safety</h3>
+      <ul>
+        <li>Young children will use this park every day. Plan for it <b>from the first drawing</b>.</li>
+        <li>Play surfaces, walls and edges within a child's reach must be <b>soft and shock-absorbing</b>.</li>
+        <li><b>Rounded corners and edges everywhere.</b> No sharp parts at child height.</li>
+        <li>Non-slip flooring that is easy to disinfect, in every play area.</li>
+        <li>All materials non-toxic and compliant with children's safety standards.</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>French ERP regulations</h3>
+      <ul>
+        <li>The venue is a French <b>ERP</b> (public venue). The design must work with French rules on <b>accessibility, fire safety and smoke extraction</b>.</li>
+        <li>Our architect will confirm these constraints with you during the detailed costing phase.</li>
+        <li>You are <b>not expected to master French rules now.</b> Tell us you can comply.</li>
+      </ul>
+    </div>
+    <div class="col b">
+      <h3>Certification</h3>
+      <ul>
+        <li>Play equipment and furniture must meet the safety standards of the country of installation: <b>France and the European Union</b>.</li>
+        <li>Send us your product certificates with your answer.</li>
+        <li>Confirm in writing that every material used meets current standards.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pn">10</div>
+</section>
+
+<!-- ═══ 11 · EXPECTATIONS 1 ═══ -->
+<section class="page">
+  <div class="rh"><span>MiniMundo · Request for Proposal</span><span>What we expect · 1 / 2</span></div>
+  <div class="kicker">08 · What we expect from you</div>
+  <h2 style="font-size:27pt;margin-bottom:1.5mm">Seven points. All seven are required.</h2>
+  <p class="sub" style="font-size:11pt;margin-bottom:4mm">We are building this together. This is what we need from your side to hold December 2026.</p>
+  <div class="reqs">
+    <div class="req hi">
+      <div class="no">1</div>
+      <div><h3>Pricing broken down by space</h3>
+      <p><b>One price per themed space. Never one single global price.</b></p>
+      <div class="tags"><span>Manufacturing</span><span>Shipping to Aubagne</span><span>On-site installation</span><span>Options</span><span>Payment terms</span></div></div>
+    </div>
+    <div class="req hi">
+      <div class="no">2</div>
+      <div><h3>Design work on our floor plan</h3>
+      <p>Work directly from the plan we send you. <b>We want to see your design, not read about it.</b></p>
+      <div class="tags"><span>3D render per zone</span><span>Scaled 2D layout plan</span><span>Materials / mood board</span></div></div>
+    </div>
+    <div class="req">
+      <div class="no">3</div>
+      <div><h3>Furnishing detail, space by space</h3>
+      <p>For every themed module, list the furniture, equipment and props, and the material of each one. <b>"Supermarket included" is not enough.</b></p></div>
+    </div>
+    <div class="req">
+      <div class="no">4</div>
+      <div><h3>Your delivered projects</h3>
+      <p>Photos and, if possible, videos of <b>real finished sites</b>, not only 3D renders. List similar projects you have delivered, with surface area and country.</p></div>
+    </div>
+  </div>
+  <div class="pn">11</div>
+</section>
+
+<!-- ═══ 12 · EXPECTATIONS 2 ═══ -->
+<section class="page">
+  <div class="rh"><span>MiniMundo · Request for Proposal</span><span>What we expect · 2 / 2</span></div>
+  <div class="kicker">08 · What we expect from you</div>
+  <h2 style="font-size:28pt;margin-bottom:5mm">And three more.</h2>
+  <div class="reqs">
+    <div class="req">
+      <div class="no">5</div>
+      <div><h3>Certifications and compliance</h3>
+      <p>Product certificates for children's play equipment (<b>European Union and France</b>), plus written confirmation that every material used meets current standards.</p></div>
+    </div>
+    <div class="req">
+      <div class="no">6</div>
+      <div><h3>Lead times you can hold</h3>
+      <p>Manufacturing time, shipping time to Aubagne, and installation time on site. <b>Each one dated against a December 2026 opening.</b></p></div>
+    </div>
+    <div class="req">
+      <div class="no">7</div>
+      <div><h3>Commercial terms and after-sales</h3>
+      <p>Payment terms, warranty length and conditions, and how after-sales works in practice: <b>spare parts, and how fast you act when something breaks or wears out.</b></p></div>
+    </div>
+  </div>
+  <div class="pn">12</div>
+</section>
+
+<!-- ═══ 13 · WORKING TOGETHER ═══ -->
+<section class="page dark close">
+  <div class="rh"><span>MiniMundo · Request for Proposal</span><span>Working together</span></div>
+  <div class="close-grid">
+    <div>
+      <div class="kicker" style="color:#9aa4a0">09 · Working together</div>
+      <h2>We want a partner who moves fast.</h2>
+      <p class="big"><b>Speed of response matters more to us than anything else on this list.</b><br><br>Fast answers. One clear contact person. Short turnaround on questions and revisions. That is what will keep December 2026 reachable.<br><br>We are available whenever you need us: detailed site plans, questions on the space programme, or any technical point.</p>
+    </div>
+    <div>
+      <div class="ct">
+        <div class="k">Project contact</div>
+        <div class="n">Bastien Pelé</div>
+        <div class="r">Architect · MiniMundo Project Lead</div>
+        <div class="l">bastien@makeitnow.live<br>+33 6 80 13 01 04</div>
+      </div>
+      <div class="ct">
+        <div class="k">Executive contact</div>
+        <div class="n">Mikael Bouteillon</div>
+        <div class="r">CEO</div>
+        <div class="l">management@makeitnow.live</div>
+      </div>
+    </div>
+  </div>
+  <div class="pn">13</div>
+</section>
+
+</body>
+</html>
