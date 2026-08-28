@@ -7,19 +7,19 @@
 <meta name="description" content="MiniMundo — Design, manufacturing &amp; installation of an immersive indoor play park. Aubagne, France. 1,000–2,000 m². Opening early 2027.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#15130f;
-  --ink-2:#2a2620;
-  --paper:#faf7f0;
-  --paper-2:#f2ede2;
-  --line:#ded6c6;
-  --muted:#6f685c;
-  --accent:#d1442c;
-  --green:#4e7a4a;
-  --sun:#e0a02e;
-  --blue:#3a6a86;
+  --ink:#15181a;
+  --ink-2:#333a3b;
+  --paper:#f1f2ed;
+  --paper-2:#e5e8e0;
+  --line:#cfd4ca;
+  --muted:#646b64;
+  --accent:#c8342b;
+  --green:#4b7448;
+  --sun:#e3a52f;
+  --blue:#2e6f8e;
   --maxw:1180px;
   --r:14px;
 }
@@ -40,16 +40,16 @@ a{color:inherit}
   font-family:"IBM Plex Mono",ui-monospace,monospace;
   font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
 }
-h1,h2,h3,.disp{font-family:Fraunces,Georgia,serif;font-weight:600;letter-spacing:-.015em;line-height:1.08}
+h1,h2,h3,.disp{font-family:Newsreader,"Iowan Old Style",Georgia,serif;font-weight:600;letter-spacing:-.015em;line-height:1.08}
 .rule{height:1px;background:var(--line);border:0}
 
 /* ---------- top bar ---------- */
 .bar{
-  position:sticky;top:0;z-index:60;background:rgba(250,247,240,.88);
+  position:sticky;top:0;z-index:60;background:rgba(241,242,237,.88);
   backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
 }
 .bar-in{max-width:var(--maxw);margin:0 auto;padding:0 28px;height:56px;display:flex;align-items:center;gap:24px}
-.brand{font-family:Fraunces,serif;font-weight:700;font-size:17px;letter-spacing:-.02em;white-space:nowrap}
+.brand{font-family:Newsreader,Georgia,serif;font-weight:700;font-size:17px;letter-spacing:-.02em;white-space:nowrap}
 .brand span{color:var(--accent)}
 .bar-tag{
   font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
@@ -66,11 +66,11 @@ nav.toc a.on{color:var(--paper);background:var(--ink)}
 .prog{position:absolute;left:0;bottom:-1px;height:2px;background:var(--accent);width:0}
 
 /* ---------- hero ---------- */
-.hero{background:var(--ink);color:#f4efe4;padding:60px 0 0;overflow:hidden}
+.hero{background:var(--ink);color:#eef0ee;padding:60px 0 0;overflow:hidden}
 .hero-grid{display:grid;grid-template-columns:1.35fr .95fr;gap:48px;align-items:end}
 .hero h1{font-size:clamp(38px,5.4vw,64px);color:#fff;margin:16px 0 18px}
 .hero h1 em{font-style:normal;color:var(--sun)}
-.hero p.lede{font-size:16.5px;color:#c5bcac;max-width:52ch}
+.hero p.lede{font-size:16.5px;color:#b3bab6;max-width:52ch}
 .hero-thumbs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .hero-thumbs img{border-radius:10px;aspect-ratio:16/10;object-fit:cover;filter:saturate(1.02)}
 .hero-thumbs img:first-child{grid-column:1/-1;aspect-ratio:16/8}
@@ -79,9 +79,9 @@ nav.toc a.on{color:var(--paper);background:var(--ink)}
 .fact{padding:20px 24px 26px;border-right:1px solid rgba(255,255,255,.14)}
 .fact:last-child{border-right:0}
 .fact:first-child{padding-left:0}
-.fact .k{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#8e8577}
-.fact .v{font-family:Fraunces,serif;font-size:23px;font-weight:600;color:#fff;margin-top:7px;line-height:1.15}
-.fact .n{font-size:12.5px;color:#9b9285;margin-top:5px;line-height:1.4}
+.fact .k{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#7f8a86}
+.fact .v{font-family:Newsreader,Georgia,serif;font-size:23px;font-weight:600;color:#fff;margin-top:7px;line-height:1.15}
+.fact .n{font-size:12.5px;color:#8d9793;margin-top:5px;line-height:1.4}
 
 /* ---------- sections ---------- */
 section{padding:62px 0;border-bottom:1px solid var(--line)}
@@ -132,7 +132,7 @@ section.alt .planbox{background:#fff}
 .ztot{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
 .ztot div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px}
 section.alt .ztot div{background:var(--paper)}
-.ztot .b{font-family:Fraunces,serif;font-size:25px;font-weight:600}
+.ztot .b{font-family:Newsreader,Georgia,serif;font-size:25px;font-weight:600}
 .ztot .s{font-size:12px;color:var(--muted);margin-top:2px}
 
 /* ---------- gallery ---------- */
@@ -145,10 +145,10 @@ section.alt .ztot div{background:var(--paper)}
 .shot:hover img{transform:scale(1.04)}
 .shot figcaption{
   position:absolute;left:0;right:0;bottom:0;padding:34px 16px 13px;color:#fff;
-  background:linear-gradient(to top,rgba(10,8,5,.92) 12%,rgba(10,8,5,0));
+  background:linear-gradient(to top,rgba(12,15,16,.92) 12%,rgba(12,15,16,0));
 }
-.shot figcaption b{display:block;font-family:Fraunces,serif;font-size:17px;font-weight:600;letter-spacing:-.01em}
-.shot figcaption span{display:block;font-size:12px;color:#d6cebe;margin-top:2px;line-height:1.35}
+.shot figcaption b{display:block;font-family:Newsreader,Georgia,serif;font-size:17px;font-weight:600;letter-spacing:-.01em}
+.shot figcaption span{display:block;font-size:12px;color:#c6cecb;margin-top:2px;line-height:1.35}
 .galnote{margin-top:16px;font-size:13px;color:var(--muted);display:flex;gap:10px;align-items:flex-start}
 .galnote svg{flex:0 0 auto;margin-top:2px;color:var(--accent)}
 
@@ -166,11 +166,11 @@ section.alt .spec{background:var(--paper)}
 }
 .spec li b{font-weight:600;color:var(--ink)}
 .warn{
-  grid-column:1/-1;background:var(--ink);color:#f0e9db;border-radius:var(--r);padding:20px 24px;
+  grid-column:1/-1;background:var(--ink);color:#ecefec;border-radius:var(--r);padding:20px 24px;
   display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;
 }
 .warn .lbl{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--sun);max-width:120px;line-height:1.5}
-.warn p{font-size:14px;color:#cdc4b4}
+.warn p{font-size:14px;color:#b6bebb}
 .warn p b{color:#fff;font-weight:600}
 
 /* ---------- deliverables ---------- */
@@ -194,30 +194,30 @@ section.alt .req{background:var(--paper)}
 }
 section.alt .req .tags span{background:#fff}
 .req.wide{grid-column:1/-1}
-.req.key{grid-column:1/-1;border-color:var(--accent);box-shadow:0 0 0 3px rgba(209,68,44,.08)}
+.req.key{grid-column:1/-1;border-color:var(--accent);box-shadow:0 0 0 3px rgba(200,52,43,.09)}
 
 /* ---------- contact ---------- */
-.foot{background:var(--ink);color:#f0e9db;padding:66px 0 40px;border:0}
+.foot{background:var(--ink);color:#ecefec;padding:66px 0 40px;border:0}
 .foot h2{font-size:clamp(28px,4vw,42px);color:#fff;max-width:16ch}
-.foot p.sub{color:#a89f90;max-width:50ch;margin-top:16px;font-size:15px}
+.foot p.sub{color:#9aa4a0;max-width:50ch;margin-top:16px;font-size:15px}
 .contacts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:38px;max-width:720px}
 .ct{border:1px solid rgba(255,255,255,.16);border-radius:var(--r);padding:20px}
 .ct .k{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--sun)}
-.ct .n{font-family:Fraunces,serif;font-size:21px;font-weight:600;color:#fff;margin-top:9px}
-.ct .r{font-size:12.5px;color:#a89f90;margin-top:2px}
-.ct a{display:block;font-size:13.5px;color:#e8e0d0;text-decoration:none;margin-top:11px;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:2px;width:fit-content}
+.ct .n{font-family:Newsreader,Georgia,serif;font-size:21px;font-weight:600;color:#fff;margin-top:9px}
+.ct .r{font-size:12.5px;color:#9aa4a0;margin-top:2px}
+.ct a{display:block;font-size:13.5px;color:#dee4e1;text-decoration:none;margin-top:11px;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:2px;width:fit-content}
 .ct a:hover{color:var(--sun);border-color:var(--sun)}
 .foot .end{
   margin-top:52px;padding-top:20px;border-top:1px solid rgba(255,255,255,.14);
   display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
-  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#777064;
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#6c7673;
 }
 
 /* ---------- lightbox ---------- */
-.lb{position:fixed;inset:0;z-index:200;background:rgba(12,10,7,.95);display:none;place-items:center;padding:24px;cursor:zoom-out}
+.lb{position:fixed;inset:0;z-index:200;background:rgba(14,17,18,.95);display:none;place-items:center;padding:24px;cursor:zoom-out}
 .lb.open{display:grid}
 .lb img{max-width:96vw;max-height:88vh;width:auto;border-radius:8px;object-fit:contain}
-.lb .cap{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#cfc6b6;font-size:12.5px;font-family:"IBM Plex Mono",monospace}
+.lb .cap{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#b6bebb;font-size:12.5px;font-family:"IBM Plex Mono",monospace}
 .lb .x{position:absolute;top:16px;right:20px;color:#fff;font-size:26px;line-height:1;background:none;border:0;cursor:pointer;opacity:.7}
 .lb .x:hover{opacity:1}
 
@@ -286,7 +286,7 @@ section.alt .req .tags span{background:#fff}
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <div class="eyebrow" style="color:#a89f90">Request for Proposal · Consultation document</div>
+        <div class="eyebrow" style="color:#9aa4a0">Request for Proposal · Consultation document</div>
         <h1>A miniature city,<br>built at <em>children's scale</em>.</h1>
         <p class="lede">Design, manufacturing and installation of an immersive indoor play park. Sent to shortlisted manufacturers ahead of a commercial offer and a design proposal.</p>
       </div>
@@ -566,7 +566,7 @@ section.alt .req .tags span{background:#fff}
 <!-- ══════════════ 07 CONTACT ══════════════ -->
 <footer class="foot" id="contact">
   <div class="wrap">
-    <div class="eyebrow" style="color:#a89f90">07 — How to respond</div>
+    <div class="eyebrow" style="color:#9aa4a0">07 — How to respond</div>
     <h2 style="margin-top:14px">We look forward to receiving your proposal.</h2>
     <p class="sub">We remain available ahead of your submission — detailed site plans, clarifications on the space programme, or technical questions.</p>
 
@@ -598,12 +598,12 @@ section.alt .req .tags span{background:#fff}
 <script>
 /* ---- zone table (from the 1:200 plan) ---- */
 const ZONES=[
-  ["Supermarket",17.64,"#4e7a4a"],["Bakery",17.64,"#d1442c"],
-  ["Kitchen",32.11,"#e0a02e"],["Hospital",33.62,"#3a6a86"],
-  ["Fire Station",33.62,"#d1442c"],["Police",33.62,"#3a6a86"],
-  ["Construction Site",59.65,"#e0a02e"],["Farm",27.89,"#4e7a4a"],
-  ["Little Princess",15.43,"#b5568c"],["Pet Hospital",15.75,"#3a6a86"],
-  ["Soft Area / Ball Pool / Slides",141.61,"#7a5cc4"],["Circulation",301.21,"#8b8477"]
+  ["Supermarket",17.64,"#4b7448"],["Bakery",17.64,"#c8342b"],
+  ["Kitchen",32.11,"#e3a52f"],["Hospital",33.62,"#2e6f8e"],
+  ["Fire Station",33.62,"#c8342b"],["Police",33.62,"#2e6f8e"],
+  ["Construction Site",59.65,"#e3a52f"],["Farm",27.89,"#4b7448"],
+  ["Little Princess",15.43,"#a8558a"],["Pet Hospital",15.75,"#2e6f8e"],
+  ["Soft Area / Ball Pool / Slides",141.61,"#6f5cb8"],["Circulation",301.21,"#838b84"]
 ];
 const max=Math.max(...ZONES.map(z=>z[1]));
 document.getElementById('zones').innerHTML=ZONES.map(([n,v,c])=>`
