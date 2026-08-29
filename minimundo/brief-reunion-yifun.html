@@ -1,0 +1,627 @@
+<title>Minimundo × Yifun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+:root{
+  --ground:#EBEEF3; --surface:#FFFFFF; --surface-2:#F5F7FA; --sunk:#E2E6EE;
+  --ink:#131B25; --ink-2:#4C5966; --ink-3:#75808D;
+  --line:#D3D9E2; --line-strong:#B6BFCC;
+  --accent:#17457F; --amber:#B36E00; --alert:#AF2419; --ok:#1D6A4C;
+  --accent-soft:#E4EBF6; --amber-soft:#F7EEDD; --alert-soft:#F8E6E3;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0E131A; --surface:#151C25; --surface-2:#1B232D; --sunk:#101821;
+    --ink:#E7ECF3; --ink-2:#A2AEBC; --ink-3:#7C8896;
+    --line:#28323E; --line-strong:#3A4653;
+    --accent:#82B4F2; --amber:#E0A44A; --alert:#F08A7E; --ok:#5FC49A;
+    --accent-soft:#17263A; --amber-soft:#2A2213; --alert-soft:#2E1A18;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0E131A; --surface:#151C25; --surface-2:#1B232D; --sunk:#101821;
+  --ink:#E7ECF3; --ink-2:#A2AEBC; --ink-3:#7C8896;
+  --line:#28323E; --line-strong:#3A4653;
+  --accent:#82B4F2; --amber:#E0A44A; --alert:#F08A7E; --ok:#5FC49A;
+  --accent-soft:#17263A; --amber-soft:#2A2213; --alert-soft:#2E1A18;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);
+  font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
+  font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px 80px}
+h1,h2,h3,h4,.ui{font-family:Archivo,"Helvetica Neue",Arial,sans-serif}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* ---------- masthead ---------- */
+.mast{border-bottom:3px solid var(--ink);margin-top:34px;padding-bottom:16px}
+.mast .kicker{font-family:Archivo;font-weight:600;font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-3);display:flex;gap:14px;flex-wrap:wrap}
+.mast h1{font-size:clamp(30px,5.4vw,48px);font-weight:700;letter-spacing:-.02em;
+  line-height:1.05;margin:14px 0 10px;text-wrap:balance}
+.mast .sub{color:var(--ink-2);max-width:62ch;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:16px;
+  font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--ink-2)}
+.meta b{color:var(--ink);font-weight:600}
+
+/* ---------- alert ---------- */
+.alert{background:var(--alert-soft);border-top:2px solid var(--alert);
+  padding:20px 22px;margin:26px 0 34px}
+.alert h2{font-size:15px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--alert);margin:0 0 10px;font-weight:700}
+.alert p{margin:0 0 10px}
+.alert p:last-child{margin-bottom:0}
+.count{font-family:"IBM Plex Mono",monospace;font-weight:600;
+  background:var(--alert);color:#fff;padding:1px 7px;font-size:.92em}
+:root[data-theme="dark"] .count,
+:root:not([data-theme="light"]) .count{color:#2A1512}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .count{color:#fff}}
+
+/* ---------- toc ---------- */
+.toc{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));
+  gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:46px}
+.toc a{background:var(--surface);padding:12px 14px;text-decoration:none;display:flex;gap:11px;
+  align-items:baseline;color:var(--ink);font-family:Archivo;font-size:13.5px;font-weight:500}
+.toc a:hover{background:var(--accent-soft)}
+.toc .n{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;color:var(--accent)}
+
+/* ---------- sections ---------- */
+section{margin-bottom:58px;scroll-margin-top:14px}
+.shead{display:flex;gap:16px;align-items:flex-start;
+  border-bottom:2px solid var(--ink);padding-bottom:12px;margin-bottom:22px}
+.plaque{flex:0 0 auto;width:38px;height:38px;background:var(--ink);color:var(--ground);
+  font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:16px;
+  display:grid;place-items:center;margin-top:2px}
+.shead h2{margin:0;font-size:clamp(21px,3vw,27px);font-weight:700;letter-spacing:-.015em;line-height:1.15}
+.quoted{margin:5px 0 0;font-size:13.5px;color:var(--ink-3);font-style:italic;max-width:64ch}
+
+.tag{display:inline-block;font-family:Archivo;font-size:10.5px;font-weight:700;
+  letter-spacing:.15em;text-transform:uppercase;padding-bottom:3px;
+  border-bottom:2px solid currentColor;margin-bottom:12px}
+.t-rep{color:var(--accent)} .t-dec{color:var(--amber)} .t-exi{color:var(--ok)}
+.block{padding:4px 0 22px;border-bottom:1px solid var(--line);margin-bottom:22px}
+.block:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.block > p:first-of-type{margin-top:0}
+p{margin:0 0 12px;max-width:72ch}
+ul,ol{margin:0 0 12px;padding-left:20px;max-width:72ch}
+li{margin-bottom:6px}
+li::marker{color:var(--ink-3)}
+h4{font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2);
+  margin:20px 0 8px;font-weight:600}
+strong{font-weight:600}
+em.hl{font-style:normal;background:var(--amber-soft);padding:0 3px;font-weight:600}
+
+/* ---------- tables ---------- */
+.scroll{overflow-x:auto;margin:6px 0 18px;border:1px solid var(--line);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14px;
+  font-family:Archivo;font-weight:500}
+th{background:var(--sunk);text-align:left;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-2);font-weight:700;
+  padding:9px 12px;border-bottom:1px solid var(--line-strong);white-space:nowrap}
+td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink)}
+tr:last-child td{border-bottom:0}
+td.d{font-family:"IBM Plex Mono",monospace;font-size:12.5px;white-space:nowrap;color:var(--ink-2);
+  font-variant-numeric:tabular-nums}
+tr.key td{background:var(--amber-soft)}
+tr.key td strong{color:var(--amber)}
+.who{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-3);white-space:nowrap}
+
+/* ---------- misc devices ---------- */
+.note{background:var(--surface);border-left:3px solid var(--line-strong);padding:14px 16px;margin:14px 0}
+.note.warn{border-left-color:var(--alert)}
+.note.warn b{color:var(--alert)}
+.note p:last-child{margin-bottom:0}
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);margin:14px 0}
+.split > div{background:var(--surface);padding:15px 16px}
+.split h5{font-family:Archivo;font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  margin:0 0 8px;color:var(--ink-2)}
+.split p{font-size:14.5px;margin-bottom:0}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 14px;padding:0;list-style:none}
+.chips li{font-family:Archivo;font-size:12.5px;font-weight:500;background:var(--surface);
+  border:1px solid var(--line-strong);padding:4px 10px;margin:0}
+.mail{background:var(--surface);border:1px solid var(--line-strong);padding:26px 26px 30px;margin-top:16px}
+.mail p,.mail li{font-size:15px;max-width:none}
+.mail h4{margin-top:22px}
+.mail .subj{font-family:"IBM Plex Mono",monospace;font-size:13px;background:var(--sunk);
+  padding:9px 12px;margin:-4px 0 18px}
+footer{border-top:2px solid var(--ink);padding-top:16px;margin-top:60px;
+  font-family:Archivo;font-size:12.5px;color:var(--ink-3)}
+@media (max-width:560px){
+  body{font-size:16px}
+  .plaque{width:31px;height:31px;font-size:14px}
+  .wrap{padding:0 16px 60px}
+}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="kicker"><span>Minimundo · Aubagne</span><span>Préparation visio fournisseur</span><span>29 août 2026</span></div>
+  <h1>Minimundo × Yifun</h1>
+  <p class="sub">Réponses point par point aux 7 questions de Winnie, positions à tenir en réunion, et planning inversé pour une ouverture avant les vacances de Noël 2026.</p>
+  <div class="meta">
+    <span>Ouverture visée <b>16–18 déc. 2026</b></span>
+    <span>Vacances de Noël <b>19 déc. → 4 janv.</b></span>
+    <span>Repli <b>20 févr. 2027</b> (zone B)</span>
+  </div>
+</header>
+
+<div class="alert">
+  <h2>Le vrai sujet de la réunion : la date de gel du layout</h2>
+  <p>Il reste <span class="count">15 semaines</span> avant l'ouverture visée, dont <strong>6 à 7 semaines de transport maritime incompressibles</strong> (Ningbo/Shenzhen → Fos-sur-Mer, puis dédouanement et livraison Aubagne). En retirant 3 semaines de montage et 10 jours de vérifications réglementaires, le dernier départ d'usine compatible est autour du <strong>10 octobre pour le premier chargement</strong>, et fin octobre pour le dernier.</p>
+  <p>Conséquence à annoncer d'entrée : <em class="hl">le layout doit être gelé et le contrat signé le 18 septembre au plus tard</em>. Tout ce qui se discute après cette date se paie en retard, pas en euros. C'est le seul point de la visio qui doit ressortir avec un engagement écrit des deux côtés.</p>
+</div>
+
+<nav class="toc">
+  <a href="#p1"><span class="n">01</span> Planning inversé</a>
+  <a href="#p2"><span class="n">02</span> Exploitation &amp; parcours</a>
+  <a href="#p3"><span class="n">03</span> Contraintes techniques</a>
+  <a href="#p4"><span class="n">04</span> Direction artistique</a>
+  <a href="#p5"><span class="n">05</span> Zone action</a>
+  <a href="#p6"><span class="n">06</span> Conformité française</a>
+  <a href="#p7"><span class="n">07</span> Format du devis</a>
+  <a href="#ax1"><span class="n">A</span> Questions à leur poser</a>
+  <a href="#ax2"><span class="n">B</span> À confirmer de ton côté</a>
+  <a href="#ax3"><span class="n">C</span> Mail prêt à envoyer</a>
+</nav>
+
+<!-- ============ 1 ============ -->
+<section id="p1">
+  <div class="shead"><span class="plaque">1</span>
+    <div><h2>Planning inversé et jalons</h2>
+    <p class="quoted">« Final layout approval, quotation and contract confirmation, production start, site readiness, installation window and final inspection. »</p></div>
+  </div>
+
+  <div class="block">
+    <span class="tag t-rep">Notre réponse</span>
+    <p>Cible : ouverture au public <strong>mercredi 16 décembre 2026</strong>, pour être opérationnel dès le premier week-end des vacances scolaires (samedi 19 décembre, toutes zones). Le planning ci-dessous est celui que nous soumettons ; nous attendons qu'ils le contresignent ou qu'ils proposent leurs dates <em>avec les leurs engagées</em>.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Date</th><th>Jalon</th><th>Qui</th></tr></thead>
+        <tbody>
+          <tr><td class="d">2–4 sept.</td><td>Visio de cadrage. Remise du brief design complet, des DWG du site et des contraintes MEP.</td><td class="who">Mika → Yifun</td></tr>
+          <tr><td class="d">11 sept.</td><td>Layout V1 à l'échelle + liste des espaces + 2 vues 3D d'ambiance + estimation budgétaire</td><td class="who">Yifun</td></tr>
+          <tr><td class="d">15 sept.</td><td>Retours consolidés (exploitant + architecte + bureau de contrôle)</td><td class="who">Mika</td></tr>
+          <tr class="key"><td class="d">18 sept.</td><td><strong>GEL DU LAYOUT · devis définitif · contrat signé · acompte versé</strong></td><td class="who">Mika + Yifun</td></tr>
+          <tr><td class="d">21 sept.</td><td>Démarrage production, créneau usine réservé, booking fret confirmé, <strong>lancement des demandes de visas monteurs</strong></td><td class="who">Yifun</td></tr>
+          <tr><td class="d">25 sept.</td><td>Plans de fabrication + implantations élec/ancrages/charges en DWG, pour coordination avec le BET</td><td class="who">Yifun → BET</td></tr>
+          <tr><td class="d">2 oct.</td><td>Dossier documentaire : PV réaction au feu, certificats EN 1176/1177, notices FR</td><td class="who">Yifun</td></tr>
+          <tr class="key"><td class="d">9–10 oct.</td><td><strong>Chargement container 1</strong> — structure zone action + gros décors</td><td class="who">Yifun</td></tr>
+          <tr><td class="d">15 oct.</td><td><strong>Go / No-Go décembre.</strong> Si le container 1 n'est pas parti, bascule officielle sur février — avant toute campagne de communication</td><td class="who">Mika</td></tr>
+          <tr><td class="d">~16 oct.</td><td>Dépôt de la demande de visite de la commission de sécurité (mairie d'Aubagne)</td><td class="who">Mika + archi</td></tr>
+          <tr><td class="d">24–30 oct.</td><td>Chargement containers 2 et 3 — mobilier thématique, accessoires, signalétique</td><td class="who">Yifun</td></tr>
+          <tr><td class="d">13 nov.</td><td><strong>Site prêt et livré au monteur</strong> (voir la liste des prérequis ci-dessous)</td><td class="who">Archi / entreprise générale</td></tr>
+          <tr><td class="d">16–17 nov.</td><td>Arrivée, déchargement, stockage sur site</td><td class="who">Yifun + Mika</td></tr>
+          <tr><td class="d">18 nov – 4 déc.</td><td>Montage (3 semaines pleines)</td><td class="who">Yifun</td></tr>
+          <tr><td class="d">7–9 déc.</td><td>Levée des réserves, essais, vérifications initiales électricité + aires de jeux par organisme agréé</td><td class="who">Mika</td></tr>
+          <tr class="key"><td class="d">10–11 déc.</td><td><strong>Commission de sécurité + accessibilité → arrêté d'ouverture</strong></td><td class="who">SDIS 13 / mairie</td></tr>
+          <tr><td class="d">14–15 déc.</td><td>Formation des équipes, répétition générale, journée presse et influenceurs</td><td class="who">Mika</td></tr>
+          <tr class="key"><td class="d">16 déc.</td><td><strong>Ouverture au public</strong></td><td class="who">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Les prérequis du <strong>13 novembre</strong>, à leur écrire noir sur blanc pour qu'ils ne puissent pas s'en servir d'excuse plus tard : sol fini, sec et nettoyé (planéité à confirmer avec eux), attentes électriques en coffret par zone, éclairage général posé, CVC en service à 15 °C minimum, sprinklers et SSI posés et testés, accès camion et zone de déchargement, nacelle ou échafaudage disponible, local de stockage fermé, benne à déchets, wifi chantier, gardiennage.</p>
+  </div>
+
+  <div class="block">
+    <span class="tag t-dec">À trancher</span>
+    <p>Trois scénarios. Ma recommandation : partir sur A, avec le go/no-go du 15 octobre écrit au contrat pour ne pas se retrouver à devoir annuler une ouverture déjà annoncée.</p>
+    <div class="split">
+      <div><h5>A — Noël, périmètre gelé</h5><p>Ouverture 16 déc. Scope figé au 18 sept., production accélérée, expéditions échelonnées. Zéro marge : la moindre dérive se voit tout de suite.</p></div>
+      <div><h5>B — Décembre en deux temps</h5><p>Ouverture 16 déc. avec la ville + zone 0-3 ans + un toboggan, la tour action complète livrée en phase 2 fin février. Permet de tenir la date sans brader la pièce maîtresse.</p></div>
+      <div><h5>C — Février, planning sain</h5><p>Ouverture le 20 févr. 2027, premier jour des vacances d'hiver zone B (Aix-Marseille) : 15 jours pleins de fréquentation dès l'ouverture. Périmètre complet, marge réelle, coûts de production normaux.</p></div>
+    </div>
+    <p>Argument à garder en tête : février n'est pas une punition. Une ouverture ratée ou bâclée à Noël coûte plus cher qu'une ouverture réussie en février — et le 20 février 2027 tombe pile au premier jour de deux semaines de vacances locales.</p>
+  </div>
+
+  <div class="block">
+    <span class="tag t-exi">À exiger d'eux</span>
+    <ul>
+      <li>Un engagement daté sur <strong>la date de départ du premier container</strong>, pas seulement sur un délai de production « 8 à 10 semaines ».</li>
+      <li>Des <strong>expéditions échelonnées, chargées dans l'ordre de montage</strong>, avec une liste de colisage par container. C'est ce qui fait gagner deux semaines.</li>
+      <li>Un chiffrage de l'alternative <strong>rail Chine–Europe</strong> (25–30 jours via Duisbourg + camion) ou d'un fret aérien partiel pour les pièces critiques, en option, pour qu'on puisse l'activer au go/no-go.</li>
+      <li>Le nom d'un <strong>chef de projet dédié</strong> et un point hebdomadaire fixe avec compte rendu écrit et photos d'avancement usine.</li>
+      <li>Une <strong>clause de pénalité de retard</strong> : 0,5 % par semaine, plafonnée à 5 %.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section id="p2">
+  <div class="shead"><span class="plaque">2</span>
+    <div><h2>Modèle d'exploitation et parcours client</h2>
+    <p class="quoted">« Your planned operating model and customer journey — how reception, bar, shop and birthday rooms will be used — whether these fixed areas require our scope. »</p></div>
+  </div>
+
+  <div class="block">
+    <span class="tag t-rep">Notre réponse</span>
+    <h4>Modèle</h4>
+    <ul>
+      <li><strong>Cible :</strong> familles avec enfants de 1 à 12 ans, cœur de cible 3–10 ans. Trois flux de revenus : billetterie famille, anniversaires, groupes (écoles, centres de loisirs, comités d'entreprise) et privatisations en soirée.</li>
+      <li><strong>Accès :</strong> créneaux de 2 h en période de pointe (mercredi, week-end, vacances), 3 à 4 rotations par jour ; accès libre en heures creuses. Bracelet de couleur par créneau, un adulte accompagnateur inclus par enfant.</li>
+      <li><strong>Rythme d'animation :</strong> des rendez-vous à heure fixe qui font vivre la ville — l'alerte incendie, le journal télévisé, le marché, la parade. C'est ce qui distingue une ville d'un alignement de stands, et cela conditionne des choses très concrètes dans leur design (une sirène, une scène, un espace où l'on peut rassembler 30 enfants).</li>
+    </ul>
+    <h4>Parcours</h4>
+    <ol>
+      <li>Entrée et file d'attente couverte → <strong>accueil / billetterie</strong> (2 caisses + 1 borne), point de contrôle unique.</li>
+      <li><strong>Vestiaire</strong> : casiers, poussettes, chaussettes antidérapantes vendues en caisse.</li>
+      <li>Un sas court qui débouche sur la <strong>place centrale</strong> : l'effet « waouh » doit être immédiat — on voit la ville et la tour d'un seul coup d'œil.</li>
+      <li>Déambulation libre dans les rues, chaque métier ayant une devanture sur rue et un intérieur.</li>
+      <li><strong>Bar / coin parents</strong> avec vue directe sur la place et sur la zone action. Assises confortables, prises, wifi. C'est un poste de revenu, pas un couloir.</li>
+      <li><strong>Salles anniversaire</strong> desservies sans traverser la file d'attente ni la zone de jeu.</li>
+      <li>Sortie <strong>par la boutique</strong>.</li>
+      <li>Sanitaires et table à langer accessibles depuis la ville sans repasser par l'accueil.</li>
+    </ol>
+  </div>
+
+  <div class="block">
+    <span class="tag t-dec">À trancher</span>
+    <p>Ce qu'on leur confie sur les zones dites « fixes ». Ma recommandation : <strong>leur donner le décor et les façades, garder en local tout ce qui est technique ou fluide</strong>. Un comptoir de bar avec évier, tirage et normes d'hygiène, une boutique, des casiers : on le fait faire par un agenceur français, délai court et SAV à 30 km. Le reste, on le leur demande en option chiffrée ligne par ligne :</p>
+    <ul class="chips">
+      <li>Banque d'accueil thématisée</li><li>Façade « café de la place » pour le bar</li>
+      <li>Décor des salles anniversaire</li><li>Agencement boutique</li>
+      <li>Signalétique directionnelle</li><li>Habillage vestiaire / casiers</li>
+      <li>Décor des sanitaires</li><li>Traitement du plafond « ciel »</li>
+    </ul>
+    <p>Chaque option doit avoir son prix isolé, pour qu'on puisse arbitrer au moment du go/no-go sans renégocier l'ensemble.</p>
+  </div>
+
+  <div class="block">
+    <span class="tag t-exi">À exiger d'eux</span>
+    <ul>
+      <li>Le layout doit intégrer les <strong>angles de surveillance</strong> : depuis le bar et depuis un poste d'animation, on doit voir la place, l'entrée de la zone action et les sorties de toboggans. Pas d'angle mort, pas de recoin fermé non visible.</li>
+      <li>Prévoir dans le dessin les <strong>besoins d'exploitation</strong> : rangement des accessoires par métier (les enfants les déplacent, il faut pouvoir tout remettre en place en 10 minutes), circulation d'un chariot de ménage, accès technicien, local de stockage des consommables.</li>
+      <li>Confirmer que la <strong>salle anniversaire</strong> est dimensionnée pour 16 enfants + 4 adultes assis, avec un plan de travail et un point de service.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section id="p3">
+  <div class="shead"><span class="plaque">3</span>
+    <div><h2>Hauteurs, MEP et issues de secours</h2>
+    <p class="quoted">« Final positions of HVAC, sprinklers, lighting, smoke detectors — will these be subject to our design? Required safety-clearance around each emergency exit. »</p></div>
+  </div>
+
+  <div class="block">
+    <span class="tag t-rep">Notre réponse</span>
+    <p>Réponse courte et ferme : <strong>non, le MEP n'est pas dans leur périmètre</strong>. CVC, sprinklers, SSI, désenfumage, éclairage de sécurité, détection : conception et exécution par notre architecte et notre bureau d'études, sous contrôle du bureau de contrôle et du SDIS. Ils conçoivent <em>sous contrainte</em>, ils ne déplacent rien.</p>
+    <p>Ce qu'on leur fournit au cadrage : DWG de l'état existant, plan des réseaux avec cotes, hauteurs sous poutre et sous têtes de sprinklers, position des issues et des dégagements, réservations, contraintes de dalle.</p>
+    <p>Ce qu'ils nous rendent en retour, sous 7 jours après le layout V1 : encombrements 3D (fichier exploitable par le BET), hauteurs finies de chaque structure, charges au sol réparties et ponctuelles, points d'ancrage et efforts associés, besoins électriques par zone (kW, points de raccordement, 230 V et 24 V), besoins réseau/data, éventuels points d'eau et évacuations.</p>
+    <h4>Les règles de conception qu'on leur impose</h4>
+    <ul>
+      <li><strong>0,50 m minimum</strong> laissé libre sous les têtes de sprinklers, sans exception.</li>
+      <li>Une <strong>structure fermée à toiture pleine fait écran</strong> à l'extinction comme à la détection. Trois solutions admises : toiture ajourée (filet ou maille), sprinklage sous structure, ou détection intérieure — à valider par le bureau de contrôle <em>et</em> par notre assureur (règle APSAD R1). À traiter au layout, pas à la livraison.</li>
+      <li>Aucun élément ne masque un BAES, un détecteur, un diffuseur d'alarme, un extincteur, une commande de désenfumage ou un exutoire. Aucun élément suspendu sans validation préalable.</li>
+      <li><strong>Issues de secours :</strong> la largeur de passage est conservée sur tout le cheminement, la zone devant chaque porte reste totalement libre sur au moins 1 m et sur toute la largeur, portes ouvrant dans le sens de l'évacuation. Les valeurs exactes (unités de passage, distance maximale à parcourir pour atteindre une sortie, culs-de-sac) découlent du classement ERP et de l'effectif : elles seront <strong>confirmées par notre bureau de contrôle</strong> et transmises comme contraintes fermes avant le gel du layout.</li>
+      <li>Aucun cul-de-sac non surveillable, aucun volume fermé invisible depuis l'extérieur.</li>
+      <li><strong>Accessibilité PMR :</strong> cheminement continu, aires de rotation, seuils, hauteurs de comptoirs et d'assises selon les gabarits que nous leur transmettrons. Au moins une partie des activités doit être accessible ou vécue en participation.</li>
+      <li><strong>Hauteur exploitable :</strong> 5 m annoncés en brut. À confirmer sous poutre et sous sprinkler ; en retirant la garde de 0,50 m, on tombe autour de <strong>4,20 à 4,50 m réellement exploitables</strong>. Ils doivent dimensionner la tour sur cette valeur, pas sur les 5 m.</li>
+      <li><strong>Acoustique :</strong> un volume de cette taille avec 200 enfants devient invivable pour les parents. On leur demande d'intégrer de l'absorption dans les structures et le traitement du plafond, chiffré en option.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <span class="tag t-exi">À exiger d'eux</span>
+    <ul>
+      <li>Un <strong>plan de coordination signé</strong> : leur implantation superposée à nos réseaux, avec les conflits identifiés, avant le gel du layout. C'est le livrable qui évite les mauvaises surprises au montage.</li>
+      <li>Une <strong>note de calcul et un plan d'ancrage</strong> pour toute structure de plus de 2 m et tout élément suspendu.</li>
+      <li>Leur confirmation écrite qu'aucun percement de dalle n'est nécessaire tant que nous n'avons pas validé la nature du sol (plancher chauffant, étanchéité, épaisseur).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 4 ============ -->
+<section id="p4">
+  <div class="shead"><span class="plaque">4</span>
+    <div><h2>Direction artistique de la ville</h2>
+    <p class="quoted">« A real, connected miniature city rather than a row of separate modules — priority themed spaces, balance, façade detail, material quality. »</p></div>
+  </div>
+
+  <div class="block">
+    <span class="tag t-rep">Notre réponse</span>
+    <p>Le principe directeur tient en une phrase : <strong>on dessine un plan de ville, pas une liste d'espaces</strong>. Une place centrale qui sert de cœur, de point de vue et de point de rendez-vous ; deux ou trois rues qui en rayonnent ; des façades mitoyennes avec un étage apparent et des fenêtres éclairées ; des trottoirs et des passages piétons dessinés au sol ; du mobilier urbain (lampadaires, bancs, boîte aux lettres, feu tricolore, kiosque, arbres) ; des plaques de rue et des numéros ; un plafond traité en ciel avec un éclairage variable jour/nuit ; une ambiance sonore par quartier. La circulation forme une boucle continue : l'enfant traverse la ville, il ne fait pas la queue devant des stands.</p>
+    <h4>Espaces prioritaires — proposition à arbitrer</h4>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Espace</th><th>Pourquoi</th><th>Priorité</th></tr></thead>
+        <tbody>
+          <tr><td>Supermarché / marché</td><td>L'espace le plus joué partout dans le monde. À surdimensionner.</td><td class="d">Indispensable</td></tr>
+          <tr><td>Caserne de pompiers + camion</td><td>Le symbole du concept, support de l'animation « alerte » à heure fixe.</td><td class="d">Indispensable</td></tr>
+          <tr><td>Clinique vétérinaire</td><td>Préférable à l'hôpital pour les plus petits, moins anxiogène, très photogénique.</td><td class="d">Indispensable</td></tr>
+          <tr><td>Cuisine / pizzeria-boulangerie</td><td>Manipulation, jeu coopératif, aucun consommable réel.</td><td class="d">Indispensable</td></tr>
+          <tr><td>Chantier / BTP</td><td>Fait le lien narratif avec la zone action.</td><td class="d">Indispensable</td></tr>
+          <tr><td>Garage, station-service, circuit véhicules</td><td>Le circuit structure la rue et absorbe les flux.</td><td class="d">Indispensable</td></tr>
+          <tr><td>Studio TV / scène</td><td>Contenu partageable par les parents = acquisition gratuite.</td><td class="d">Haute</td></tr>
+          <tr><td>Salon de coiffure / beauté</td><td>Fort taux d'occupation, faible emprise.</td><td class="d">Haute</td></tr>
+          <tr><td>Poste / banque / distributeur</td><td>Support de la monnaie du parc et du fil rouge de jeu.</td><td class="d">Haute</td></tr>
+          <tr><td>École / atelier créatif</td><td>La zone calme, nécessaire à l'équilibre du parcours.</td><td class="d">Moyenne</td></tr>
+          <tr><td>Ferme / jardin / recyclage</td><td>Angle pédagogique, argument auprès des écoles.</td><td class="d">Moyenne</td></tr>
+          <tr><td>Gare ou aéroport</td><td>Belle façade, bon générateur de photos.</td><td class="d">Moyenne</td></tr>
+          <tr><td>Zone 0–3 ans dédiée</td><td>Séparée physiquement, visible du bar. Débloque toute une clientèle.</td><td class="d">Indispensable</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>À exclure explicitement :</strong> tout thème sous licence ou évoquant une marque réelle (risque juridique, et ils le proposeront), l'armement et le militaire, tout ce qui exige de l'eau courante ou de la nourriture réelle (hygiène, HACCP), le sable, les miroirs en verre, et tout accessoire fragile ou détachable à hauteur d'enfant. Pour la police : oui, mais en version sécurité civile, sans arme.</p>
+    <h4>Équilibre des surfaces</h4>
+    <p>Jeu de rôle 45–50 %, action et motricité 20–25 %, interactif et numérique 10 %, exploration libre + tout-petits + circulation 20 %.</p>
+    <h4>Le fil rouge</h4>
+    <p>Ce qui transforme des espaces en ville, c'est un mécanisme de jeu qui les relie : bracelet ou carte, missions par métier, monnaie du parc gagnée en travaillant et dépensée ailleurs, tableau de scores. À leur demander s'ils savent le faire (RFID) — mais <strong>en option, jamais bloquant pour l'ouverture</strong>. Si c'est mal fait, on le confie à un prestataire français couplé à la caisse.</p>
+  </div>
+
+  <div class="block">
+    <span class="tag t-exi">À exiger d'eux — qualité et durabilité</span>
+    <p>C'est le point sur lequel il faut être le plus dur, parce qu'il ne se voit pas sur un rendu 3D. À écrire au contrat :</p>
+    <ul>
+      <li>Usage commercial intensif, 7 jours sur 7. Panneaux HPL ou contreplaqué bouleau 18 mm à chants ABS, pas de MDF brut ; structures acier thermolaqué.</li>
+      <li>Angles arrondis, aucune arête vive, conformité anti-coincement doigts/tête/cordons selon EN 1176.</li>
+      <li>Fixations inviolables, tout accessoire lourd ancré, aucun élément détachable à hauteur d'enfant.</li>
+      <li>Éclairage LED en 24 V TBTS dans les zones de jeu, drivers accessibles pour maintenance.</li>
+      <li>Revêtements lessivables, pas de textile en partie basse, trappes de visite prévues.</li>
+      <li><strong>Panneaux décoratifs démontables et remplaçables à l'unité</strong> — et livraison des fichiers d'impression pour pouvoir réimprimer localement. C'est le point SAV n°1 : sans ces fichiers, la moindre façade abîmée devient une commande en Chine.</li>
+      <li>Échantillons physiques (matériaux, mousses, tissus, impressions) avant validation.</li>
+      <li>Photos d'installations existantes <strong>de plus de trois ans</strong>, pas des photos de sortie d'usine. C'est le seul vrai test de vieillissement.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 5 ============ -->
+<section id="p5">
+  <div class="shead"><span class="plaque">5</span>
+    <div><h2>Zone action et capacité</h2>
+    <p class="quoted">« Target age groups, expected peak capacity, one concentrated action zone or several distributed elements, priority equipment. »</p></div>
+  </div>
+
+  <div class="block">
+    <span class="tag t-rep">Notre réponse</span>
+    <h4>Tranches d'âge</h4>
+    <ul>
+      <li><strong>1–3 ans :</strong> espace séparé physiquement, sol souple, hauteur limitée, à vue directe du bar.</li>
+      <li><strong>3–5 ans :</strong> parcours junior, hauteurs de chute réduites, accès indépendant à la structure.</li>
+      <li><strong>6–12 ans :</strong> parcours principal, ninja, toboggans hauts.</li>
+      <li><strong>Ninja :</strong> 6 ans et plus, avec une ligne junior 4–6 ans. Rester sous les hauteurs qui imposent un harnais et une ligne de vie — cela change complètement le modèle d'exploitation (personnel dédié, EPI, contrôles).</li>
+    </ul>
+    <h4>Un pôle concentré, plus deux satellites</h4>
+    <p>Réponse à leur question directe : <strong>un seul pôle concentré</strong>. La hauteur est la seule ressource rare du bâtiment, on la dépense en une fois — une tour repère, visible depuis l'entrée et depuis le bar, qui sert de signal à toute la ville. Deux satellites en complément : la structure des 1–3 ans près du bar, et un petit élément grimpe/glisse intégré dans la ville pour désengorger la tour aux heures de pointe.</p>
+    <h4>Capacité</h4>
+    <p>La méthode plutôt que le chiffre, tant que l'effectif ERP n'est pas figé : la zone action doit absorber <strong>25 à 30 % des enfants présents au pic</strong>. Sur une base de 250 enfants au pic, cela fait 60 à 75 utilisateurs simultanés — donc une structure dimensionnée pour 80, surveillée par 2 animateurs depuis un poste offrant une vue complète. C'est à eux de confirmer la capacité par élément et le débit horaire.</p>
+    <h4>Équipements prioritaires</h4>
+    <ul>
+      <li>Toboggan tube LED depuis le niveau haut <strong>+</strong> un toboggan large « racing » à 2 ou 3 couloirs (le racing crée le jeu social, le tube crée l'effet).</li>
+      <li><strong>Parcours ninja chronométré avec affichage des scores</strong> : c'est ce qui fait revenir, et c'est ce qui se filme.</li>
+      <li>Zone chantier : excavatrices sur pivot, bacs de granulés, convoyeur, grue à godet, briques mousse.</li>
+      <li>Ball pit avec arène et canons. Attention : c'est le poste de maintenance le plus lourd du parc — exiger un système de nettoyage et d'aspiration des balles, et chiffrer les balles de rechange.</li>
+      <li>Mur de grimpe basse hauteur avec sol amortissant certifié, filets, tunnels transparents.</li>
+      <li>Trampolines encastrés : à valider avec l'assureur avant de s'engager.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <span class="tag t-exi">À exiger d'eux</span>
+    <ul>
+      <li>Hauteurs de chute libre certifiées et sol amortissant avec <strong>PV d'essai HIC selon EN 1177</strong> pour chaque zone.</li>
+      <li><strong>Aucun tunnel opaque inaccessible à un adulte.</strong> Trappes d'accès de secours réparties, procédure d'évacuation depuis les plateformes hautes fournie par écrit.</li>
+      <li>Fiche par élément : capacité simultanée, débit horaire, emprise au sol, hauteur nécessaire, poids, temps de montage.</li>
+      <li>Accès de maintenance à tous les points hauts sans démontage.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 6 ============ -->
+<section id="p6">
+  <div class="shead"><span class="plaque">6</span>
+    <div><h2>Conformité française et documentation</h2>
+    <p class="quoted">« Respective responsibilities for French ERP, PV, fire safety, accessibility — which EN, CE and test reports are required from our side. »</p></div>
+  </div>
+
+  <div class="block">
+    <span class="tag t-rep">Notre réponse — qui fait quoi</span>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Sujet</th><th>Responsable</th><th>Yifun</th></tr></thead>
+        <tbody>
+          <tr><td>Classement ERP (type, catégorie), calcul de l'effectif</td><td>Architecte + bureau de contrôle</td><td class="who">—</td></tr>
+          <tr><td>Autorisation de travaux, notice de sécurité, dossier accessibilité</td><td>Architecte</td><td class="who">—</td></tr>
+          <tr><td>Désenfumage, SSI, sprinklers, BAES, extincteurs</td><td>BET + entreprise générale</td><td class="who">—</td></tr>
+          <tr><td>Électricité du bâtiment jusqu'aux attentes par zone</td><td>Entreprise générale</td><td class="who">Raccordement des équipements sous supervision d'un électricien français</td></tr>
+          <tr><td>Conception et fabrication des équipements de jeu</td><td>—</td><td class="who">Yifun, responsable</td></tr>
+          <tr><td>Conformité EN 1176-1 à -11 et EN 1177</td><td>Vérifiée par organisme agréé</td><td class="who">Yifun fournit les rapports</td></tr>
+          <tr><td>Réaction au feu des matériaux (EN 13501-1)</td><td>Contrôlée par le bureau de contrôle</td><td class="who">Yifun fournit les PV</td></tr>
+          <tr><td>Vérifications initiales avant ouverture (électricité, aires de jeux)</td><td>Organisme agréé mandaté par nous</td><td class="who">Assistance sur site</td></tr>
+          <tr><td>Accessibilité PMR</td><td>Architecte</td><td class="who">Respect des gabarits imposés</td></tr>
+          <tr><td>Commission de sécurité, arrêté d'ouverture</td><td>Mairie d'Aubagne / SDIS 13</td><td class="who">Présence d'un référent au montage</td></tr>
+          <tr><td>Registre de sécurité, plan de maintenance et de vérification des aires de jeux, formation du personnel</td><td>Exploitant</td><td class="who">Notices et plan de maintenance en français</td></tr>
+          <tr><td>Assurances</td><td>RC exploitant, dommages-ouvrage</td><td class="who">RC produit valable dans l'UE, attestation à fournir</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Formulation à leur donner telle quelle : le cadre réglementaire français relève de notre maîtrise d'ouvrage ; leur responsabilité est de livrer des <strong>produits conformes aux normes européennes, documentés en français, et compatibles avec les contraintes que nous leur imposons</strong>. Ils ne portent pas le dossier ERP, mais un seul document manquant peut bloquer l'ouverture — donc la documentation est une obligation contractuelle, pas une formalité de fin de chantier.</p>
+  </div>
+
+  <div class="block">
+    <span class="tag t-exi">Documents à exiger — à annexer au contrat</span>
+    <ol>
+      <li><strong>Rapports d'essai EN 1176-1 à -11 et EN 1177</strong> émis par un laboratoire tiers accrédité ISO 17025 (TÜV, Bureau Veritas, SGS, Intertek), <em>référencés sur nos équipements</em> et non des certificats génériques, avec plans annotés des hauteurs de chute et des zones de sécurité.</li>
+      <li><strong>PV de réaction au feu EN 13501-1</strong> pour tous les matériaux : mousses, revêtements PVC et similis, filets, sols et moquettes, panneaux décoratifs, peintures, tissus, éléments suspendus. Les niveaux exigés (parois, plafonds, sols, éléments suspendus) seront confirmés par notre bureau de contrôle en fonction du classement ERP et transmis avant le gel du layout.</li>
+      <li><strong>Déclarations CE et notices en français</strong> pour tout produit électrique (directives basse tension et CEM), luminaires, et pour toute machine — véhicules et excavatrices motorisées relèvent de la directive Machines avec déclaration CE et notice française.</li>
+      <li><strong>EN 71-1/2/3</strong> pour les jouets et accessoires manipulés, REACH et phtalates pour les PVC, panneaux en classe formaldéhyde E1 minimum.</li>
+      <li><strong>Note de calcul de structure et plan d'ancrage signés</strong> pour les structures de plus de 2 m et les éléments suspendus.</li>
+      <li><strong>Dossier de fin de chantier :</strong> plans as-built, schémas électriques, notices d'utilisation et de maintenance en français, liste des pièces détachées avec références et prix, fichiers d'impression des décors, procédures de nettoyage par matériau.</li>
+      <li><strong>Attestation d'assurance RC produit</strong> valable en France, et coordonnées d'un représentant en Europe.</li>
+    </ol>
+    <div class="note warn">
+      <p><b>Point de vigilance n°1 — les rapports d'essai.</b> Un rapport d'un laboratoire chinois non accrédité n'est pas opposable devant une commission de sécurité française. Exiger des rapports de laboratoires accrédités dans l'UE ou d'antennes européennes de laboratoires internationaux, <strong>conditionner le paiement du solde avant expédition à leur remise complète</strong>, et inscrire au contrat que tout matériau non conforme est remplacé aux frais du fournisseur, dépose et repose comprises.</p>
+    </div>
+    <div class="note warn">
+      <p><b>Point de vigilance n°2 — les monteurs.</b> Si des techniciens chinois viennent monter en France : visas Schengen (4 à 8 semaines de délai, <strong>à lancer dès la signature</strong>), déclaration préalable de détachement SIPSI, désignation d'un représentant en France, couverture sociale et accidents du travail, respect du salaire minimum applicable. À poser franchement en visio : qui gère, qui paie, et quel est le plan B. L'alternative souvent plus rapide et moins risquée est <strong>une équipe de montage française encadrée par un ou deux superviseurs Yifun</strong> — à faire chiffrer dès maintenant.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7 ============ -->
+<section id="p7">
+  <div class="shead"><span class="plaque">7</span>
+    <div><h2>Format du devis</h2>
+    <p class="quoted">« Separate pricing by themed space, manufacturing, delivery to Aubagne, installation, optional items, payment terms, warranty, spare parts. »</p></div>
+  </div>
+
+  <div class="block">
+    <span class="tag t-rep">Notre réponse — la forme attendue</span>
+    <p>Un fichier Excel, <strong>une ligne par article</strong>, avec les colonnes : référence, espace, désignation FR + EN, photo, dimensions L×l×H, matériaux, quantité, prix unitaire, total, poids, volume en m³, code douanier, délai de fabrication, norme applicable, âge cible, capacité. Un PDF de synthèse ne suffit pas : sans le détail ligne à ligne, on ne peut ni arbitrer, ni comparer, ni réduire le périmètre en cas de bascule sur février.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Bloc</th><th>Ce qu'on veut voir</th></tr></thead>
+        <tbody>
+          <tr><td><strong>A · Études et design</strong></td><td>2D, 3D, plans techniques. Préciser si c'est déduit de la commande, et acter que <strong>la propriété des plans nous revient</strong>.</td></tr>
+          <tr><td><strong>B · Fabrication</strong></td><td>Prix isolé <strong>espace par espace</strong>. Non négociable : c'est la condition pour arbitrer.</td></tr>
+          <tr><td><strong>C · Emballage export</strong></td><td>Bois traité ISPM15, marquage par zone et par ordre de montage, liste de colisage par container.</td></tr>
+          <tr><td><strong>D · Transport</strong></td><td><strong>Deux prix : FOB port chinois et DAP Aubagne déchargé.</strong> Droits de douane et TVA à l'import identifiés à part et exclus. Incoterm 2020 explicite, prix en euros de préférence.</td></tr>
+          <tr><td><strong>E · Installation</strong></td><td>Nombre de personnes, nombre de jours, et ce qui est inclus : outillage, consommables, nacelle ou échafaudage, évacuation des déchets, hébergement, vols, visas, per diem. Horaires de travail. Ce qui reste à notre charge.</td></tr>
+          <tr><td><strong>F · Options</strong></td><td>Chiffrées à part, ligne par ligne : salles anniversaire, bar, boutique, accueil, signalétique, éclairage scénique, sonorisation, système de jeu RFID, traitement acoustique, zone 0–3 ans.</td></tr>
+          <tr><td><strong>G · Pièces détachées</strong></td><td>Kit obligatoire livré avec le parc, de l'ordre de 2 à 3 % du montant : panneaux, filets, mousses, accessoires les plus manipulés, LED, poignées.</td></tr>
+          <tr><td><strong>H · Après-vente</strong></td><td>Contrat de maintenance annuel, délai de réponse garanti, coût d'une intervention sur site, délai d'envoi des pièces.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h4>Conditions de paiement — notre proposition</h4>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>%</th><th>Déclencheur</th></tr></thead>
+        <tbody>
+          <tr><td class="d">30 %</td><td>À la commande, après gel du layout</td></tr>
+          <tr><td class="d">30 %</td><td>À mi-production, contre rapport photo daté et remise des PV matériaux</td></tr>
+          <tr><td class="d">30 %</td><td>Contre <strong>rapport d'inspection avant expédition par un tiers de notre choix</strong> (SGS, BV) et dossier documentaire complet — avant libération du connaissement</td></tr>
+          <tr><td class="d">10 %</td><td>À la levée des réserves après montage</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Plus une retenue de garantie de 5 % pendant 12 mois, ou une garantie bancaire équivalente.</p>
+    <h4>Garanties demandées</h4>
+    <ul>
+      <li>Structure métallique <strong>5 ans</strong> · décors et menuiserie <strong>3 ans</strong> · mousses, textiles et pièces mobiles <strong>2 ans</strong> · électronique et LED <strong>1 an</strong>. Pièces d'usure exclues, liste des pièces d'usure annexée pour éviter les débats.</li>
+      <li>Disponibilité des pièces détachées garantie <strong>10 ans</strong>.</li>
+      <li>Frais de port des pièces sous garantie à leur charge la première année.</li>
+      <li>Droit de visite d'usine et inspection tierce avant chargement.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ annexes ============ -->
+<section id="ax1">
+  <div class="shead"><span class="plaque">A</span>
+    <div><h2>Les questions à leur poser en visio</h2>
+    <p class="quoted">Ne pas subir leur ordre du jour : ces huit questions décident si on signe avec eux.</p></div>
+  </div>
+  <div class="block">
+    <ol>
+      <li>Avez-vous déjà livré un ERP en France ? Des références visitables en Europe ? Lesquelles, et de quelle année ?</li>
+      <li>Quel est votre <strong>délai réel</strong> de fabrication pour ce volume, et pouvez-vous bloquer un créneau usine dès maintenant contre une lettre d'intention ?</li>
+      <li>Pouvez-vous vous engager sur une <strong>date de départ du premier container</strong> et sur des chargements échelonnés dans l'ordre de montage ?</li>
+      <li>Qui est le chef de projet dédié, quelle langue parle-t-il, et acceptez-vous un point hebdomadaire avec compte rendu écrit ?</li>
+      <li>Vos PV de réaction au feu proviennent-ils de laboratoires accrédités dans l'UE ? Sur quels matériaux précisément ?</li>
+      <li>Vos monteurs : combien, avec quels visas, et sous quel statut de détachement ? Proposez-vous une équipe locale supervisée en alternative ?</li>
+      <li>Que vous faut-il exactement de notre part pour démarrer le layout, et sous quel délai après réception ?</li>
+      <li>Acceptez-vous une pénalité de retard et un paiement du solde conditionné à une inspection tierce avant expédition ?</li>
+    </ol>
+    <div class="note">
+      <p><strong>Ordre du jour proposé pour la visio (75 min) :</strong> planning inversé et date de gel — 25 min · périmètre et zones fixes — 10 min · contraintes techniques et MEP — 10 min · direction artistique et zone action — 15 min · conformité et documentation — 10 min · format du devis et prochaines étapes — 5 min. Le planning en premier : si on ne s'accorde pas dessus, le reste ne sert à rien.</p>
+    </div>
+  </div>
+</section>
+
+<section id="ax2">
+  <div class="shead"><span class="plaque">B</span>
+    <div><h2>À confirmer de ton côté avant la visio</h2>
+    <p class="quoted">Ce que je n'ai pas et qui change les réponses ci-dessus.</p></div>
+  </div>
+  <div class="block">
+    <ul>
+      <li><strong>Surface utile exacte</strong> et hauteur libre réelle sous poutre et sous sprinkler (les 5 m sont-ils bruts ou utiles ?).</li>
+      <li><strong>Date d'ouverture précise</strong> visée en décembre, et si une communication a déjà été engagée dessus.</li>
+      <li><strong>Enveloppe budgétaire</strong> équipement, et ce qui est déjà engagé sur le bâtiment.</li>
+      <li><strong>Classement ERP et effectif visés</strong> — le type retenu, la catégorie, et si le bâtiment est déjà un ERP ou change de destination.</li>
+      <li><strong>Qui est l'architecte, le BET et le bureau de contrôle</strong>, et où en est le dossier d'autorisation de travaux.</li>
+      <li><strong>Modèle tarifaire</strong> (prix d'entrée, créneaux ou accès libre) et capacité cible au pic — c'est ce qui dimensionne la zone action.</li>
+      <li><strong>Nombre de salles anniversaire</strong> et capacité de chacune.</li>
+      <li><strong>Qui pilote le fret</strong> : eux en DAP, ou notre transitaire depuis le port de Marseille (nous sommes à 30 km de Fos, c'est un vrai avantage à exploiter).</li>
+      <li>Veut-on un <strong>système de jeu RFID</strong> dès l'ouverture, ou en phase 2 ?</li>
+    </ul>
+  </div>
+</section>
+
+<section id="ax3">
+  <div class="shead"><span class="plaque">C</span>
+    <div><h2>Mail prêt à envoyer avant la visio</h2>
+    <p class="quoted">À envoyer 48 h avant, pour qu'ils arrivent avec des réponses et pas avec des questions.</p></div>
+  </div>
+  <div class="block">
+    <div class="mail">
+      <p class="subj">Subject — Minimundo Aubagne · answers ahead of our call &amp; the one date that drives everything</p>
+      <p>Dear Winnie,</p>
+      <p>Thank you for the structured list — it is exactly the right set of questions. Here are our positions in advance, so we can spend the call on decisions rather than on discovery.</p>
+
+      <h4>1 · Schedule — the critical point</h4>
+      <p>Target opening is <strong>16 December 2026</strong>, three days before the French Christmas holidays begin. Working backwards from that date, with 6–7 weeks of sea freight to Fos-sur-Mer plus customs and inland delivery, 3 weeks of on-site installation and 10 days of statutory inspections, the first container must leave the factory around <strong>10 October</strong>.</p>
+      <p>This means <strong>the layout must be frozen and the contract signed by 18 September</strong>. We will hold a formal go/no-go on <strong>15 October</strong>: if the first container has not shipped, we move the opening to <strong>20 February 2027</strong>, the first day of the local winter holidays. We would rather make that decision early and together than discover it in November.</p>
+      <p>Please come to the call with: your real production lead time for this volume, whether you can reserve a factory slot now against a letter of intent, a commitment on the first shipping date, and a proposal for staged shipments loaded in installation order. A quotation for China–Europe rail or partial air freight as a contingency would also be useful.</p>
+
+      <h4>2 · Operating model</h4>
+      <p>Families with children aged 1–12, core 3–10. Two-hour timed sessions at peak, free flow off-peak, 3–4 rotations per day, plus birthdays, school groups and private events. Journey: entrance → reception and ticketing → cloakroom and lockers → central square (the reveal must happen here) → free roaming through the streets with scheduled animations → parents' bar with direct sightlines to the square and the action zone → birthday rooms served without crossing the queue → exit through the shop.</p>
+      <p>On the fixed areas: we will handle anything technical or involving plumbing locally in France (bar counter, shop fixtures, lockers). We would like <strong>separately priced options</strong> from you for the decorative scope: reception desk theming, bar façade, birthday room decoration, shop styling, wayfinding signage, cloakroom treatment, ceiling sky treatment. Please price each as a distinct line so we can arbitrate.</p>
+      <p>Two design constraints for the layout: clear sightlines from the bar and from one supervision point to the square, the action zone entrance and the slide exits; and practical operations — accessory storage per themed space, cleaning trolley circulation, technician access.</p>
+
+      <h4>3 · Site constraints and MEP</h4>
+      <p>HVAC, sprinklers, fire detection, smoke extraction, emergency lighting and their final positions are designed and executed by our French architect and engineering office, under the control authority's supervision. <strong>They are not within your scope and cannot be moved.</strong> You design within them.</p>
+      <p>We will provide: DWG of the existing building, MEP layout with dimensions, clear height under beams and under sprinkler heads, exit positions and escape routes, slab constraints. Within 7 days of layout V1 we need from you: 3D envelopes in a format our engineers can use, finished heights, distributed and point loads, anchoring positions and forces, electrical demand per zone with connection points, and any water requirement.</p>
+      <p>Firm design rules: minimum 0.50 m clear below all sprinkler heads; any enclosed structure with a solid roof must either have a permeable roof, sprinklers underneath, or internal detection — to be validated by our control office and our insurer at layout stage, not at delivery; nothing may obstruct emergency lighting, detectors, alarm sounders, extinguishers or smoke vents; exit routes keep their full width with at least 1 m entirely clear in front of every exit door; no unsupervisable dead ends. Exact clearance distances and travel distances depend on our final ERP classification and occupancy figure — our control office will issue them as firm constraints before the layout freeze.</p>
+      <p>On height: the 5 m is gross. After sprinkler clearance we expect <strong>4.20–4.50 m usable</strong> — please design the tower on that figure. We would also like acoustic absorption integrated into the structures and priced as an option.</p>
+
+      <h4>4 · Design direction</h4>
+      <p>We want a city plan, not a list of modules: a central square acting as the heart and the meeting point, two or three streets radiating from it, terraced façades with an apparent upper floor and lit windows, pavements and crossings marked on the floor, street furniture and backlit street signs, a treated ceiling sky with day/night lighting scenes, and ambient sound per district. Circulation forms a continuous loop — children move through the city, they do not queue in front of stands.</p>
+      <p>Priority spaces: supermarket (oversize it), fire station with truck, veterinary clinic, kitchen/bakery, construction site, garage and service station with a vehicle circuit, TV studio and stage, hair and beauty salon, post office and bank, creative workshop, farm and recycling, station or airport, plus a physically separate 0–3 area visible from the bar. Please <strong>exclude</strong> any licensed or brand-referencing theme, weapons or military themes, anything requiring running water or real food, sand, glass mirrors, and any fragile or detachable prop at child height.</p>
+      <p>Target balance: role-play 45–50 %, action and physical play 20–25 %, interactive 10 %, free exploration and circulation 20 %. We are interested in a game mechanic linking the spaces (wristband, missions, park currency, scoreboard) — but as a <strong>priced option that is never on the opening critical path</strong>.</p>
+      <p>Quality expectations, to be written into the contract: commercial-grade for 7-day operation; HPL or 18 mm birch plywood with ABS edging, no raw MDF; powder-coated steel; rounded edges and EN 1176 entrapment compliance throughout; tamper-proof fixings and anchored props; 24 V SELV lighting with accessible drivers; wipe-clean surfaces with no textiles at low level; <strong>decorative panels individually demountable and replaceable, with print files supplied to us so we can reprint locally</strong>. Please bring physical material samples, and photographs of installations that are more than three years old.</p>
+
+      <h4>5 · Action zone</h4>
+      <p>One concentrated zone plus two satellites. Height is the scarce resource, so we spend it once on a landmark tower visible from the entrance and the bar; the satellites are a 1–3 structure near the bar and a small climb/slide element inside the city to relieve peak pressure.</p>
+      <p>Ages: separate 1–3 area; junior circuit for 3–5; main circuit for 6–12; ninja from 6 with a junior line for 4–6, kept below the height that would require harnesses and a lifeline system. Capacity: the action zone must absorb 25–30 % of children present at peak — on a 250-children peak that is 75 simultaneous users, supervised by two staff from a single point with full visibility. Please confirm capacity and hourly throughput per element.</p>
+      <p>Must-have: LED tube slide from the top level plus a 2–3 lane racing slide; <strong>timed ninja course with score display</strong>; construction zone with excavators, conveyor and crane; ball pit arena with cannons, including a ball cleaning and vacuum system and priced replacement balls; low-height climbing with certified impact-attenuating surfacing. Required from you: certified free fall heights and EN 1177 HIC test reports per zone, no opaque tunnel inaccessible to an adult, rescue hatches, a written evacuation procedure from high platforms, and maintenance access to all high points without dismantling.</p>
+
+      <h4>6 · Compliance — the split</h4>
+      <p>The French ERP file, fire safety systems, accessibility, the safety commission visit and the opening authorisation are ours, carried by our architect, our control office and the local authority. Your responsibility is to deliver <strong>products compliant with European standards, documented in French, and compatible with the constraints we impose</strong>. You do not carry the ERP file — but a single missing document can block our opening, so documentation is a contractual obligation, not an end-of-project formality.</p>
+      <p>Required from you, as a contract annex and a condition of the pre-shipment payment:</p>
+      <ol>
+        <li>EN 1176-1 to -11 and EN 1177 test reports from an ISO 17025 accredited third-party laboratory, <strong>referenced to our specific equipment</strong> with annotated drawings of free fall heights and safety zones — generic certificates will not be accepted.</li>
+        <li>EN 13501-1 fire reaction classification reports for every material: foams, PVC and leatherette coverings, nets, floor coverings, decorative panels, paints, fabrics, suspended elements. <strong>Reports must come from an EU-accredited laboratory</strong>; reports from non-accredited laboratories are not admissible before a French safety commission. Required classes will be confirmed by our control office before the layout freeze.</li>
+        <li>CE declarations and French-language manuals for all electrical products and for any machinery (motorised vehicles, excavators fall under the Machinery Directive).</li>
+        <li>EN 71-1/2/3 for toys and handled accessories, REACH and phthalate compliance for PVC, E1 formaldehyde class minimum for panels.</li>
+        <li>Signed structural calculation note and anchoring plan for structures above 2 m and all suspended elements.</li>
+        <li>Handover file: as-built drawings, electrical schematics, French operating <em>and</em> maintenance manuals, spare parts list with references and prices, decoration print files, cleaning procedures per material.</li>
+        <li>Product liability insurance certificate valid in France, and the contact details of a representative in Europe.</li>
+      </ol>
+      <p>One practical point we must settle on the call: <strong>your installation team</strong>. If Chinese technicians will work on site in France, Schengen visas take 4–8 weeks and must be launched the day we sign, and posted-worker formalities apply (SIPSI declaration, a representative in France, social coverage, applicable minimum wage). Please tell us who handles and pays for this — and please also quote the alternative of a French installation crew supervised by one or two of your engineers.</p>
+
+      <h4>7 · Quotation format</h4>
+      <p>Please issue the quotation as an <strong>Excel file, one line per item</strong>, with: reference, themed space, description, photo, dimensions, materials, quantity, unit price, total, weight, volume in m³, HS code, production lead time, applicable standard, target age, capacity. A summary PDF alone will not allow us to arbitrate or to reduce scope if we shift to February.</p>
+      <p>Structured as: A. design fees, stating whether they are deducted from the order, with drawing ownership transferring to us · B. manufacturing <strong>priced separately per themed space</strong> · C. export packing, ISPM15, marked by zone and installation sequence, with a packing list per container · D. freight, quoted <strong>both FOB Chinese port and DAP Aubagne unloaded</strong>, with duties and import VAT identified separately and excluded, Incoterms 2020 stated, priced in EUR if possible · E. installation, stating crew size, number of days, and exactly what is included (tools, consumables, access equipment, waste removal, flights, accommodation, visas, per diem) and what remains ours · F. options, each priced on its own line · G. a mandatory spare parts kit, in the order of 2–3 % of the contract value · H. after-sales: annual maintenance contract, guaranteed response time, on-site intervention cost, spare parts delivery time.</p>
+      <p>Our proposed terms: 30 % on order after layout freeze · 30 % at mid-production against dated progress photographs and material test reports · 30 % against a <strong>pre-shipment inspection report by a third party of our choosing</strong> and the complete document file, before release of the bill of lading · 10 % on clearance of snags after installation. Plus a 5 % retention for 12 months or an equivalent bank guarantee, a late delivery penalty of 0.5 % per week capped at 5 %, and a factory visit right.</p>
+      <p>Warranty expectations: 5 years on steel structures, 3 years on decoration and joinery, 2 years on foams, textiles and moving parts, 1 year on electronics and LED, wear parts excluded with the wear parts list annexed. Spare parts availability guaranteed for 10 years, shipping of warranty parts at your cost in year one.</p>
+
+      <h4>Agenda for the call — 75 minutes</h4>
+      <p>Schedule and freeze date (25) · scope and fixed areas (10) · site constraints and MEP (10) · design direction and action zone (15) · compliance and documentation (10) · quotation format and next steps (5).</p>
+      <p>We are looking forward to it. If you can send the layout V1 and the first budget estimate by 11 September, we can hold the 18 September freeze.</p>
+      <p>Best regards,<br>Mikael</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Minimundo · Aubagne — document de travail interne, préparé le 29 août 2026 pour la visio de cadrage avec Yifun.
+  Les valeurs réglementaires citées sont les règles usuelles applicables aux ERP : elles doivent être confirmées par le bureau de contrôle et le SDIS 13 en fonction du classement et de l'effectif retenus.
+</footer>
+
+</div>
