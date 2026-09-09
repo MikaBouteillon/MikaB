@@ -1,137 +1,159 @@
 # Prison Island Singapore — ESQ — Implantation des cellules
 
-Implantation de **41 cellules** dans la *Game Area* (614,12 m²) du plan ESQ
-Singapour (160 Orchard Road, PI. 37), en reprenant les principes des plans
-Prison Island existants (Paris, New York, Francfort, Milan, Orlando, Nashville,
-Mexico, Indianapolis).
+Implantation des cellules dans la *Game Area* (614,12 m²) du plan ESQ Singapour
+(160 Orchard Road, PI. 37).
 
-## Livrable
+## Version retenue : v2 — 38 cellules aux surfaces de l'esquisse client
 
-| Fichier | Contenu |
-|---|---|
-| `PI_SINGAPORE_PLAN_41_Cells.pdf` | Plan ESQ d'origine + implantation des cellules (A3, 1:200) |
-| `PI_SINGAPORE_PLAN_41_Cells.png` | Aperçu raster du plan |
-| `generate_plan.py` | Script de génération et de contrôle géométrique |
+`PI_SINGAPORE_PLAN_38_Cells_v2.pdf`
 
-## Contraintes respectées
-
-- **Cellules uniquement dans la zone en couleur** (Game Area, 614,12 m²). Aucune
-  cellule dans la Welcome Area, ni dans les emprises hors bail.
-- **Circulations : 1,20 m de passage libre** — module de 1,30 m d'axe à axe de
-  cloison, cloisons de 100 mm.
-- Portes de cellule de 0,90 m, débattement figuré.
-- Poteaux existants 900×900 conservés : la trame des cellules est calée sur les
-  files de poteaux (entraxes 8,40 m × 8,60 m), les poteaux étant absorbés dans
-  les cloisons de refend ou laissés en saillie dans la cellule.
-- Accès conservés : porte **IN** (côté Briefing Room), porte **OUT** (vers la
-  Welcome Area), issue de secours ouest (Lift Lobby) et porte coupe-feu sud
-  (AHU Room).
-
-## Chiffres clés
+Reprend **les 38 surfaces de cellules de l'esquisse client** (total 424,24 m²)
+et les redistribue sur une trame de circulation vérifiée, en conservant tous les
+poteaux existants.
 
 | | |
 |---|---|
 | Game Area | 614,12 m² |
-| Cellules | **41** |
-| Surface utile cellules | 415,21 m² (67,6 %) |
-| Circulations + réserves | 198,91 m² (32,4 %) |
-| Cellule moyenne | 10,13 m² |
-| Mini / maxi | 8,22 m² / 16,34 m² |
+| Cellules | **38** |
+| Surface utile cellules | 425,28 m² (**69,3 %**) |
+| Écart max / esquisse client | **0,97 m²** (tolérance 1,00 m²) |
+| Cellules de | 3,78 à 21,13 m² |
+| Poteaux existants relevés | **19**, tous conservés et dégagés des circulations |
 
-À titre de comparaison, les plans de référence tournent autour de 16 à 19 m² de
-Game Area par cellule (Nashville : 777 m² / 45 cellules ; Mexico : 859 m² /
-45 cellules ; Indianapolis : 865 m² / 47 cellules au RDC). Ici le ratio est de
-15,0 m²/cellule : la densité est plus élevée parce que le briefing, le stockage
-et le local serveur de Singapour sont situés **hors** Game Area (dans la Welcome
-Area), contrairement aux plans de référence où ils sont comptés dedans.
+### Ce qui change par rapport à la v1
 
-## Organisation
+1. **Les poteaux ne sont plus effacés.** Les 19 carrés / rectangles noirs du fond
+   de plan (0,30×0,50 à 1,80×1,94 m) sont relevés automatiquement dans le PDF
+   source, puis :
+   - **aucun ne tombe dans une circulation** (contrôle bloquant) ;
+   - **aucun n'obstrue une baie de porte** — la position de porte est décalée le
+     long du mur, voire reportée sur un autre côté, et si besoin l'ordre des
+     cellules est permuté dans la bande ;
+   - ils sont **redessinés par-dessus** les cellules, qui sont désormais en
+     aplat 25 % (même teinte que la Game Area) et non plus opaques.
+2. **Les surfaces sont les vôtres**, plus une trame régulière : de 3,78 m²
+   (Einstein) à 21,13 m² (Tilt), avec la même répartition que votre esquisse.
+3. L'affectation cellule → bande est optimisée (recuit simulé) pour coller aux
+   surfaces visées ; 37 cellules sur 38 tombent à moins de 0,05 m² près.
 
-Le parcours est linéaire, de la porte IN à la porte OUT :
+### Organisation
 
-1. **Zone B — bande est** (cellules 28 à 34) : entrée par la porte IN, circulation
-   verticale principale desservant 2 cellules à l'ouest et 5 à l'est.
-2. **Zone C — bloc sud** (cellules 35 à 41) : desservie par une circulation
-   est-ouest centrale et une antenne verticale vers la queue sud ; antenne
-   dédiée vers la porte coupe-feu de l'AHU Room.
-3. **Zone A — bloc nord** (cellules 01 à 27) : deux circulations est-ouest
-   (C1 au nord, C2 en épine dorsale) reliées par une circulation verticale ;
-   files de cellules dos à dos entre les deux. Sortie par la porte OUT, issue de
-   secours à l'ouest.
+Parcours linéaire de la porte **IN** (côté Briefing Room) à la porte **OUT**
+(vers la Welcome Area), desservant aussi l'issue de secours ouest (Lift Lobby)
+et la porte coupe-feu sud (AHU Room).
 
-## Points à valider
+| Zone | Cellules |
+|---|---|
+| A — bloc nord | 24 |
+| B — bande est | 7 |
+| C — bloc sud | 7 |
 
-- **Hauteurs sous plafond réduites** : la trame jaune (H = 2,07 m, cellules 21,
-  22, 26, 27) et la trame rouge (H = 2,10 m) sont incluses dans la Game Area
-  mais restent basses ; à confirmer avec l'exploitant selon les jeux implantés.
-  Le reste est à 2,66 m / 2,47 m.
-- Distances de fuite et désenfumage à faire valider par le bureau de contrôle
-  local (SCDF) — le réseau de circulation dessert les quatre issues existantes.
-- Une gaine technique de 800×1000 subsiste en saillie dans la cellule 40, et des
-  poteaux 900×900 en saillie dans quelques cellules (repérables sur le fond de
-  plan).
+Circulations : C1 et C2 est-ouest au nord, V1 nord-sud de liaison, C3 est-ouest
+à l'est, CB nord-sud le long de la bande est, CC / CT / CS en zone sud.
+
+## Variante : v1 — 41 cellules
+
+`PI_SINGAPORE_PLAN_41_Cells.pdf` — trame plus régulière, cellules de 8,22 à
+16,34 m², 415,21 m² utiles (67,6 %). Plus dense en nombre mais avec des cellules
+plus petites et plus uniformes. Poteaux également conservés depuis la
+correction.
+
+## Contraintes tenues dans les deux versions
+
+- Cellules **uniquement dans la zone en couleur** (Game Area). Rien dans la
+  Welcome Area ni hors bail.
+- **Circulations : 1,20 m de passage libre** — module 1,30 m d'axe à axe,
+  cloisons 100 mm.
+- Portes de cellule 0,90 m, débattement figuré.
+- Poteaux existants conservés.
 
 ## Contrôles automatiques
 
-`generate_plan.py` vérifie et échoue si l'un des points n'est pas tenu :
+`generate_plan_v2.py` échoue si l'un de ces points n'est pas tenu :
 
 - chaque cellule est contenue dans l'emprise de la Game Area ;
-- aucun recouvrement entre cellules, ni entre cellule et circulation ;
-- toute circulation ≥ 1,30 m d'axe à axe (soit 1,20 m libre) ;
+- aucun recouvrement cellule/cellule ni cellule/circulation ;
+- toute circulation ≥ 1,30 m d'axe à axe, soit **1,20 m de passage libre** ;
+- **aucun poteau dans une circulation** ;
 - le réseau de circulation est connexe (un seul tenant) ;
-- chaque cellule ouvre par une porte de 0,90 m sur une circulation.
+- chaque cellule ouvre par une porte de 0,90 m sur une circulation, **dégagée
+  de tout poteau** ;
+- chaque cellule est à moins de **1,00 m²** de la surface visée par l'esquisse
+  client ;
+- plus petite dimension utile ≥ 1,45 m.
 
 ```
-$ python3 generate_plan.py
-Game Area : 614.12 m2
-Cellules  : 41
+$ python3 generate_plan_v2.py
+Game Area          : 614.12 m2
+Cellules           : 38
+Poteaux releves    : 19 (tous conserves, hors circulations)
+Ecart max / esquisse client : 0.97 m2 (tolerance 1.0 m2)
 Controles geometriques : OK
-Surface utile cellules : 415.21 m2 (67.6 % de la Game Area)
+Surface utile      : 425.28 m2 (69.3 % de la Game Area)
 ```
 
-## Tableau des cellules
+## Points à valider
 
-| N° | Cellule | Zone | Larg. (m) | Prof. (m) | Surface (m²) |
-|---:|---|---|---:|---:|---:|
-| 01 | Slippery Slope | A - Bloc nord (ouest) | 2,79 | 3,50 | 9,75 |
-| 02 | Riot | A - Bloc nord (ouest) | 2,79 | 3,50 | 9,75 |
-| 03 | Basket | A - Bloc nord (ouest) | 2,79 | 3,50 | 9,75 |
-| 04 | Catch | A - Bloc nord (ouest) | 2,79 | 3,50 | 9,75 |
-| 05 | Colorblind | A - Bloc nord (ouest) | 2,70 | 3,60 | 9,73 |
-| 06 | Penalty | A - Bloc nord (ouest) | 2,70 | 3,60 | 9,73 |
-| 07 | Tilt | A - Bloc nord (ouest) | 2,70 | 3,60 | 9,73 |
-| 08 | Lucky Lane | A - Bloc nord (ouest) | 2,70 | 3,60 | 9,73 |
-| 09 | Inca | A - Bloc nord (ouest) | 2,70 | 3,60 | 9,73 |
-| 10 | Green Mile | A - Bloc nord (ouest) | 2,70 | 3,40 | 9,19 |
-| 11 | Music | A - Bloc nord (ouest) | 2,70 | 3,40 | 9,19 |
-| 12 | The Hub | A - Bloc nord (ouest) | 2,70 | 3,40 | 9,19 |
-| 13 | Shark Bay | A - Bloc nord (ouest) | 2,70 | 3,40 | 9,19 |
-| 14 | Cell Block North | A - Bloc nord (ouest) | 2,70 | 3,40 | 9,19 |
-| 15 | Work Out | A - Bloc nord (ouest) | 3,08 | 4,05 | 12,46 |
-| 16 | Boiler Room | A - Bloc nord (ouest) | 3,08 | 4,05 | 12,46 |
-| 17 | Maps | A - Bloc nord (ouest) | 3,08 | 4,05 | 12,46 |
-| 18 | Devils Island | A - Bloc nord (ouest) | 3,08 | 4,05 | 12,46 |
-| 19 | Ventilation | A - Bloc nord (est) | 2,64 | 4,75 | 12,55 |
-| 20 | Roof Top | A - Bloc nord (est) | 2,64 | 4,75 | 12,55 |
-| 21 | Gates | A - Bloc nord (est) | 3,52 | 2,85 | 10,05 |
-| 22 | Pyramid | A - Bloc nord (est) | 3,52 | 2,85 | 10,05 |
-| 23 | The Burglar | A - Bloc nord (est) | 2,45 | 3,85 | 9,42 |
-| 24 | Hitman | A - Bloc nord (est) | 2,45 | 3,85 | 9,42 |
-| 25 | The Nest | A - Bloc nord (est) | 2,45 | 3,85 | 9,42 |
-| 26 | Laser Gun | A - Bloc nord (est) | 2,45 | 3,85 | 9,42 |
-| 27 | KettleBell | A - Bloc nord (est) | 2,45 | 3,85 | 9,42 |
-| 28 | Studio 21 | B - Bande est | 3,63 | 2,66 | 9,65 |
-| 29 | Butchers Lane | B - Bande est | 3,63 | 2,66 | 9,65 |
-| 30 | Waterfall | B - Bande est | 3,52 | 2,34 | 8,22 |
-| 31 | Joker | B - Bande est | 3,52 | 2,34 | 8,22 |
-| 32 | Wire | B - Bande est | 3,52 | 2,50 | 8,80 |
-| 33 | Visitors | B - Bande est | 3,52 | 2,50 | 8,80 |
-| 34 | Source Code | B - Bande est | 3,52 | 2,50 | 8,80 |
-| 35 | The Docks | C - Bloc sud | 3,22 | 2,92 | 9,42 |
-| 36 | The Prison | C - Bloc sud | 3,22 | 2,92 | 9,42 |
-| 37 | Hands On | C - Bloc sud | 3,22 | 2,92 | 9,42 |
-| 38 | Tower | C - Bloc sud | 2,52 | 4,25 | 10,70 |
-| 39 | Submarine | C - Bloc sud | 2,52 | 4,25 | 10,70 |
-| 40 | Cliffhanger | C - Bloc sud | 3,85 | 4,25 | 16,34 |
-| 41 | Dive | C - Bloc sud | 2,70 | 4,20 | 11,35 |
-| | **Total** | | | | **415,21** |
+- **Hauteurs sous plafond réduites.** Trame jaune H = 2,07 m : cellules
+  **05 Shark Bay, 24 Cliffhanger, 38 The Hub**. Trame rouge H = 2,10 m sur une
+  partie de la bande est. À arbitrer selon les jeux implantés.
+- Huit cellules reçoivent un poteau en saillie (0,34 à 0,99 m², soit au plus
+  11 % de la cellule) : The Nest, Devil's Island, WaterFall, Roof Top, Copy Cat,
+  Source Code, Cliffhanger, Shipyard. Le poteau reste hors de la baie de porte.
+- Une gaine technique 800×1000 subsiste en saillie dans la cellule sud-est.
+- Distances de fuite et désenfumage à faire valider par le bureau de contrôle
+  local (SCDF).
+
+## Méthode
+
+- Contour de la Game Area extrait vectoriellement du PDF source : l'aire
+  calculée retombe exactement sur les 614,12 m² annoncés, ce qui valide
+  l'échelle (1:200 sur A3, 1 pt = 0,0705556 m).
+- Poteaux relevés par lecture des aplats noirs du fond de plan.
+- Le fond de plan ESQ d'origine est conservé ; seuls les libellés du fond qui
+  tombent désormais à l'intérieur d'une cellule (surface Game Area, hauteurs)
+  sont masqués, l'information étant reprise dans le cartouche.
+
+## Tableau des cellules (v2)
+
+| N° | Cellule | Zone | Larg. (m) | Prof. (m) | Surface (m²) | Esquisse client | Écart |
+|---:|---|---|---:|---:|---:|---:|---:|
+| 01 | Riot | C – bloc sud | 4,35 | 2,92 | 12,73 | 12,75 | -0,02 |
+| 02 | Pyramid | A – bloc nord | 3,10 | 4,05 | 12,53 | 12,56 | -0,03 |
+| 03 | Maps | C – bloc sud | 2,13 | 2,92 | 6,24 | 6,25 | -0,01 |
+| 04 | Submarine | B – bande est | 3,63 | 2,47 | 8,96 | 9,00 | -0,04 |
+| 05 | Shark Bay | A – bloc nord | 4,09 | 4,20 | 17,16 | 17,17 | -0,01 |
+| 06 | Flipper | B – bande est | 3,60 | 2,41 | 8,66 | 8,69 | -0,03 |
+| 07 | The Docks | A – bloc nord | 4,37 | 4,05 | 17,67 | 17,71 | -0,04 |
+| 08 | Lucky Lane | A – bloc nord | 1,52 | 2,50 | 3,80 | 3,53 | +0,27 |
+| 09 | The Vault | C – bloc sud | 2,54 | 4,25 | 10,79 | 10,76 | +0,03 |
+| 10 | Work Out | A – bloc nord | 3,70 | 4,40 | 16,27 | 16,18 | +0,09 |
+| 11 | Penalty | C – bloc sud | 3,85 | 4,25 | 16,34 | 17,05 | -0,71 |
+| 12 | Shipyard | C – bloc sud | 2,50 | 4,25 | 10,60 | 10,58 | +0,02 |
+| 13 | The Bulgar | A – bloc nord | 2,83 | 3,40 | 9,63 | 9,63 | -0,00 |
+| 14 | Laser Gun | A – bloc nord | 3,03 | 3,40 | 10,31 | 10,31 | -0,00 |
+| 15 | Studio 21 | A – bloc nord | 5,86 | 3,40 | 19,94 | 19,94 | -0,00 |
+| 16 | Catch | A – bloc nord | 2,36 | 2,20 | 5,20 | 4,46 | +0,74 |
+| 17 | Prison | B – bande est | 3,60 | 3,10 | 11,14 | 11,18 | -0,04 |
+| 18 | Flash Dance | A – bloc nord | 2,53 | 2,90 | 7,33 | 7,35 | -0,02 |
+| 19 | Einstein | A – bloc nord | 1,80 | 2,10 | 3,78 | 3,52 | +0,26 |
+| 20 | Roof Top | A – bloc nord | 6,07 | 2,90 | 17,60 | 17,65 | -0,05 |
+| 21 | Dive | B – bande est | 3,60 | 1,70 | 6,12 | 6,15 | -0,03 |
+| 22 | Basket | B – bande est | 3,60 | 2,97 | 10,69 | 10,74 | -0,05 |
+| 23 | Tilt | A – bloc nord | 5,03 | 4,20 | 21,13 | 21,13 | -0,00 |
+| 24 | Cliffhanger | A – bloc nord | 2,56 | 4,20 | 10,76 | 10,76 | -0,00 |
+| 25 | The Nest | A – bloc nord | 4,07 | 4,20 | 17,08 | 17,09 | -0,01 |
+| 26 | Color Blind | B – bande est | 3,63 | 2,84 | 10,31 | 10,36 | -0,05 |
+| 27 | The Gate | A – bloc nord | 2,27 | 2,90 | 6,58 | 6,60 | -0,02 |
+| 28 | Source Code | A – bloc nord | 1,59 | 4,40 | 6,98 | 6,94 | +0,04 |
+| 29 | WaterFall | A – bloc nord | 4,45 | 4,20 | 18,69 | 18,69 | -0,00 |
+| 30 | Hands On | C – bloc sud | 3,17 | 2,92 | 9,28 | 9,29 | -0,01 |
+| 31 | Devil's Island | A – bloc nord | 4,95 | 4,05 | 20,04 | 20,08 | -0,04 |
+| 32 | Wire | A – bloc nord | 1,88 | 3,40 | 6,40 | 6,40 | -0,00 |
+| 33 | Tower | A – bloc nord | 1,77 | 4,20 | 7,42 | 7,42 | -0,00 |
+| 34 | Smash and Grab | A – bloc nord | 2,74 | 2,90 | 7,96 | 7,98 | -0,02 |
+| 35 | Jocker | A – bloc nord | 1,62 | 4,20 | 6,81 | 6,81 | -0,00 |
+| 36 | Kettlebell | C – bloc sud | 2,70 | 4,20 | 11,35 | 11,47 | -0,12 |
+| 37 | Copy Cat | B – bande est | 3,60 | 2,00 | 7,18 | 7,20 | -0,02 |
+| 38 | The Hub | A – bloc nord | 5,53 | 2,50 | 13,83 | 12,86 | +0,97 |
+| | **Total** | | | | **425,28** | **424,24** | **+1,04** |

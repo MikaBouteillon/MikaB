@@ -43,6 +43,23 @@ def game_area_polygon(page):
             return Polygon(pts)
     raise RuntimeError("contour Game Area introuvable")
 
+def read_columns(page, poly):
+    """Poteaux existants (carres / rectangles noirs) du fond de plan."""
+    zone = poly.buffer(0.35)
+    out = []
+    for d in page.get_drawings():
+        f = d["fill"]
+        if not f or tuple(round(v, 3) for v in f) != (0.0, 0.0, 0.0):
+            continue
+        if (d.get("fill_opacity") or 1) < 0.9:
+            continue
+        r = d["rect"]
+        m = ((r.x0 - X0) * S, (r.y0 - Y0) * S, (r.x1 - X0) * S, (r.y1 - Y0) * S)
+        w, h = m[2] - m[0], m[3] - m[1]
+        if 0.15 < w < 4 and 0.15 < h < 4 and box(*m).intersects(zone):
+            out.append(tuple(round(v, 3) for v in m))
+    return sorted(set(out), key=lambda t: (t[1], t[0]))
+
 # --------------------------------------------------------------------------
 # 2. Noms de cellules Prison Island (nomenclature des plans de reference)
 # --------------------------------------------------------------------------
@@ -189,7 +206,7 @@ def check(poly):
 # 5. Dessin
 # --------------------------------------------------------------------------
 INK   = (0.10, 0.10, 0.12)
-FILL  = (0.996, 0.906, 0.835)   # meme famille que la teinte Game Area
+FILL  = (1.0, 0.718, 0.506)     # meme teinte que la Game Area du fond de plan
 CORR  = (1.0, 1.0, 1.0)
 ACC   = (0.78, 0.13, 0.13)
 
@@ -205,7 +222,7 @@ def draw(page, poly):
     sh2 = page.new_shape()
     for (x0, y0, x1, y1, d) in CELLS:
         sh2.draw_rect(R(x0, y0, x1, y1))
-    sh2.finish(color=INK, fill=FILL, width=1.42)     # 1,42 pt = cloison 100 mm
+    sh2.finish(color=INK, fill=FILL, width=1.42, fill_opacity=0.25)  # 1,42 pt = cloison 100 mm
     sh2.commit()
 
     # --- portes : baie de 0,90 m, vantail + arc de debattement ------------
@@ -236,7 +253,14 @@ def draw(page, poly):
     leaf.finish(color=INK, width=0.45)
     leaf.commit()
 
-    # --- reperes de circulation (fleches du parcours) ------------------------
+    # --- POTEAUX EXISTANTS redessines par-dessus : ils doivent rester lisibles
+    shc = page.new_shape()
+    for m in read_columns(page, poly):
+        shc.draw_rect(R(*m))
+    shc.finish(color=(0, 0, 0), fill=(0.13, 0.10, 0.08), width=0.6)
+    shc.commit()
+
+
     # --- textes -------------------------------------------------------------
     for i, (x0, y0, x1, y1, d) in enumerate(CELLS):
         net = (x1 - x0 - WALL) * (y1 - y0 - WALL)
