@@ -55,7 +55,7 @@ text(OFX,386,"Structure animatrice",11.5,500,MUTED); text(OFX,401,"et fonctions 
 FY0=314
 line([(FRX,BUS1),(FRX,FY0)]); pct(FRX+46,298,"100 %")
 rect(250,FY0,370,436,"#fff",BORDER,1.2,rx=8)
-text(FRX,FY0+30,"SOCIÉTÉS D'EXPLOITATION — FRANCE",12.5,700,ACC,ls=1.2)
+text(FRX,FY0+30,"SOCIÉTÉS D'EXPLOITATION FRANCE",12.5,700,ACC,ls=1.2)
 fr_col1=[["Prison Island","Montpellier"],["Prison Island","Toulouse"],["Prison Island","Clermont Ferrand"],["Prison Island","Avignon"],["Prison Island","Orleans"],["Prison Island","Aubagne"],["Mini Mundo","Aubagne"]]
 fr_col2=[["Alcatraz Adventure"],["Prison Island","Marseille"],["Prison Island","Saint Avertin"],["Prison Island","Valence"],["Expedition","Marseille"],["Prison Island","Paris 19"]]
 for ci,col in enumerate([fr_col1,fr_col2]):
